@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace CarModsHeaven.Web.Models.ProjectsList
 {
@@ -16,6 +17,7 @@ namespace CarModsHeaven.Web.Models.ProjectsList
 
         public string OwnerEmail { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? CreatedOn { get; set; }
     }
 }
