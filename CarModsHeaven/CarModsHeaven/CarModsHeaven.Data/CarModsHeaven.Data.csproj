@@ -65,6 +65,10 @@
     <Compile Include="Migrations\201709282112480_upate project and user models.Designer.cs">
       <DependentUpon>201709282112480_upate project and user models.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709282154128_small fix to baseDataModel.cs" />
+    <Compile Include="Migrations\201709282154128_small fix to baseDataModel.Designer.cs">
+      <DependentUpon>201709282154128_small fix to baseDataModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\EfRepository.cs" />
     <Compile Include="Repositories\Contracts\IEfRepository.cs" />
@@ -90,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709282112480_upate project and user models.resx">
       <DependentUpon>201709282112480_upate project and user models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709282154128_small fix to baseDataModel.resx">
+      <DependentUpon>201709282154128_small fix to baseDataModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

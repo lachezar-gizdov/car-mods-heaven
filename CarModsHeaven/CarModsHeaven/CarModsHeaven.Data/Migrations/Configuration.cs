@@ -20,8 +20,8 @@ namespace CarModsHeaven.Data.Migrations
 
         protected override void Seed(SqlDbContext context)
         {
-            this.SeedAdmin(context);
-            this.SeedProject(context);
+            //this.SeedAdmin(context);
+            //this.SeedProject(context);
         }
 
         private void SeedAdmin(SqlDbContext context)
