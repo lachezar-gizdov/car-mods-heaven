@@ -22,7 +22,7 @@ namespace CarModsHeaven.Data.Migrations
 
         private void SeedAdmin(SqlDbContext context)
         {
-            const string AdministratorUserName = "info@telerikacademy.com";
+            const string AdministratorUserName = "info@carmodsheaven.com";
             const string AdministratorPassword = "123456";
 
             if (!context.Roles.Any())

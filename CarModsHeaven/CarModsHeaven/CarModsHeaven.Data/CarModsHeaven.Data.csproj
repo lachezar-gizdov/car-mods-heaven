@@ -57,7 +57,13 @@
     <Compile Include="Migrations\201709281848063_Init.Designer.cs">
       <DependentUpon>201709281848063_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709281928468_added project data model.cs" />
+    <Compile Include="Migrations\201709281928468_added project data model.Designer.cs">
+      <DependentUpon>201709281928468_added project data model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\EfRepository.cs" />
+    <Compile Include="Repositories\Contracts\IEfRepostory.cs" />
     <Compile Include="SqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -74,6 +80,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201709281848063_Init.resx">
       <DependentUpon>201709281848063_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709281928468_added project data model.resx">
+      <DependentUpon>201709281928468_added project data model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
