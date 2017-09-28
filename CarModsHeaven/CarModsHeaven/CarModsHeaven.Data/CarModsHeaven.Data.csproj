@@ -61,6 +61,10 @@
     <Compile Include="Migrations\201709281928468_added project data model.Designer.cs">
       <DependentUpon>201709281928468_added project data model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709282112480_upate project and user models.cs" />
+    <Compile Include="Migrations\201709282112480_upate project and user models.Designer.cs">
+      <DependentUpon>201709282112480_upate project and user models.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\EfRepository.cs" />
     <Compile Include="Repositories\Contracts\IEfRepository.cs" />
@@ -83,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709281928468_added project data model.resx">
       <DependentUpon>201709281928468_added project data model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709282112480_upate project and user models.resx">
+      <DependentUpon>201709282112480_upate project and user models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
