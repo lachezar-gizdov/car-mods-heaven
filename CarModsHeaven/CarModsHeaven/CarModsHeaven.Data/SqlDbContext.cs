@@ -1,5 +1,6 @@
 ﻿using CarModsHeaven.Data.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 namespace CarModsHeaven.Data
 {
@@ -9,6 +10,8 @@ namespace CarModsHeaven.Data
             : base("LocalConnection", throwIfV1Schema: false)
         {
         }
+
+        public IDbSet<Project> Projects { get; set; }
 
         public static SqlDbContext Create()
         {
