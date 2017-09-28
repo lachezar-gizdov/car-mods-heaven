@@ -63,7 +63,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\EfRepository.cs" />
-    <Compile Include="Repositories\Contracts\IEfRepostory.cs" />
+    <Compile Include="Repositories\Contracts\IEfRepository.cs" />
     <Compile Include="SqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

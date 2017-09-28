@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace CarModsHeaven.Data.Repositories
 {
-    public class EfRepostory<T> : IEfRepostory<T>
+    public class EfRepostory<T> : IEfRepository<T>
         where T : class, IDeletable
     {
         private readonly SqlDbContext context;
