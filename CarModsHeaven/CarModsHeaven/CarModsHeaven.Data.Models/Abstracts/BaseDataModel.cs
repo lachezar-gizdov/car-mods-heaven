@@ -7,6 +7,11 @@ namespace CarModsHeaven.Data.Models.Abstracts
 {
     public abstract class BaseDataModel : IDeletable, IAuditable
     {
+        public BaseDataModel()
+        {
+            this.Id = Guid.NewGuid();
+        }
+
         public Guid Id { get; set; }
 
         [Index]
