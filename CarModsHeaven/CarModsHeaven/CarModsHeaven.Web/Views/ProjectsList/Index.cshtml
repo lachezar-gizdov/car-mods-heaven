@@ -1,0 +1,25 @@
+﻿@using CarModsHeaven.Web.Models.ProjectsList
+@model ICollection<ProjectsViewModel>
+
+@{
+    ViewBag.Title = "Car Mods Heaven";
+}
+
+<div class="jumbotron">
+    <h1>All Projects</h1>
+    <p class="lead">Here you can browse, comment and share other people's projects.</p>
+</div>
+
+<div class="row">
+    @foreach (var project in Model)
+    {
+            <div class="col-md-4">
+                <h3>@project.Title</h3>
+                <h4>@project.CarBrand @project.CarModel @project.CarYear</h4>
+                <ul>
+                    <li>@project.ShortStory</li>
+                    <li>Posted On: @project.CreatedOn</li>
+                </ul>
+            </div>
+    }
+</div>

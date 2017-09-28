@@ -20,12 +20,15 @@ namespace CarModsHeaven.Data.Migrations
 
         protected override void Seed(SqlDbContext context)
         {
-            //this.SeedAdmin(context);
-            //this.SeedProject(context);
+            this.SeedUsers(context);
+            this.SeedProjects(context);
         }
 
-        private void SeedAdmin(SqlDbContext context)
+        private void SeedUsers(SqlDbContext context)
         {
+            const string AdministratorUserName = "info@carmodsheaven.com";
+            const string AdministratorPassword = "123456";
+
             if (!context.Roles.Any())
             {
                 var roleStore = new RoleStore<IdentityRole>(context);
@@ -35,29 +38,38 @@ namespace CarModsHeaven.Data.Migrations
 
                 var userStore = new UserStore<User>(context);
                 var userManager = new UserManager<User>(userStore);
-                var user = new User { UserName = AdministratorUserName, Email = AdministratorUserName, EmailConfirmed = true };
-                userManager.Create(user, AdministratorPassword);
+                var user = new User
+                {
+                    UserName = AdministratorUserName,
+                    Email = AdministratorUserName,
+                    EmailConfirmed = true,
+                    CreatedOn = DateTime.Now
+                };
 
+                userManager.Create(user, AdministratorPassword);
                 userManager.AddToRole(user.Id, "Admin");
             }
         }
 
-        private void SeedProject(SqlDbContext context)
+        private void SeedProjects(SqlDbContext context)
         {
             if (!context.Projects.Any())
             {
-                var project = new Project()
+                for (int i = 1; i <= 5; i++)
                 {
-                    Title = "Power Project",
-                    CarBrand = "Audi",
-                    CarModel = "A4",
-                    CarYear = 1999,
-                    ShortStory = "Bla bla bla",
-                    CreatedOn = DateTime.Now,
-                    Owner = context.Users.First(x => x.Email == AdministratorUserName)
-                };
+                    var project = new Project()
+                    {
+                        Title = "Power Project" + i,
+                        CarBrand = "Audi",
+                        CarModel = "A4",
+                        CarYear = 1999,
+                        ShortStory = "Bla bla bla",
+                        CreatedOn = DateTime.Now,
+                        Owner = context.Users.First(x => x.Email == AdministratorUserName)
+                    };
 
-                context.Projects.Add(project);
+                    context.Projects.Add(project);
+                }
             }
         }
     }

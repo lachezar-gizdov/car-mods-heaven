@@ -17,7 +17,7 @@ namespace CarModsHeaven.Data.Repositories
             this.context = context;
         }
 
-        public IQueryable<T> All
+        public IQueryable<T> AllVisible
         {
             get
             {
@@ -25,7 +25,7 @@ namespace CarModsHeaven.Data.Repositories
             }
         }
 
-        public IQueryable<T> AllAndDeleted
+        public IQueryable<T> AllWithDeleted
         {
             get
             {

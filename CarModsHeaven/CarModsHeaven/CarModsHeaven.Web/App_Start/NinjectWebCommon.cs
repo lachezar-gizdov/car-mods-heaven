@@ -13,6 +13,7 @@ namespace CarModsHeaven.Web.App_Start
     using CarModsHeaven.Data.Repositories;
     using System.Data.Entity;
     using CarModsHeaven.Data;
+    using CarModsHeaven.Services.Contracts;
 
     public static class NinjectWebCommon 
     {
@@ -66,7 +67,7 @@ namespace CarModsHeaven.Web.App_Start
         {
             kernel.Bind(x =>
             {
-                x.FromThisAssembly()
+                x.FromAssemblyContaining(typeof(IService))
                 .SelectAllClasses()
                 .BindDefaultInterface();
             });

@@ -212,11 +212,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProjectsListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProjectsList\ProjectsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -286,6 +288,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\ProjectsList\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -303,6 +306,10 @@
     <ProjectReference Include="..\CarModsHeaven.Data\CarModsHeaven.Data.csproj">
       <Project>{4C2DCC15-2580-4FD5-82E3-8DBD8D9454F3}</Project>
       <Name>CarModsHeaven.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarModsHeaven.Services\CarModsHeaven.Services.csproj">
+      <Project>{6B3D266F-F366-459D-B326-BC95728C083F}</Project>
+      <Name>CarModsHeaven.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
