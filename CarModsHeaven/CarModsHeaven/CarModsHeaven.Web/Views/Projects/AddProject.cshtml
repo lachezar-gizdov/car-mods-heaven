@@ -1,4 +1,5 @@
 ﻿@using CarModsHeaven.Web.Models.ProjectsList
+@using CarModsHeaven.Data.Models.Enums
 @model ProjectViewModel
 @{
 
@@ -19,6 +20,10 @@
     <br />
     @Html.LabelFor(m => m.CarYear)
     @Html.EditorFor(m => m.CarYear)
+    <br />
+    @Html.LabelFor(m => m.ModificationsType)
+    @Html.DropDownList("ModificationsType", EnumHelper.GetSelectList(typeof(ModificationsType)), "Select Option",
+    new { @class = "form-control" })
     <br />
     @Html.LabelFor(m => m.ShortStory)
     @Html.EditorFor(m => m.ShortStory)

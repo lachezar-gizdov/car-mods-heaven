@@ -24,6 +24,7 @@ namespace CarModsHeaven.Web.Controllers
                     CarBrand = x.CarBrand,
                     CarModel = x.CarModel,
                     CarYear = x.CarYear,
+                    ModificationsType = x.ModificationsType,
                     ShortStory = x.ShortStory,
                     OwnerEmail = x.Owner.Email,
                     CreatedOn = x.CreatedOn

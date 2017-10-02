@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarModsHeaven.Data.Models.Enums;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace CarModsHeaven.Web.Models.ProjectsList
@@ -16,6 +17,9 @@ namespace CarModsHeaven.Web.Models.ProjectsList
 
         [Display(Name = "Car Year")]
         public int CarYear { get; set; }
+
+        [Display(Name = "Modifications Type")]
+        public ModificationsType ModificationsType { get; set; }
 
         [Display(Name = "Short Story")]
         public string ShortStory { get; set; }

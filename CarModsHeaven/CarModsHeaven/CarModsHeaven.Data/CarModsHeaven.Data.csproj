@@ -69,6 +69,10 @@
     <Compile Include="Migrations\201709282154128_small fix to baseDataModel.Designer.cs">
       <DependentUpon>201709282154128_small fix to baseDataModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710021259135_Update project database model.cs" />
+    <Compile Include="Migrations\201710021259135_Update project database model.Designer.cs">
+      <DependentUpon>201710021259135_Update project database model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\EfRepository.cs" />
     <Compile Include="Repositories\Contracts\IEfRepository.cs" />
@@ -97,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709282154128_small fix to baseDataModel.resx">
       <DependentUpon>201709282154128_small fix to baseDataModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710021259135_Update project database model.resx">
+      <DependentUpon>201710021259135_Update project database model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
