@@ -3,16 +3,21 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CarModsHeaven.Web.Models.ProjectsList
 {
-    public class ProjectsViewModel
+    public class ProjectViewModel
     {
+        [Display(Name = "Project Title")]
         public string Title { get; set; }
 
+        [Display(Name = "Car Brand")]
         public string CarBrand { get; set; }
 
+        [Display(Name = "Car Model")]
         public string CarModel { get; set; }
 
+        [Display(Name = "Car Year")]
         public int CarYear { get; set; }
 
+        [Display(Name = "Short Story")]
         public string ShortStory { get; set; }
 
         public string OwnerEmail { get; set; }

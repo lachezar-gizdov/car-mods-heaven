@@ -18,5 +18,10 @@ namespace CarModsHeaven.Services
         {
             return this.projectsRepo.AllVisible;
         }
+
+        public void Add(Project project)
+        {
+            this.projectsRepo.Add(project);
+        }
     }
 }

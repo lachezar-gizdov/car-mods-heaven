@@ -1,0 +1,27 @@
+﻿@using CarModsHeaven.Web.Models.ProjectsList
+@model ProjectViewModel
+@{
+
+    ViewBag.Title = "Add Project - Car Mods Heaven";
+}
+
+<h2>AddProject</h2>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.Title)
+    @Html.EditorFor(m => m.Title)
+    <br />
+    @Html.LabelFor(m => m.CarBrand)
+    @Html.EditorFor(m => m.CarBrand)
+    <br />
+    @Html.LabelFor(m => m.CarModel)
+    @Html.EditorFor(m => m.CarModel)
+    <br />
+    @Html.LabelFor(m => m.CarYear)
+    @Html.EditorFor(m => m.CarYear)
+    <br />
+    @Html.LabelFor(m => m.ShortStory)
+    @Html.EditorFor(m => m.ShortStory)
+    <br />
+    <input type="submit" value="Add"/>
+}

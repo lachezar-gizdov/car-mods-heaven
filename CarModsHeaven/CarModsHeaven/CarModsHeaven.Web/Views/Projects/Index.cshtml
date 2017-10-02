@@ -1,8 +1,8 @@
 ﻿@using CarModsHeaven.Web.Models.ProjectsList
-@model ICollection<ProjectsViewModel>
+@model ICollection<ProjectViewModel>
 
 @{
-    ViewBag.Title = "Car Mods Heaven";
+    ViewBag.Title = "Projects - Car Mods Heaven";
 }
 
 <div class="jumbotron">
@@ -11,6 +11,9 @@
 </div>
 
 <div class="row">
+    <div>
+        @Html.ActionLink("Add Project", "AddProject", null, new { }, new { @class = "btn btn-sucess" })
+    </div>
     @foreach (var project in Model)
     {
             <div class="col-md-4">

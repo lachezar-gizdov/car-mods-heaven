@@ -5,11 +5,11 @@ using System.Web.Mvc;
 
 namespace CarModsHeaven.Web.Controllers
 {
-    public class ProjectsListController : Controller
+    public class ProjectsController : Controller
     {
         private readonly IProjectsService projectsService;
 
-        public ProjectsListController(IProjectsService projectsService)
+        public ProjectsController(IProjectsService projectsService)
         {
             this.projectsService = projectsService;
         }
@@ -18,7 +18,7 @@ namespace CarModsHeaven.Web.Controllers
         {
             var projects = this.projectsService
                 .GetAll()
-                .Select(x => new ProjectsViewModel()
+                .Select(x => new ProjectViewModel()
                 {
                     Title = x.Title,
                     CarBrand = x.CarBrand,
@@ -32,6 +32,19 @@ namespace CarModsHeaven.Web.Controllers
                 .ToList();
 
             return View(projects);
+        }
+
+        [HttpGet]
+        public ActionResult AddProject()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddProject(ProjectViewModel project)
+        {
+            //this.projectsService.Add(project);
+            return View();
         }
     }
 }

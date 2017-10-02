@@ -6,5 +6,7 @@ namespace CarModsHeaven.Services.Contracts
     public interface IProjectsService
     {
         IQueryable<Project> GetAll();
+
+        void Add(Project project);
     }
 }
