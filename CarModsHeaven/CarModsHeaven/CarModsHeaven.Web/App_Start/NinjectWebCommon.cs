@@ -14,6 +14,7 @@ namespace CarModsHeaven.Web.App_Start
     using System.Data.Entity;
     using CarModsHeaven.Data;
     using CarModsHeaven.Services.Contracts;
+    using CarModsHeaven.Data.Contracts;
 
     public static class NinjectWebCommon 
     {
@@ -74,6 +75,7 @@ namespace CarModsHeaven.Web.App_Start
 
             kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepostory<>));
             kernel.Bind(typeof(DbContext), typeof(SqlDbContext)).To<SqlDbContext>().InRequestScope();
+            kernel.Bind<IMyContext>().To<MyContext>();
         }        
     }
 }

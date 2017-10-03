@@ -1,4 +1,7 @@
-﻿using CarModsHeaven.Services.Contracts;
+﻿using AutoMapper;
+using CarModsHeaven.Data.Models;
+using CarModsHeaven.Services.Contracts;
+using CarModsHeaven.Web.Infrastructure;
 using CarModsHeaven.Web.Models.ProjectsList;
 using System.Linq;
 using System.Web.Mvc;
@@ -18,18 +21,7 @@ namespace CarModsHeaven.Web.Controllers
         {
             var projects = this.projectsService
                 .GetAll()
-                .Select(x => new ProjectViewModel()
-                {
-                    Title = x.Title,
-                    CarBrand = x.CarBrand,
-                    CarModel = x.CarModel,
-                    CarYear = x.CarYear,
-                    ModificationsType = x.ModificationsType,
-                    ShortStory = x.ShortStory,
-                    OwnerEmail = x.Owner.Email,
-                    CreatedOn = x.CreatedOn
-
-                })
+                .MapTo<ProjectViewModel>()
                 .ToList();
 
             return View(projects);
@@ -44,8 +36,9 @@ namespace CarModsHeaven.Web.Controllers
         [HttpPost]
         public ActionResult AddProject(ProjectViewModel project)
         {
-            //this.projectsService.Add(project);
-            return View();
+            var dbModel = Mapper.Map<Project>(project);
+            this.projectsService.Add(dbModel);
+            return RedirectToAction("Index");
         }
     }
 }

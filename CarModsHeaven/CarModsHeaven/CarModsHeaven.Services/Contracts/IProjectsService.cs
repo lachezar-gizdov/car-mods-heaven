@@ -8,5 +8,7 @@ namespace CarModsHeaven.Services.Contracts
         IQueryable<Project> GetAll();
 
         void Add(Project project);
+
+        void Update(Project project);
     }
 }

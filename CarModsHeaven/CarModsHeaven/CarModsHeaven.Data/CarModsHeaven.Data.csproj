@@ -74,6 +74,8 @@
       <DependentUpon>201710021259135_Update project database model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Contracts\IMyContext.cs" />
+    <Compile Include="MyContext\MyContext.cs" />
     <Compile Include="Repositories\EfRepository.cs" />
     <Compile Include="Repositories\Contracts\IEfRepository.cs" />
     <Compile Include="SqlDbContext.cs" />

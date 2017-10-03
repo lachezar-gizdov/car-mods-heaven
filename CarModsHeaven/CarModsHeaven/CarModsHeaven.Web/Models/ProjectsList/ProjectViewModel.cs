@@ -1,10 +1,13 @@
-﻿using CarModsHeaven.Data.Models.Enums;
+﻿using CarModsHeaven.Data.Models;
+using CarModsHeaven.Data.Models.Enums;
+using CarModsHeaven.Web.Infrastructure;
 using System;
 using System.ComponentModel.DataAnnotations;
+using AutoMapper;
 
 namespace CarModsHeaven.Web.Models.ProjectsList
 {
-    public class ProjectViewModel
+    public class ProjectViewModel : IMapFrom<Project>, IHaveCustomMappings
     {
         [Display(Name = "Project Title")]
         public string Title { get; set; }
@@ -28,5 +31,12 @@ namespace CarModsHeaven.Web.Models.ProjectsList
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? CreatedOn { get; set; }
+
+        public void CreateMappings(IMapperConfigurationExpression configuration)
+        {
+            configuration.CreateMap<Project, ProjectViewModel>()
+                .ForMember(projectViewModel => projectViewModel.OwnerEmail, cfg => cfg.MapFrom(project => project.Owner.Email))
+                .ForMember(projectViewModel => projectViewModel.CreatedOn, cfg => cfg.MapFrom(project => project.CreatedOn));
+        }
     }
 }
