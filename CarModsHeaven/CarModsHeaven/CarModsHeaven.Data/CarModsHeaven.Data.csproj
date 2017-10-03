@@ -53,25 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201709281848063_Init.cs" />
-    <Compile Include="Migrations\201709281848063_Init.Designer.cs">
-      <DependentUpon>201709281848063_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709281928468_added project data model.cs" />
-    <Compile Include="Migrations\201709281928468_added project data model.Designer.cs">
-      <DependentUpon>201709281928468_added project data model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709282112480_upate project and user models.cs" />
-    <Compile Include="Migrations\201709282112480_upate project and user models.Designer.cs">
-      <DependentUpon>201709282112480_upate project and user models.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709282154128_small fix to baseDataModel.cs" />
-    <Compile Include="Migrations\201709282154128_small fix to baseDataModel.Designer.cs">
-      <DependentUpon>201709282154128_small fix to baseDataModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710021259135_Update project database model.cs" />
-    <Compile Include="Migrations\201710021259135_Update project database model.Designer.cs">
-      <DependentUpon>201710021259135_Update project database model.cs</DependentUpon>
+    <Compile Include="Migrations\201710031928088_update user db model.cs" />
+    <Compile Include="Migrations\201710031928088_update user db model.Designer.cs">
+      <DependentUpon>201710031928088_update user db model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Contracts\IMyContext.cs" />
@@ -92,20 +76,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709281848063_Init.resx">
-      <DependentUpon>201709281848063_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709281928468_added project data model.resx">
-      <DependentUpon>201709281928468_added project data model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709282112480_upate project and user models.resx">
-      <DependentUpon>201709282112480_upate project and user models.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709282154128_small fix to baseDataModel.resx">
-      <DependentUpon>201709282154128_small fix to baseDataModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710021259135_Update project database model.resx">
-      <DependentUpon>201710021259135_Update project database model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710031928088_update user db model.resx">
+      <DependentUpon>201710031928088_update user db model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

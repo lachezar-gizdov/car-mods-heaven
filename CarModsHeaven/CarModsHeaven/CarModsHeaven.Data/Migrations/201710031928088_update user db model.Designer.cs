@@ -7,13 +7,13 @@ namespace CarModsHeaven.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class smallfixtobaseDataModel : IMigrationMetadata
+    public sealed partial class updateuserdbmodel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(smallfixtobaseDataModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updateuserdbmodel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709282154128_small fix to baseDataModel"; }
+            get { return "201710031928088_update user db model"; }
         }
         
         string IMigrationMetadata.Source

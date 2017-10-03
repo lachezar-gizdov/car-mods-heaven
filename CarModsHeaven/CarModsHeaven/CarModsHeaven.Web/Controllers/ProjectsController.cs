@@ -27,12 +27,14 @@ namespace CarModsHeaven.Web.Controllers
             return View(projects);
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult AddProject()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult AddProject(ProjectViewModel project)
         {

@@ -9,7 +9,8 @@ namespace CarModsHeaven.Data.Migrations
 
     public sealed class Configuration : DbMigrationsConfiguration<SqlDbContext>
     {
-        const string AdministratorUserName = "info@carmodsheaven.com";
+        const string AdministratorEmail = "info@carmodsheaven.com";
+        const string AdministratorName = "Admin";
         const string AdministratorPassword = "123456";
 
         public Configuration()
@@ -26,28 +27,27 @@ namespace CarModsHeaven.Data.Migrations
 
         private void SeedUsers(SqlDbContext context)
         {
-            const string AdministratorUserName = "info@carmodsheaven.com";
-            const string AdministratorPassword = "123456";
-
             if (!context.Roles.Any())
             {
+                var roleName = "Admin";
+
                 var roleStore = new RoleStore<IdentityRole>(context);
                 var roleManager = new RoleManager<IdentityRole>(roleStore);
-                var role = new IdentityRole { Name = "Admin" };
+                var role = new IdentityRole { Name = roleName };
                 roleManager.Create(role);
 
                 var userStore = new UserStore<User>(context);
                 var userManager = new UserManager<User>(userStore);
                 var user = new User
                 {
-                    UserName = AdministratorUserName,
-                    Email = AdministratorUserName,
+                    UserName = AdministratorName,
+                    Email = AdministratorEmail,
                     EmailConfirmed = true,
                     CreatedOn = DateTime.Now
                 };
 
                 userManager.Create(user, AdministratorPassword);
-                userManager.AddToRole(user.Id, "Admin");
+                userManager.AddToRole(user.Id, roleName);
             }
         }
 
@@ -65,7 +65,7 @@ namespace CarModsHeaven.Data.Migrations
                         CarYear = 1999,
                         ShortStory = "Bla bla bla",
                         CreatedOn = DateTime.Now,
-                        Owner = context.Users.First(x => x.Email == AdministratorUserName)
+                        Owner = context.Users.First(x => x.Email == AdministratorEmail)
                     };
 
                     context.Projects.Add(project);
