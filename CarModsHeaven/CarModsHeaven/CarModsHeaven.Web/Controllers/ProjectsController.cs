@@ -3,6 +3,7 @@ using CarModsHeaven.Data.Models;
 using CarModsHeaven.Services.Contracts;
 using CarModsHeaven.Web.Infrastructure;
 using CarModsHeaven.Web.Models.ProjectsList;
+using PagedList;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -11,20 +12,25 @@ namespace CarModsHeaven.Web.Controllers
     public class ProjectsController : Controller
     {
         private readonly IProjectsService projectsService;
+        private readonly IUsersService usersService;
 
-        public ProjectsController(IProjectsService projectsService)
+        public ProjectsController(IProjectsService projectsService, IUsersService usersService)
         {
             this.projectsService = projectsService;
+            this.usersService = usersService;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             var projects = this.projectsService
                 .GetAll()
                 .MapTo<ProjectViewModel>()
                 .ToList();
 
-            return View(projects);
+
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(projects.ToPagedList(pageNumber, pageSize));
         }
 
         [Authorize]

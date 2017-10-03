@@ -1,6 +1,7 @@
 ﻿@using CarModsHeaven.Web.Models.ProjectsList
-@model ICollection<ProjectViewModel>
-
+@using PagedList.Mvc;
+@model PagedList.IPagedList<ProjectViewModel>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
     ViewBag.Title = "Projects - Car Mods Heaven";
 }
@@ -26,3 +27,9 @@
             </div>
     }
 </div>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page }))
