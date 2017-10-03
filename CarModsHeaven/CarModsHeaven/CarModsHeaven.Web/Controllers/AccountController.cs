@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using CarModsHeaven.Web.Models;
+using CarModsHeaven.Web.Models.Account;
 using CarModsHeaven.Data.Models;
 
 namespace CarModsHeaven.Web.Controllers
