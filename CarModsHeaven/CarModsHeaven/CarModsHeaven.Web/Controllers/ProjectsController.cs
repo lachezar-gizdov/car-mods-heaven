@@ -60,7 +60,7 @@ namespace CarModsHeaven.Web.Controllers
             return RedirectToAction("Index");
         }
 
-
+        [Authorize]
         [HttpGet]
         public ActionResult DeleteProject(string title)
         {

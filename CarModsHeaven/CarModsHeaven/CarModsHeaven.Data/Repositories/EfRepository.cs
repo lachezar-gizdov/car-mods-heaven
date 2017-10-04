@@ -8,7 +8,7 @@ using System.Linq;
 namespace CarModsHeaven.Data.Repositories
 {
     public class EfRepostory<T> : IEfRepository<T>
-        where T : class, IDeletable
+        where T : class, IDeletable, IAuditable
     {
         private readonly SqlDbContext context;
 
@@ -43,6 +43,7 @@ namespace CarModsHeaven.Data.Repositories
             }
             else
             {
+                entity.CreatedOn = DateTime.Now;
                 this.context.Set<T>().Add(entity);
             }
         }
