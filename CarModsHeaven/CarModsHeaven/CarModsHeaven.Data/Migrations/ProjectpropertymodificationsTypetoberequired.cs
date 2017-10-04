@@ -3,7 +3,7 @@ namespace CarModsHeaven.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class projectpropertymodificationsTypetoberequired : DbMigration
+    public partial class ProjectpropertymodificationsTypetoberequired : DbMigration
     {
         public override void Up()
         {

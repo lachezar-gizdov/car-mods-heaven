@@ -1,9 +1,9 @@
-﻿using CarModsHeaven.Data.Models.Contracts;
-using CarModsHeaven.Data.Repositories.Contracts;
-using System;
+﻿using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using CarModsHeaven.Data.Models.Contracts;
+using CarModsHeaven.Data.Repositories.Contracts;
 
 namespace CarModsHeaven.Data.Repositories
 {
@@ -73,5 +73,4 @@ namespace CarModsHeaven.Data.Repositories
             return this.context.DbSet<T>().Find(id);
         }
     }
-
 }

@@ -1,11 +1,8 @@
-﻿using CarModsHeaven.Services.Contracts;
+﻿using System.Linq;
+using System.Web.Mvc;
+using CarModsHeaven.Services.Contracts;
 using CarModsHeaven.Web.Infrastructure;
 using CarModsHeaven.Web.Models.UsersList;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 
 namespace CarModsHeaven.Web.Controllers
 {
@@ -25,7 +22,7 @@ namespace CarModsHeaven.Web.Controllers
                 .MapTo<UserViewModel>()
                 .ToList();
 
-            return View(projects);
+            return this.View(projects);
         }
     }
 }

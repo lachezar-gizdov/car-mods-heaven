@@ -1,11 +1,9 @@
-﻿using CarModsHeaven.Data.Models;
+﻿using System;
+using System.Data.Entity;
+using System.Linq;
+using CarModsHeaven.Data.Models;
 using CarModsHeaven.Data.Models.Contracts;
 using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Data.Entity;
-using System.Data.Entity.Validation;
-using System.Diagnostics;
-using System.Linq;
 
 namespace CarModsHeaven.Data
 {
@@ -18,10 +16,20 @@ namespace CarModsHeaven.Data
 
         public IDbSet<Project> Projects { get; set; }
 
+        public static CarModsContext Create()
+        {
+            return new CarModsContext();
+        }
+
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
             return base.SaveChanges();
+        }
+
+        public IDbSet<TEntity> DbSet<TEntity>() where TEntity : class
+        {
+            return this.Set<TEntity>();
         }
 
         private void ApplyAuditInfoRules()
@@ -30,7 +38,7 @@ namespace CarModsHeaven.Data
                 this.ChangeTracker.Entries()
                     .Where(
                         e =>
-                        e.Entity is IAuditable && ((e.State == EntityState.Added) || (e.State == EntityState.Modified))))
+                            e.Entity is IAuditable && ((e.State == EntityState.Added) || (e.State == EntityState.Modified))))
             {
                 var entity = (IAuditable)entry.Entity;
                 if (entry.State == EntityState.Added && entity.CreatedOn == default(DateTime))
@@ -42,16 +50,6 @@ namespace CarModsHeaven.Data
                     entity.ModifiedOn = DateTime.Now;
                 }
             }
-        }
-
-        public static CarModsContext Create()
-        {
-            return new CarModsContext();
-        }
-
-        public IDbSet<TEntity> DbSet<TEntity>() where TEntity : class
-        {
-            return this.Set<TEntity>();
         }
     }
 }

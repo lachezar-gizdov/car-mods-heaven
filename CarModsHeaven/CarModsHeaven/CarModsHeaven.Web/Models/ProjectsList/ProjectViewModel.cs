@@ -1,9 +1,9 @@
-﻿using CarModsHeaven.Data.Models;
-using CarModsHeaven.Data.Models.Enums;
-using CarModsHeaven.Web.Infrastructure;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using AutoMapper;
+using CarModsHeaven.Data.Models;
+using CarModsHeaven.Data.Models.Enums;
+using CarModsHeaven.Web.Infrastructure;
 
 namespace CarModsHeaven.Web.Models.ProjectsList
 {

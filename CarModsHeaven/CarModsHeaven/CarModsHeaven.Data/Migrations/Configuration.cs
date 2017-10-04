@@ -1,17 +1,17 @@
+using System;
+using System.Data.Entity.Migrations;
+using System.Linq;
+using CarModsHeaven.Data.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+
 namespace CarModsHeaven.Data.Migrations
 {
-    using CarModsHeaven.Data.Models;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using System;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
     public sealed class Configuration : DbMigrationsConfiguration<CarModsContext>
     {
-        const string AdministratorEmail = "info@carmodsheaven.com";
-        const string AdministratorName = "Admin";
-        const string AdministratorPassword = "123456";
+        private const string AdministratorEmail = "info@carmodsheaven.com";
+        private const string AdministratorName = "Admin";
+        private const string AdministratorPassword = "123456";
 
         public Configuration()
         {

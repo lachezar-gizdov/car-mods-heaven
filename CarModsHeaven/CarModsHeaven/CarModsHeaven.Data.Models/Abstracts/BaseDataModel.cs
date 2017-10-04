@@ -1,7 +1,7 @@
-﻿using CarModsHeaven.Data.Models.Contracts;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using CarModsHeaven.Data.Models.Contracts;
 
 namespace CarModsHeaven.Data.Models.Abstracts
 {

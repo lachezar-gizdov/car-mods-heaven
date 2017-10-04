@@ -215,7 +215,10 @@
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\IdentityConfigs\ApplicationSignInManager.cs" />
+    <Compile Include="App_Start\IdentityConfigs\ApplicationUserManager.cs" />
+    <Compile Include="App_Start\IdentityConfigs\EmailService.cs" />
+    <Compile Include="App_Start\IdentityConfigs\SmsService.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />

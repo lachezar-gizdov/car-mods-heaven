@@ -1,6 +1,6 @@
-﻿using CarModsHeaven.Data.Models.Abstracts;
+﻿using System.ComponentModel.DataAnnotations;
+using CarModsHeaven.Data.Models.Abstracts;
 using CarModsHeaven.Data.Models.Enums;
-using System.ComponentModel.DataAnnotations;
 
 namespace CarModsHeaven.Data.Models
 {

@@ -1,7 +1,7 @@
-﻿using CarModsHeaven.Data.Models;
-using CarModsHeaven.Web.Infrastructure;
+﻿using System.ComponentModel.DataAnnotations;
 using AutoMapper;
-using System.ComponentModel.DataAnnotations;
+using CarModsHeaven.Data.Models;
+using CarModsHeaven.Web.Infrastructure;
 
 namespace CarModsHeaven.Web.Models.UsersList
 {

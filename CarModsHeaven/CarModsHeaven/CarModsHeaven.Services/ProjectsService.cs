@@ -1,9 +1,8 @@
-﻿using CarModsHeaven.Data.Contracts;
+﻿using System.Linq;
+using CarModsHeaven.Data.Contracts;
 using CarModsHeaven.Data.Models;
 using CarModsHeaven.Data.Repositories.Contracts;
 using CarModsHeaven.Services.Contracts;
-using Microsoft.AspNet.Identity;
-using System.Linq;
 
 namespace CarModsHeaven.Services
 {

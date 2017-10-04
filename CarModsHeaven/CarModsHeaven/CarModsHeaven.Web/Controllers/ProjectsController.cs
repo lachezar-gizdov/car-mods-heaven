@@ -1,12 +1,12 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using System.Web.Mvc;
+using AutoMapper;
 using CarModsHeaven.Data.Models;
 using CarModsHeaven.Services.Contracts;
 using CarModsHeaven.Web.Infrastructure;
 using CarModsHeaven.Web.Models.ProjectsList;
-using PagedList;
-using System.Linq;
-using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using PagedList;
 
 namespace CarModsHeaven.Web.Controllers
 {
@@ -29,8 +29,8 @@ namespace CarModsHeaven.Web.Controllers
                 .ToList();
 
             int pageSize = 6;
-            int pageNumber = (page ?? 1);
-            return View(projects.ToPagedList(pageNumber, pageSize));
+            int pageNumber = page ?? 1;
+            return this.View(projects.ToPagedList(pageNumber, pageSize));
         }
 
         [HttpGet]
@@ -48,7 +48,7 @@ namespace CarModsHeaven.Web.Controllers
         [HttpGet]
         public ActionResult AddProject()
         {
-            return View();
+            return this.View();
         }
 
         [Authorize]
@@ -59,9 +59,8 @@ namespace CarModsHeaven.Web.Controllers
             var userId = User.Identity.GetUserId();
             this.projectsService.Add(dbModel, userId);
 
-            return RedirectToAction("Index");
+            return this.RedirectToAction("Index");
         }
-
 
         [HttpGet]
         public ActionResult EditProject(string title)
@@ -74,14 +73,12 @@ namespace CarModsHeaven.Web.Controllers
             return this.View(project);
         }
 
-
         [HttpPost]
         public ActionResult EditProject(ProjectViewModel project)
         {
             var dbModel = Mapper.Map<Project>(project);
             this.projectsService.Update(dbModel);
-
-            return RedirectToAction("Index");
+            return this.RedirectToAction("Index");
         }
 
         [Authorize]
@@ -93,7 +90,7 @@ namespace CarModsHeaven.Web.Controllers
                 .SingleOrDefault(x => x.Title == title);
 
             this.projectsService.Delete(project);
-            return RedirectToAction("Index");
+            return this.RedirectToAction("Index");
         }
     }
 }
