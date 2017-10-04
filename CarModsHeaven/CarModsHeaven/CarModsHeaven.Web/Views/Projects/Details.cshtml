@@ -1,4 +1,6 @@
 ﻿@using CarModsHeaven.Web.Models.ProjectsList
+@using Microsoft.AspNet.Identity;
+
 @model ProjectViewModel
 
 @{
@@ -13,8 +15,12 @@
             <li>Story: @Model.ShortStory </li>
             <li>Posted On: @Html.DisplayFor(x => @Model.CreatedOn)</li>
             <li>Modifications Type: @Model.ModificationsType</li>
-            <li>Owner: @Model.OwnerEmail</li>
+            <li>Owner: @Model.Owner.UserName</li>
         </ul>
-        @Html.ActionLink("Delete", "DeleteProject", new { title = Model.Title })
+
+        @if (User.Identity.GetUserId() == Model.Owner.Id)
+        {
+            @Html.ActionLink("Delete", "DeleteProject", new { title = Model.Title })
+        }
     </div>
 </div>

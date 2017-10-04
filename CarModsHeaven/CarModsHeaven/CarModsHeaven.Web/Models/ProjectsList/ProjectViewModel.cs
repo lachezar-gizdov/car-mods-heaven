@@ -9,22 +9,28 @@ namespace CarModsHeaven.Web.Models.ProjectsList
 {
     public class ProjectViewModel : IMapFrom<Project>, IHaveCustomMappings
     {
+        [Required]
         [Display(Name = "Project Title")]
         public string Title { get; set; }
 
+        [Required]
         [Display(Name = "Car Brand")]
         public string CarBrand { get; set; }
 
+        [Required]
         [Display(Name = "Car Model")]
         public string CarModel { get; set; }
 
+        [Required]
         [Display(Name = "Car Year")]
         public int CarYear { get; set; }
 
+        [Required]
         [Display(Name = "Modifications Type")]
         public ModificationsType ModificationsType { get; set; }
 
-        [Display(Name = "Short Story")]
+        [Required]
+        [Display(Name = "Modifications List")]
         public string ShortStory { get; set; }
 
         public User Owner { get; set; }
