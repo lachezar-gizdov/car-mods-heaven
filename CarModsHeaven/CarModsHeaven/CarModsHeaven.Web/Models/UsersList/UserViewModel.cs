@@ -2,6 +2,7 @@
 using AutoMapper;
 using CarModsHeaven.Data.Models;
 using CarModsHeaven.Web.Infrastructure;
+using System.Collections.Generic;
 
 namespace CarModsHeaven.Web.Models.UsersList
 {
@@ -12,6 +13,8 @@ namespace CarModsHeaven.Web.Models.UsersList
 
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        public ICollection<Project> Projects { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
