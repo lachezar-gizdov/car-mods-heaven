@@ -33,5 +33,11 @@ namespace CarModsHeaven.Services
             this.projectsRepo.Update(project);
             this.context.SaveChanges();
         }
+
+        public void Delete(Project project)
+        {
+            this.projectsRepo.Delete(project);
+            this.context.SaveChanges();
+        }
     }
 }

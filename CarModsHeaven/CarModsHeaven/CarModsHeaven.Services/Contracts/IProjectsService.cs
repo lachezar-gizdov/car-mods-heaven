@@ -10,5 +10,7 @@ namespace CarModsHeaven.Services.Contracts
         void Add(Project project);
 
         void Update(Project project);
+
+        void Delete(Project project);
     }
 }

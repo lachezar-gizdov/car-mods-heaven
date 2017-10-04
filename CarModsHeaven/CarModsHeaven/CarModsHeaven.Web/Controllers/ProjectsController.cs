@@ -59,5 +59,17 @@ namespace CarModsHeaven.Web.Controllers
             this.projectsService.Add(dbModel);
             return RedirectToAction("Index");
         }
+
+
+        [HttpGet]
+        public ActionResult DeleteProject(string title)
+        {
+            var project = this.projectsService
+                .GetAll()
+                .SingleOrDefault(x => x.Title == title);
+
+            this.projectsService.Delete(project);
+            return RedirectToAction("Index");
+        }
     }
 }
