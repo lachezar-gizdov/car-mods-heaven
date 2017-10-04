@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ICarModsContext.cs" />
     <Compile Include="Migrations\201710031928088_update user db model.cs" />
     <Compile Include="Migrations\201710031928088_update user db model.Designer.cs">
       <DependentUpon>201710031928088_update user db model.cs</DependentUpon>

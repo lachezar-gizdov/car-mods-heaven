@@ -10,14 +10,20 @@ namespace CarModsHeaven.Web.Models.ProjectsList
     public class ProjectViewModel : IMapFrom<Project>, IHaveCustomMappings
     {
         [Required]
+        [MinLength(3)]
+        [MaxLength(30)]
         [Display(Name = "Project Title")]
         public string Title { get; set; }
 
         [Required]
+        [MinLength(3)]
+        [MaxLength(30)]
         [Display(Name = "Car Brand")]
         public string CarBrand { get; set; }
 
         [Required]
+        [MinLength(3)]
+        [MaxLength(30)]
         [Display(Name = "Car Model")]
         public string CarModel { get; set; }
 

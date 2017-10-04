@@ -4,10 +4,11 @@ using System.Linq;
 using CarModsHeaven.Data.Models;
 using CarModsHeaven.Data.Models.Contracts;
 using Microsoft.AspNet.Identity.EntityFramework;
+using CarModsHeaven.Data.Contracts;
 
 namespace CarModsHeaven.Data
 {
-    public class CarModsContext : IdentityDbContext<User>
+    public class CarModsContext : IdentityDbContext<User>, ICarModsContext
     {
         public CarModsContext()
             : base("LocalConnection", throwIfV1Schema: false)

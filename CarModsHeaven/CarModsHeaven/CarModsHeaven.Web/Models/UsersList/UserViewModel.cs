@@ -7,10 +7,10 @@ namespace CarModsHeaven.Web.Models.UsersList
 {
     public class UserViewModel : IMapFrom<User>, IHaveCustomMappings
     {
-        [Display(Name = "Project Title")]
+        [Display(Name = "Full Name")]
         public string UserName { get; set; }
 
-        [Display(Name = "Car Brand")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)

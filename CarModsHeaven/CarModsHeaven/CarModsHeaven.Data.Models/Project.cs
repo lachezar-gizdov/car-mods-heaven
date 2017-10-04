@@ -16,10 +16,10 @@ namespace CarModsHeaven.Data.Models
         public string CarModel { get; set; }
 
         [Required]
-        public ModificationsType ModificationsType { get; set; }
+        public int CarYear { get; set; }
 
         [Required]
-        public int CarYear { get; set; }
+        public ModificationsType ModificationsType { get; set; }
 
         [Required]
         public string ModificationsList { get; set; }
