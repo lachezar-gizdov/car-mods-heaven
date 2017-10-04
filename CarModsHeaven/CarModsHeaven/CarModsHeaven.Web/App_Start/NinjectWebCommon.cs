@@ -15,6 +15,7 @@ namespace CarModsHeaven.Web.App_Start
     using CarModsHeaven.Data;
     using CarModsHeaven.Services.Contracts;
     using CarModsHeaven.Data.Contracts;
+    using AutoMapper;
 
     public static class NinjectWebCommon 
     {
@@ -76,6 +77,7 @@ namespace CarModsHeaven.Web.App_Start
             kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepostory<>));
             kernel.Bind(typeof(DbContext), typeof(SqlDbContext)).To<SqlDbContext>().InRequestScope();
             kernel.Bind<IMyContext>().To<MyContext>();
+            kernel.Bind<IMapper>().ToMethod(x => Mapper.Instance).InSingletonScope();
         }        
     }
 }

@@ -1,0 +1,18 @@
+﻿@using CarModsHeaven.Web.Models.ProjectsList
+@model ProjectViewModel
+
+@{
+    ViewBag.Title = "One Project - Car Mods Heaven";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>@Model.Title</h3>
+        <h4>@Model.CarBrand @Model.CarModel @Model.CarYear </h4>
+        <ul>
+            <li>@Model.ShortStory </li>
+            <li>Posted On: @Html.DisplayFor(x => @Model.CreatedOn)</li>
+            <li>@Model.OwnerEmail</li>
+        </ul>
+    </div>
+</div>

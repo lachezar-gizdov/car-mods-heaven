@@ -18,7 +18,7 @@
     @foreach (var project in Model)
     {
             <div class="col-md-4">
-                <h3>@project.Title</h3>
+                <h3>@Html.ActionLink(@project.Title, "Details",  new { title = project.Title })</h3>
                 <h4>@project.CarBrand @project.CarModel @project.CarYear</h4>
                 <ul>
                     <li>@project.ShortStory</li>

@@ -4,6 +4,7 @@ using CarModsHeaven.Services.Contracts;
 using CarModsHeaven.Web.Infrastructure;
 using CarModsHeaven.Web.Models.ProjectsList;
 using PagedList;
+using System;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -27,10 +28,20 @@ namespace CarModsHeaven.Web.Controllers
                 .MapTo<ProjectViewModel>()
                 .ToList();
 
-
             int pageSize = 3;
             int pageNumber = (page ?? 1);
             return View(projects.ToPagedList(pageNumber, pageSize));
+        }
+
+        [HttpGet]
+        public ActionResult Details(string title)
+        {
+            var project = this.projectsService
+                .GetAll()
+                .MapTo<ProjectViewModel>()
+                .SingleOrDefault(x => x.Title == title);
+
+            return this.View(project);
         }
 
         [Authorize]

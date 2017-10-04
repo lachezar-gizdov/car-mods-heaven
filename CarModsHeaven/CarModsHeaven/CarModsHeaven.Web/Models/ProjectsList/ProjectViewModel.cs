@@ -9,6 +9,8 @@ namespace CarModsHeaven.Web.Models.ProjectsList
 {
     public class ProjectViewModel : IMapFrom<Project>, IHaveCustomMappings
     {
+        public Guid Id { get; set; }
+
         [Display(Name = "Project Title")]
         public string Title { get; set; }
 
