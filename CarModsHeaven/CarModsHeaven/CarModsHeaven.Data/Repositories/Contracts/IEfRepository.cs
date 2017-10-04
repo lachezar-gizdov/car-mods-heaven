@@ -11,5 +11,6 @@ namespace CarModsHeaven.Data.Repositories.Contracts
         void Add(T entity);
         void Delete(T entity);
         void Update(T entity);
+        T GetById(object id);
     }
 }

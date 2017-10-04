@@ -9,8 +9,6 @@ namespace CarModsHeaven.Web.Models.ProjectsList
 {
     public class ProjectViewModel : IMapFrom<Project>, IHaveCustomMappings
     {
-        public Guid Id { get; set; }
-
         [Display(Name = "Project Title")]
         public string Title { get; set; }
 
@@ -29,7 +27,7 @@ namespace CarModsHeaven.Web.Models.ProjectsList
         [Display(Name = "Short Story")]
         public string ShortStory { get; set; }
 
-        public string OwnerEmail { get; set; }
+        public User Owner { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? CreatedOn { get; set; }
@@ -37,7 +35,7 @@ namespace CarModsHeaven.Web.Models.ProjectsList
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<Project, ProjectViewModel>()
-                .ForMember(projectViewModel => projectViewModel.OwnerEmail, cfg => cfg.MapFrom(project => project.Owner.Email))
+                .ForMember(projectViewModel => projectViewModel.Owner, cfg => cfg.MapFrom(project => project.Owner))
                 .ForMember(projectViewModel => projectViewModel.CreatedOn, cfg => cfg.MapFrom(project => project.CreatedOn));
         }
     }

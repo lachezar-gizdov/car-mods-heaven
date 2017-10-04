@@ -4,9 +4,9 @@ using CarModsHeaven.Services.Contracts;
 using CarModsHeaven.Web.Infrastructure;
 using CarModsHeaven.Web.Models.ProjectsList;
 using PagedList;
-using System;
 using System.Linq;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace CarModsHeaven.Web.Controllers
 {
@@ -57,6 +57,8 @@ namespace CarModsHeaven.Web.Controllers
         {
             var dbModel = Mapper.Map<Project>(project);
             this.projectsService.Add(dbModel);
+            var currentUser = this.usersService.GetUserById(User.Identity.GetUserId());
+            currentUser.Projects.Add(dbModel);
             return RedirectToAction("Index");
         }
 

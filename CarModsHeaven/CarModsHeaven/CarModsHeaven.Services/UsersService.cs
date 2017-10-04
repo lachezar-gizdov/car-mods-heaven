@@ -14,6 +14,16 @@ namespace CarModsHeaven.Services
 
         public UsersService(IEfRepository<User> usersRepo, IMyContext context)
         {
+            if (usersRepo == null)
+            {
+                throw new ArgumentNullException(nameof(usersRepo));
+            }
+
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
+
             this.usersRepo = usersRepo;
             this.context = context;
         }
@@ -21,6 +31,13 @@ namespace CarModsHeaven.Services
         public IQueryable<User> GetAll()
         {
             return this.usersRepo.AllVisible;
+        }
+
+        public User GetUserById(string id)
+        {
+            var user = this.usersRepo.GetById(id);
+
+            return user;
         }
     }
 }

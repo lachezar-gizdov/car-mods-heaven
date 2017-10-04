@@ -67,6 +67,11 @@ namespace CarModsHeaven.Data.Repositories
 
             entry.State = EntityState.Modified;
         }
+
+        public T GetById(object id)
+        {
+            return this.context.DbSet<T>().Find(id);
+        }
     }
 
 }

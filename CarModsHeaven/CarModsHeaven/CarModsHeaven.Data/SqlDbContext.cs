@@ -46,5 +46,10 @@ namespace CarModsHeaven.Data
         {
             return new SqlDbContext();
         }
+
+        public IDbSet<TEntity> DbSet<TEntity>() where TEntity : class
+        {
+            return this.Set<TEntity>();
+        }
     }
 }
