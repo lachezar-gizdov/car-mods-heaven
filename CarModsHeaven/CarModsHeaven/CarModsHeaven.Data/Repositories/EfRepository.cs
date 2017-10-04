@@ -10,9 +10,9 @@ namespace CarModsHeaven.Data.Repositories
     public class EfRepostory<T> : IEfRepository<T>
         where T : class, IDeletable, IAuditable
     {
-        private readonly SqlDbContext context;
+        private readonly CarModsContext context;
 
-        public EfRepostory(SqlDbContext context)
+        public EfRepostory(CarModsContext context)
         {
             this.context = context;
         }

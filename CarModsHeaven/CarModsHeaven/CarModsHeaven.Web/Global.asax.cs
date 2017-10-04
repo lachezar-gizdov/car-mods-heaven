@@ -13,7 +13,7 @@ namespace CarModsHeaven.Web
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<SqlDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<CarModsContext, Configuration>());
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

@@ -7,7 +7,7 @@ namespace CarModsHeaven.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    public sealed class Configuration : DbMigrationsConfiguration<SqlDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<CarModsContext>
     {
         const string AdministratorEmail = "info@carmodsheaven.com";
         const string AdministratorName = "Admin";
@@ -19,13 +19,13 @@ namespace CarModsHeaven.Data.Migrations
             this.AutomaticMigrationDataLossAllowed = false;
         }
 
-        protected override void Seed(SqlDbContext context)
+        protected override void Seed(CarModsContext context)
         {
             this.SeedUsers(context);
             this.SeedProjects(context);
         }
 
-        private void SeedUsers(SqlDbContext context)
+        private void SeedUsers(CarModsContext context)
         {
             if (!context.Roles.Any())
             {
@@ -51,7 +51,7 @@ namespace CarModsHeaven.Data.Migrations
             }
         }
 
-        private void SeedProjects(SqlDbContext context)
+        private void SeedProjects(CarModsContext context)
         {
             if (!context.Projects.Any())
             {

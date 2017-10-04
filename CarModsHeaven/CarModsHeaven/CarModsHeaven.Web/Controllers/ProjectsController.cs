@@ -56,9 +56,9 @@ namespace CarModsHeaven.Web.Controllers
         public ActionResult AddProject(ProjectViewModel project)
         {
             var dbModel = Mapper.Map<Project>(project);
-            this.projectsService.Add(dbModel);
-            var currentUser = this.usersService.GetUserById(User.Identity.GetUserId());
-            currentUser.Projects.Add(dbModel);
+            var userId = User.Identity.GetUserId();
+            this.projectsService.Add(dbModel, userId);
+
             return RedirectToAction("Index");
         }
 

@@ -10,9 +10,9 @@ namespace CarModsHeaven.Services
     public class UsersService : IUsersService
     {
         private readonly IEfRepository<User> usersRepo;
-        private readonly IMyContext context;
+        private readonly IUnitOfWork context;
 
-        public UsersService(IEfRepository<User> usersRepo, IMyContext context)
+        public UsersService(IEfRepository<User> usersRepo, IUnitOfWork context)
         {
             if (usersRepo == null)
             {

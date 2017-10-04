@@ -1,6 +1,6 @@
 ﻿namespace CarModsHeaven.Data.Contracts
 {
-    public interface IMyContext
+    public interface IUnitOfWork
     {
         void SaveChanges();
     }

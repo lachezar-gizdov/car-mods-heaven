@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace CarModsHeaven.Data
 {
-    public class SqlDbContext : IdentityDbContext<User>
+    public class CarModsContext : IdentityDbContext<User>
     {
-        public SqlDbContext()
+        public CarModsContext()
             : base("LocalConnection", throwIfV1Schema: false)
         {
         }
@@ -42,9 +42,9 @@ namespace CarModsHeaven.Data
             }
         }
 
-        public static SqlDbContext Create()
+        public static CarModsContext Create()
         {
-            return new SqlDbContext();
+            return new CarModsContext();
         }
 
         public IDbSet<TEntity> DbSet<TEntity>() where TEntity : class

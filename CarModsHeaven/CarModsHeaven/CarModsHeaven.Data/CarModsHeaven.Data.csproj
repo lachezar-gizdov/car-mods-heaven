@@ -58,11 +58,11 @@
       <DependentUpon>201710031928088_update user db model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Contracts\IMyContext.cs" />
-    <Compile Include="MyContext\MyContext.cs" />
+    <Compile Include="Contracts\IUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\UnitOfWork.cs" />
     <Compile Include="Repositories\EfRepository.cs" />
     <Compile Include="Repositories\Contracts\IEfRepository.cs" />
-    <Compile Include="SqlDbContext.cs" />
+    <Compile Include="CarModsContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
