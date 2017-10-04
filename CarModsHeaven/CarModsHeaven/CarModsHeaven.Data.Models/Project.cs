@@ -15,13 +15,14 @@ namespace CarModsHeaven.Data.Models
         [Required]
         public string CarModel { get; set; }
 
+        [Required]
         public ModificationsType ModificationsType { get; set; }
 
         [Required]
         public int CarYear { get; set; }
 
         [Required]
-        public string ShortStory { get; set; }
+        public string ModificationsList { get; set; }
 
         public virtual User Owner { get; set; }
     }

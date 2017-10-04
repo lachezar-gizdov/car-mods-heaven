@@ -57,6 +57,14 @@
     <Compile Include="Migrations\201710031928088_update user db model.Designer.cs">
       <DependentUpon>201710031928088_update user db model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710041804319_project property modificationsType to be required.cs" />
+    <Compile Include="Migrations\201710041804319_project property modificationsType to be required.Designer.cs">
+      <DependentUpon>201710041804319_project property modificationsType to be required.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710041824328_rename project property shortStory to ModificationsList.cs" />
+    <Compile Include="Migrations\201710041824328_rename project property shortStory to ModificationsList.Designer.cs">
+      <DependentUpon>201710041824328_rename project property shortStory to ModificationsList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />
@@ -78,6 +86,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201710031928088_update user db model.resx">
       <DependentUpon>201710031928088_update user db model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041804319_project property modificationsType to be required.resx">
+      <DependentUpon>201710041804319_project property modificationsType to be required.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041824328_rename project property shortStory to ModificationsList.resx">
+      <DependentUpon>201710041824328_rename project property shortStory to ModificationsList.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

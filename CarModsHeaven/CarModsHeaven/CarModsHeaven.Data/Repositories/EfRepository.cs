@@ -59,7 +59,7 @@ namespace CarModsHeaven.Data.Repositories
 
         public void Update(T entity)
         {
-            DbEntityEntry entry = this.context.Entry(entity);
+            var entry = this.context.Entry(entity);
             if (entry.State == EntityState.Detached)
             {
                 this.context.Set<T>().Attach(entity);

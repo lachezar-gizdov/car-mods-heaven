@@ -63,7 +63,8 @@ namespace CarModsHeaven.Data.Migrations
                         CarBrand = "Audi",
                         CarModel = "A4",
                         CarYear = 1999,
-                        ShortStory = "Bla bla bla",
+                        ModificationsType = Models.Enums.ModificationsType.AllAround,
+                        ModificationsList = "mods",
                         CreatedOn = DateTime.Now,
                         Owner = context.Users.First(x => x.Email == AdministratorEmail)
                     };

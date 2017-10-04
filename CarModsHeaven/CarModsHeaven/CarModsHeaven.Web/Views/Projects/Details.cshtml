@@ -12,7 +12,7 @@
         <h3>@Model.Title</h3>
         <h4>@Model.CarBrand @Model.CarModel @Model.CarYear </h4>
         <ul>
-            <li>Story: @Model.ShortStory </li>
+            <li>Story: @Model.ModificationsList </li>
             <li>Posted On: @Html.DisplayFor(x => @Model.CreatedOn)</li>
             <li>Modifications Type: @Model.ModificationsType</li>
             <li>Owner: @Model.Owner.UserName</li>
@@ -20,6 +20,8 @@
 
         @if (User.Identity.GetUserId() == Model.Owner.Id)
         {
+            @Html.ActionLink("Edit", "EditProject", new { title = Model.Title })
+            <hr />
             @Html.ActionLink("Delete", "DeleteProject", new { title = Model.Title })
         }
     </div>

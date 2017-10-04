@@ -3,6 +3,8 @@ using CarModsHeaven.Data.Models.Contracts;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Linq;
 
 namespace CarModsHeaven.Data

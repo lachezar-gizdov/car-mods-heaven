@@ -25,8 +25,8 @@
     @Html.DropDownList("ModificationsType", EnumHelper.GetSelectList(typeof(ModificationsType)), "Select Option",
     new { @class = "form-control" })
     <br />
-    @Html.LabelFor(m => m.ShortStory)
-    <textarea name="ShortStory"></textarea>
+    @Html.LabelFor(m => m.ModificationsList)
+    <textarea name="ModificationsList"></textarea>
     <br />
     <input type="submit" value="Add"/>
 }

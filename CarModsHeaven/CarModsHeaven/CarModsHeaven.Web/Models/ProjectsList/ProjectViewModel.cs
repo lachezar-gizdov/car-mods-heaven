@@ -31,7 +31,7 @@ namespace CarModsHeaven.Web.Models.ProjectsList
 
         [Required]
         [Display(Name = "Modifications List")]
-        public string ShortStory { get; set; }
+        public string ModificationsList { get; set; }
 
         public User Owner { get; set; }
 
