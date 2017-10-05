@@ -62,6 +62,7 @@ namespace CarModsHeaven.Web.Controllers
             return this.RedirectToAction("Index");
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult EditProject(string title)
         {
@@ -73,11 +74,17 @@ namespace CarModsHeaven.Web.Controllers
             return this.View(project);
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult EditProject(ProjectViewModel project)
         {
-            var dbModel = Mapper.Map<Project>(project);
-            this.projectsService.Update(dbModel);
+            if (project.Owner.Id == User.Identity.GetUserId())
+            {
+                var dbModel = Mapper.Map<Project>(project);
+                this.projectsService.Update(dbModel);
+                return this.RedirectToAction("Index");
+            }
+
             return this.RedirectToAction("Index");
         }
 
