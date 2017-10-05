@@ -78,25 +78,25 @@ namespace CarModsHeaven.Web.Controllers
         [HttpPost]
         public ActionResult EditProject(ProjectViewModel project)
         {
-            if (project.Owner.Id == User.Identity.GetUserId())
-            {
+            //if (project.Owner.Id == User.Identity.GetUserId())
+            //{
                 var dbModel = Mapper.Map<Project>(project);
                 this.projectsService.Update(dbModel);
                 return this.RedirectToAction("Index");
-            }
+            //}
 
-            return this.RedirectToAction("Index");
+            //return this.RedirectToAction("Index");
         }
 
         [Authorize]
         [HttpGet]
-        public ActionResult DeleteProject(string title)
+        public ActionResult DeleteProject(ProjectViewModel project)
         {
-            var project = this.projectsService
+            var found = this.projectsService
                 .GetAll()
-                .SingleOrDefault(x => x.Title == title);
+                .SingleOrDefault(x => x.Title == project.Title);
 
-            this.projectsService.Delete(project);
+            this.projectsService.Delete(found);
             return this.RedirectToAction("Index");
         }
     }

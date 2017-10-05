@@ -20,9 +20,13 @@
 
         @if (User.Identity.GetUserId() == Model.Owner.Id)
         {
-            @Html.ActionLink("Edit", "EditProject", new { title = Model.Title })
-            <hr />
-            @Html.ActionLink("Delete", "DeleteProject", new { title = Model.Title })
+            @Html.ActionLink("Edit", "EditProject", new { title = Model.Title }, new { @class="btn btn-primary"})
+            @Html.ActionLink("Delete", "DeleteProject", new { Model }, new { @class = "btn btn-danger" })
         }
     </div>
 </div>
+
+<div id="disqus_thread"></div>
+
+@Scripts.Render("~/bundles/disqus")
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
