@@ -7,13 +7,13 @@ namespace CarModsHeaven.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addscoretoprojectmodel : IMigrationMetadata
+    public sealed partial class updateprojectmodel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addscoretoprojectmodel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updateprojectmodel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201710061630180_add score to project model"; }
+            get { return "201710061956040_update project model"; }
         }
         
         string IMigrationMetadata.Source

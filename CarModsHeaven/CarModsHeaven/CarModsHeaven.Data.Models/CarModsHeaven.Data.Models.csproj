@@ -54,7 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstracts\BaseDataModel.cs" />
-    <Compile Include="Common\Score.cs" />
     <Compile Include="Contracts\IAuditable.cs" />
     <Compile Include="Contracts\IDeletable.cs" />
     <Compile Include="Enums\ModificationsType.cs" />

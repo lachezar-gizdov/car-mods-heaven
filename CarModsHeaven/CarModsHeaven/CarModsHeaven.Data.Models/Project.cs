@@ -1,13 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using CarModsHeaven.Data.Models.Abstracts;
 using CarModsHeaven.Data.Models.Enums;
-using System.Collections.Generic;
-using CarModsHeaven.Data.Models.Common;
 
 namespace CarModsHeaven.Data.Models
 {
     public class Project : BaseDataModel
     {
+        public Project()
+        {
+            Score = 0;
+        }
+
         [Required]
         public string Title { get; set; }
 
@@ -28,6 +31,6 @@ namespace CarModsHeaven.Data.Models
 
         public virtual User Owner { get; set; }
 
-        public Score Score { get; set; }
+        public double Score { get; set; }
     }
 }

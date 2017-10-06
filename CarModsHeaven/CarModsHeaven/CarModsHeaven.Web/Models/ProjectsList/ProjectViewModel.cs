@@ -4,8 +4,6 @@ using AutoMapper;
 using CarModsHeaven.Data.Models;
 using CarModsHeaven.Data.Models.Enums;
 using CarModsHeaven.Web.Infrastructure;
-using System.Collections.Generic;
-using CarModsHeaven.Data.Models.Common;
 
 namespace CarModsHeaven.Web.Models.ProjectsList
 {
@@ -43,7 +41,7 @@ namespace CarModsHeaven.Web.Models.ProjectsList
 
         public User Owner { get; set; }
 
-        public Score Score { get; set; }
+        public double Score { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? CreatedOn { get; set; }

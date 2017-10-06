@@ -9,14 +9,18 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h3>@Model.Title</h3>
-        <h4>@Model.CarBrand @Model.CarModel @Model.CarYear </h4>
+        <h2>@Model.Title</h2>
+        <h3>
+        @Html.DisplayFor(project => project.CarBrand)
+        @Html.DisplayFor(project => project.CarModel)
+        (@Html.DisplayFor(project => project.CarYear))
+        </h3>
         <ul>
-            <li>Story: @Model.ModificationsList </li>
-            <li>Posted On: @Html.DisplayFor(x => @Model.CreatedOn)</li>
-            <li>Modifications Type: @Model.ModificationsType</li>
-            <li>Owner: @Model.Owner.UserName</li>
-            <li>Score: @Model.Score.GetScore()</li>
+            <li>Modifications List: @Html.DisplayFor(project => project.ModificationsList)</li>
+            <li>Posted On: @Html.DisplayFor(project => project.CreatedOn)</li>
+            <li>Modifications Type: @Html.DisplayFor(project => project.ModificationsType)</li>
+            <li>Owner: @Html.DisplayFor(project => project.Owner.UserName)</li>
+            <li>Score: @Html.DisplayFor(project => project.Score)</li>
         </ul>
 
 

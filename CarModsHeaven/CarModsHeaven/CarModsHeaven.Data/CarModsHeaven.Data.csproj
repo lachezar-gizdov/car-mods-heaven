@@ -58,13 +58,9 @@
     <Compile Include="Migrations\201710031928088_update user db model.Designer.cs">
       <DependentUpon>201710031928088_update user db model.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710061630180_add score to project model.cs" />
-    <Compile Include="Migrations\201710061630180_add score to project model.Designer.cs">
-      <DependentUpon>201710061630180_add score to project model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710061642573_update score prop in project model.cs" />
-    <Compile Include="Migrations\201710061642573_update score prop in project model.Designer.cs">
-      <DependentUpon>201710061642573_update score prop in project model.cs</DependentUpon>
+    <Compile Include="Migrations\201710061956040_update project model.cs" />
+    <Compile Include="Migrations\201710061956040_update project model.Designer.cs">
+      <DependentUpon>201710061956040_update project model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ProjectpropertymodificationsTypetoberequired.cs" />
     <Compile Include="Migrations\ProjectpropertymodificationsTypetoberequired.Designer.cs">
@@ -96,11 +92,8 @@
     <EmbeddedResource Include="Migrations\201710031928088_update user db model.resx">
       <DependentUpon>201710031928088_update user db model.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710061630180_add score to project model.resx">
-      <DependentUpon>201710061630180_add score to project model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710061642573_update score prop in project model.resx">
-      <DependentUpon>201710061642573_update score prop in project model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710061956040_update project model.resx">
+      <DependentUpon>201710061956040_update project model.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\ProjectpropertymodificationsTypetoberequired.resx">
       <DependentUpon>ProjectpropertymodificationsTypetoberequired.cs</DependentUpon>
