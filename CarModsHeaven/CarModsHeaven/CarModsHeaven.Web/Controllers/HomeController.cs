@@ -16,6 +16,7 @@ namespace CarModsHeaven.Web.Controllers
             this.usersService = usersService;
         }
 
+        [HandleError]
         public ActionResult Index()
         {
             return this.View();

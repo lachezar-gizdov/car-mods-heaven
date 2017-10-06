@@ -6,10 +6,11 @@ using System.Web.Routing;
 using CarModsHeaven.Data;
 using CarModsHeaven.Data.Migrations;
 using CarModsHeaven.Web.App_Start;
+using System.Web;
 
 namespace CarModsHeaven.Web
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
