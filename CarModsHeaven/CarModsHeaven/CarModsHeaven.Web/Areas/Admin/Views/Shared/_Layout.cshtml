@@ -24,9 +24,9 @@
                     <li>@Html.ActionLink("Users", "Index", "Users")</li>
                     <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    @if (User.IsInRole("Admin"))
+                    @if(User.IsInRole("Admin"))
                     {
-                        <li>@Html.ActionLink("Administration", "Index", "Panel", new { Area = "Admin" }, new { })</li>
+                    <li>@Html.ActionLink("Administration", "Index", "Home")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -34,6 +34,7 @@
         </div>
     </div>
     <div class="container body-content">
+        ADMIN
         @RenderBody()
         <hr />
         <footer>
