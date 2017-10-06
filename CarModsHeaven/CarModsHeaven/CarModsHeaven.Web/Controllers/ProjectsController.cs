@@ -27,7 +27,7 @@ namespace CarModsHeaven.Web.Controllers
                 .GetAll()
                 .MapTo<ProjectViewModel>()
                 .ToList();
-            
+
             int pageSize = 6;
             int pageNumber = page ?? 1;
             return this.View(projects.ToPagedList(pageNumber, pageSize));
@@ -68,10 +68,13 @@ namespace CarModsHeaven.Web.Controllers
         {
             var project = this.projectsService
                 .GetAll()
-                .MapTo<ProjectViewModel>()
                 .SingleOrDefault(x => x.Title == title);
 
-            return this.View(project);
+            TempData["EditProjectId"] = project.Id;
+
+            var viewModel = Mapper.Map<ProjectViewModel>(project);
+
+            return this.View(viewModel);
         }
 
         [Authorize]
@@ -80,9 +83,10 @@ namespace CarModsHeaven.Web.Controllers
         {
             //if (project.Owner.Id == User.Identity.GetUserId())
             //{
-                var dbModel = Mapper.Map<Project>(project);
-                this.projectsService.Update(dbModel);
-                return this.RedirectToAction("Index");
+            var dbModel = Mapper.Map<Project>(project);
+            dbModel.Id = (System.Guid)TempData["EditProjectId"];
+            this.projectsService.Update(dbModel);
+            return this.RedirectToAction("Index");
             //}
 
             //return this.RedirectToAction("Index");
