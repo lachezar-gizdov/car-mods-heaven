@@ -63,6 +63,12 @@ namespace CarModsHeaven.Web.Controllers
             return this.View(project);
         }
 
+        public ActionResult AddScore(int score)
+        {
+            // TODO: implement scoring
+            return this.View("Details");
+        }
+
         [Authorize]
         [HttpGet]
         public ActionResult AddProject()

@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using CarModsHeaven.Data.Models.Abstracts;
 using CarModsHeaven.Data.Models.Enums;
+using System.Collections.Generic;
+using CarModsHeaven.Data.Models.Common;
 
 namespace CarModsHeaven.Data.Models
 {
@@ -25,5 +27,7 @@ namespace CarModsHeaven.Data.Models
         public string ModificationsList { get; set; }
 
         public virtual User Owner { get; set; }
+
+        public Score Score { get; set; }
     }
 }

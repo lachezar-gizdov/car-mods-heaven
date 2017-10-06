@@ -16,11 +16,18 @@
             <li>Posted On: @Html.DisplayFor(x => @Model.CreatedOn)</li>
             <li>Modifications Type: @Model.ModificationsType</li>
             <li>Owner: @Model.Owner.UserName</li>
+            <li>Score: @Model.Score.GetScore()</li>
         </ul>
+
+
+        @using (Html.BeginForm())
+        {
+            <input type="text" name="score" class="form-control" />
+        }
 
         @if (User.Identity.GetUserId() == Model.Owner.Id)
         {
-            @Html.ActionLink("Edit", "EditProject", new { title = Model.Title }, new { @class="btn btn-primary"})
+            @Html.ActionLink("Edit", "EditProject", new { title = Model.Title }, new { @class = "btn btn-primary" })
             @Html.ActionLink("Delete", "DeleteProject", new { Model }, new { @class = "btn btn-danger" })
         }
     </div>
