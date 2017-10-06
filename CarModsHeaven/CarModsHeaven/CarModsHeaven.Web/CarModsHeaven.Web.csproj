@@ -244,6 +244,7 @@
     <Compile Include="Models\Account\SendCodeViewModel.cs" />
     <Compile Include="Models\Account\VerifyCodeViewModel.cs" />
     <Compile Include="Models\Contact\ContactViewModel.cs" />
+    <Compile Include="Models\Home\AboutViewModel.cs" />
     <Compile Include="Models\Manage\ChangePasswordViewModel.cs" />
     <Compile Include="Models\Manage\ConfigureTwoFactorViewModel.cs" />
     <Compile Include="Models\Manage\FactorViewModel.cs" />

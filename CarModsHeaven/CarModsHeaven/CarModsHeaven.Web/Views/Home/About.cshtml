@@ -1,7 +1,13 @@
-﻿@{
+﻿@using CarModsHeaven.Web.Models.Home
+
+@model AboutViewModel
+
+@{
     ViewBag.Title = "About - Car Mods Heaven";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<h2>Statistics</h2>
+<ul>
+    <li>Projects created onsite: @Model.ProjectsCount</li>
+    <li>Registered users onsite: @Model.UsersCount</li>
+</ul>
