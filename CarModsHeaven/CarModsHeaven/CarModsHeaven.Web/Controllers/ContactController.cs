@@ -22,10 +22,12 @@ namespace ContactUS.Controllers
                 {
                     MailMessage msz = new MailMessage
                     {
-                        From = new MailAddress(vm.Email)//Email which you are getting 
+                        // Email which you are getting 
+                        From = new MailAddress(vm.Email)
                     };
 
-                    msz.To.Add("olebg01@gmail.com");//Where mail will be sent 
+                    // Where mail will be sent 
+                    msz.To.Add("olebg01@gmail.com");
                     msz.Subject = vm.Subject;
                     msz.Body = vm.Message;
                     SmtpClient smtp = new SmtpClient
@@ -34,8 +36,7 @@ namespace ContactUS.Controllers
 
                         Port = 465,
 
-                        Credentials = new System.Net.NetworkCredential
-                    ("luchezar.gizdov@gmail.com", "quattrobg"),
+                        Credentials = new System.Net.NetworkCredential("luchezar.gizdov@gmail.com", "quattrobg"),
 
                         EnableSsl = true
                     };
@@ -52,7 +53,7 @@ namespace ContactUS.Controllers
                 }
             }
 
-            return View();
+            return this.View();
         }
     }
 }

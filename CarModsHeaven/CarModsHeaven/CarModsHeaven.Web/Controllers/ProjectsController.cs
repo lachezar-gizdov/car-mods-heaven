@@ -70,7 +70,7 @@ namespace CarModsHeaven.Web.Controllers
                 .GetAll()
                 .SingleOrDefault(x => x.Title == title);
 
-            TempData["EditProjectId"] = project.Id;
+            this.TempData["EditProjectId"] = project.Id;
 
             var viewModel = Mapper.Map<ProjectViewModel>(project);
 
@@ -81,15 +81,10 @@ namespace CarModsHeaven.Web.Controllers
         [HttpPost]
         public ActionResult EditProject(ProjectViewModel project)
         {
-            //if (project.Owner.Id == User.Identity.GetUserId())
-            //{
             var dbModel = Mapper.Map<Project>(project);
             dbModel.Id = (System.Guid)TempData["EditProjectId"];
             this.projectsService.Update(dbModel);
             return this.RedirectToAction("Index");
-            //}
-
-            //return this.RedirectToAction("Index");
         }
 
         [Authorize]

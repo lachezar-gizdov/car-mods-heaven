@@ -8,6 +8,7 @@ namespace CarModsHeaven.Data.Contracts
         IDbSet<Project> Projects { get; set; }
 
         IDbSet<TEntity> DbSet<TEntity>() where TEntity : class;
+
         int SaveChanges();
     }
 }

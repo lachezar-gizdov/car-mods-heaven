@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
+using CarModsHeaven.Data.Contracts;
 using CarModsHeaven.Data.Models;
 using CarModsHeaven.Data.Models.Contracts;
 using Microsoft.AspNet.Identity.EntityFramework;
-using CarModsHeaven.Data.Contracts;
 
 namespace CarModsHeaven.Data
 {

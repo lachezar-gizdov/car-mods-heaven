@@ -1,8 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using AutoMapper;
 using CarModsHeaven.Data.Models;
 using CarModsHeaven.Web.Infrastructure;
-using System.Collections.Generic;
 
 namespace CarModsHeaven.Web.Models.UsersList
 {
