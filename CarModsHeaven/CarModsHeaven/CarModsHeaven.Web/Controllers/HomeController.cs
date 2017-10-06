@@ -16,12 +16,13 @@ namespace CarModsHeaven.Web.Controllers
             this.usersService = usersService;
         }
 
-        [HandleError]
+        [OutputCache(Duration = 240)]
         public ActionResult Index()
         {
             return this.View();
         }
 
+        [OutputCache(Duration = 60)]
         public ActionResult About()
         {
             var projectsCount = this.projectsService.GetAll().ToList().Count;

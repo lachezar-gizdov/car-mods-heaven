@@ -4,12 +4,7 @@ namespace CarModsHeaven.Web.Controllers
 {
     public class ErrorController : Controller
     {
-        [HandleError]
-        public ActionResult Index()
-        {
-            return View();
-        }
-
+        [OutputCache(Duration = 60)]
         public ActionResult NotFound()
         {
             return View();
