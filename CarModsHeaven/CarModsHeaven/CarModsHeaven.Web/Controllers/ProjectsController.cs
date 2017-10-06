@@ -21,16 +21,35 @@ namespace CarModsHeaven.Web.Controllers
             this.usersService = usersService;
         }
 
-        public ActionResult Index(int? page)
+        public ActionResult Index()
+        {
+            return this.View();
+        }
+
+        [HttpGet]
+        public ActionResult GetProjects(int? page, string sortBy)
         {
             var projects = this.projectsService
                 .GetAll()
+                .OrderBy(x => x.CreatedOn)
                 .MapTo<ProjectViewModel>()
                 .ToList();
 
-            int pageSize = 6;
+            int pageSize = 10;
             int pageNumber = page ?? 1;
-            return this.View(projects.ToPagedList(pageNumber, pageSize));
+
+            switch (sortBy)
+            {
+                case "date": projects = projects.OrderBy(x => x.CreatedOn).ToList();
+                    break;
+                case "brand": projects = projects.OrderBy(x => x.CarBrand).ToList();
+                    break;
+                case "title": projects = projects.OrderBy(x => x.Title).ToList();
+                    break;
+                default:
+                    break;
+            }
+            return this.PartialView("_GetProjectsPartial", projects.ToPagedList(pageNumber, pageSize));
         }
 
         [HttpGet]

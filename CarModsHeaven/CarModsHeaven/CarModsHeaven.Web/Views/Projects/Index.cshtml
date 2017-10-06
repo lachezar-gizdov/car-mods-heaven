@@ -1,35 +1,52 @@
-﻿@using CarModsHeaven.Web.Models.ProjectsList
-@using PagedList.Mvc;
-@model PagedList.IPagedList<ProjectViewModel>
-<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
-@{
+﻿@{
     ViewBag.Title = "Projects - Car Mods Heaven";
 }
 
-<div class="jumbotron">
-    <h1>All Projects</h1>
-    <p class="lead">Here you can browse, comment and share other people's projects.</p>
-</div>
+<p class="lead">Here you can browse, comment and share other people's projects.</p>
+
 
 <div class="row">
     <div>
         @Html.ActionLink("Add Project", "AddProject", null, new { }, new { @class = "btn btn-success" })
+
+        @Ajax.ActionLink(
+       "Sort By Date",
+       "GetProjects",
+       "Projects",
+       new { sortBy = "date" },
+       new AjaxOptions()
+       {
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "projects"
+       },
+       new { @class = "btn btn-primary" }
+       )
+
+        @Ajax.ActionLink(
+       "Sort By Car Brand",
+       "GetProjects",
+       "Projects",
+       new { sortBy = "brand" },
+       new AjaxOptions()
+       {
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "projects"
+       },
+       new { @class = "btn btn-primary" }
+       )
+
+        @Ajax.ActionLink(
+       "Sort By Project Title",
+       "GetProjects",
+       "Projects",
+       new { sortBy = "title" },
+       new AjaxOptions()
+       {
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "projects"
+       },
+       new { @class = "btn btn-primary" }
+       )
     </div>
-    @foreach (var project in Model)
-    {
-        <div class="col-md-4">
-            <h3>@Html.ActionLink(@project.Title, "Details", new { title = project.Title })</h3>
-            <h4>@project.CarBrand @project.CarModel @project.CarYear</h4>
-            <ul>
-                <li>@project.ModificationsType</li>
-                <li>Posted On: @Html.DisplayFor(x => project.CreatedOn)</li>
-            </ul>
-        </div>
-    }
+    <div id="projects"></div>
 </div>
-
-<br />
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-
-@Html.PagedListPager(Model, page => Url.Action("Index",
-    new { page }))
