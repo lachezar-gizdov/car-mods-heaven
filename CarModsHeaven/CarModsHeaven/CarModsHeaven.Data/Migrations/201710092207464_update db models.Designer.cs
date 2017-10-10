@@ -7,13 +7,13 @@ namespace CarModsHeaven.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class RenameprojectpropertyshortStorytoModificationsList : IMigrationMetadata
+    public sealed partial class updatedbmodels : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RenameprojectpropertyshortStorytoModificationsList));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updatedbmodels));
         
         string IMigrationMetadata.Id
         {
-            get { return "201710041824328_rename project property shortStory to ModificationsList"; }
+            get { return "201710092207464_update db models"; }
         }
         
         string IMigrationMetadata.Source

@@ -3,7 +3,7 @@ namespace CarModsHeaven.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Updateuserdbmodel : DbMigration
+    public partial class updatedbmodels : DbMigration
     {
         public override void Up()
         {
@@ -15,9 +15,10 @@ namespace CarModsHeaven.Data.Migrations
                         Title = c.String(nullable: false),
                         CarBrand = c.String(nullable: false),
                         CarModel = c.String(nullable: false),
-                        ModificationsType = c.Int(nullable: false),
                         CarYear = c.Int(nullable: false),
-                        ShortStory = c.String(nullable: false),
+                        ModificationsType = c.Int(nullable: false),
+                        ModificationsList = c.String(nullable: false),
+                        Score = c.Double(nullable: false),
                         IsDeleted = c.Boolean(nullable: false),
                         CreatedOn = c.DateTime(),
                         ModifiedOn = c.DateTime(),
@@ -101,29 +102,31 @@ namespace CarModsHeaven.Data.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+            
         }
         
         public override void Down()
         {
-            this.DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            this.DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
-            this.DropForeignKey("dbo.Projects", "Owner_Id", "dbo.AspNetUsers");
-            this.DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
-            this.DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            this.DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            this.DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
-            this.DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
-            this.DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
-            this.DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
-            this.DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            this.DropIndex("dbo.AspNetUsers", new[] { "IsDeleted" });
-            this.DropIndex("dbo.Projects", new[] { "Owner_Id" });
-            this.DropTable("dbo.AspNetRoles");
-            this.DropTable("dbo.AspNetUserRoles");
-            this.DropTable("dbo.AspNetUserLogins");
-            this.DropTable("dbo.AspNetUserClaims");
-            this.DropTable("dbo.AspNetUsers");
-            this.DropTable("dbo.Projects");
+            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Projects", "Owner_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
+            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
+            DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
+            DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
+            DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.AspNetUsers", new[] { "IsDeleted" });
+            DropIndex("dbo.Projects", new[] { "Owner_Id" });
+            DropIndex("dbo.Projects", new[] { "IsDeleted" });
+            DropTable("dbo.AspNetRoles");
+            DropTable("dbo.AspNetUserRoles");
+            DropTable("dbo.AspNetUserLogins");
+            DropTable("dbo.AspNetUserClaims");
+            DropTable("dbo.AspNetUsers");
+            DropTable("dbo.Projects");
         }
     }
 }

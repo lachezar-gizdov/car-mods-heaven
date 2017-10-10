@@ -8,6 +8,7 @@ using CarModsHeaven.Web.Models.Account;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using System;
 
 namespace CarModsHeaven.Web.Controllers
 {
@@ -148,7 +149,9 @@ namespace CarModsHeaven.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new User { Email = model.Email, UserName = model.FullName };
+                var user = new User { Email = model.Email, UserName = model.Email };
+                user.CreatedOn = DateTime.Now;
+
                 var result = await this.UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

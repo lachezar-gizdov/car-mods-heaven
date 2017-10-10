@@ -54,21 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\ICarModsContext.cs" />
-    <Compile Include="Migrations\201710031928088_update user db model.cs" />
-    <Compile Include="Migrations\201710031928088_update user db model.Designer.cs">
-      <DependentUpon>201710031928088_update user db model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710061956040_update project model.cs" />
-    <Compile Include="Migrations\201710061956040_update project model.Designer.cs">
-      <DependentUpon>201710061956040_update project model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ProjectpropertymodificationsTypetoberequired.cs" />
-    <Compile Include="Migrations\ProjectpropertymodificationsTypetoberequired.Designer.cs">
-      <DependentUpon>ProjectpropertymodificationsTypetoberequired.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\RenameprojectpropertyshortStorytoModificationsList.cs" />
-    <Compile Include="Migrations\RenameprojectpropertyshortStorytoModificationsList.Designer.cs">
-      <DependentUpon>RenameprojectpropertyshortStorytoModificationsList.cs</DependentUpon>
+    <Compile Include="Migrations\201710092207464_update db models.cs" />
+    <Compile Include="Migrations\201710092207464_update db models.Designer.cs">
+      <DependentUpon>201710092207464_update db models.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
@@ -89,17 +77,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710031928088_update user db model.resx">
-      <DependentUpon>201710031928088_update user db model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710061956040_update project model.resx">
-      <DependentUpon>201710061956040_update project model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\ProjectpropertymodificationsTypetoberequired.resx">
-      <DependentUpon>ProjectpropertymodificationsTypetoberequired.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\RenameprojectpropertyshortStorytoModificationsList.resx">
-      <DependentUpon>RenameprojectpropertyshortStorytoModificationsList.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710092207464_update db models.resx">
+      <DependentUpon>201710092207464_update db models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

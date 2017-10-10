@@ -7,6 +7,10 @@ using CarModsHeaven.Web.Models.Manage;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using System.IO;
+using System.Web.Hosting;
+using static CarModsHeaven.Web.Controllers.ManageController;
+using CarModsHeaven.Data.Models;
 
 namespace CarModsHeaven.Web.Controllers
 {
@@ -34,9 +38,9 @@ namespace CarModsHeaven.Web.Controllers
                 return this.signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
 
-            private set 
+            private set
             {
-                this.signInManager = value; 
+                this.signInManager = value;
             }
         }
 
@@ -63,6 +67,8 @@ namespace CarModsHeaven.Web.Controllers
                 : message == ManageMessageId.Error ? "An error has occurred."
                 : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
                 : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
+                : message == ManageMessageId.PhotoUploadSuccess ? "Your photo has been uploaded."
+                : message == ManageMessageId.FileExtensionError ? "Only .png, .jpg and .gif allowed"
                 : string.Empty;
 
             var userId = User.Identity.GetUserId();
@@ -333,7 +339,39 @@ namespace CarModsHeaven.Web.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        [HttpPost]
+        public async Task<ActionResult> UploadPhoto(HttpPostedFileBase file)
+        {
+            if (file != null && file.ContentLength > 0)
+            {
+                var user = await GetCurrentUserAsync();
+                var username = user.UserName;
+                var fileExt = Path.GetExtension(file.FileName);
+                var fnm = username + ".png";
+                if (fileExt.ToLower().EndsWith(".png") || fileExt.ToLower().EndsWith(".jpg") || fileExt.ToLower().EndsWith(".gif"))
+                {
+                    var filePath = HostingEnvironment.MapPath("~Content/images/profile") + fnm;
+                    var directory = new DirectoryInfo(HostingEnvironment.MapPath("~Content/images/profile/"));
+                    if (directory.Exists == false)
+                    {
+                        directory.Create();
+                    }
+
+                    ViewBag.FilePath = filePath.ToString();
+                    file.SaveAs(filePath);
+
+                    return RedirectToAction("Index", new { Message = ManageMessageId.PhotoUploadSuccess });
+                }
+                else
+                {
+                    return RedirectToAction("Index", new { Message = ManageMessageId.FileExtensionError });
+                }
+            }
+
+            return RedirectToAction("Index", new { Message = ManageMessageId.Error });
+        }
+
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private IAuthenticationManager AuthenticationManager
         {
@@ -373,6 +411,11 @@ namespace CarModsHeaven.Web.Controllers
             return false;
         }
 
+        private async Task<User> GetCurrentUserAsync()
+        {
+            return await UserManager.FindByIdAsync(User.Identity.GetUserId());
+        }
+
         public enum ManageMessageId
         {
             AddPhoneSuccess,
@@ -381,9 +424,11 @@ namespace CarModsHeaven.Web.Controllers
             SetPasswordSuccess,
             RemoveLoginSuccess,
             RemovePhoneSuccess,
-            Error
+            Error,
+            PhotoUploadSuccess,
+            FileExtensionError
         }
 
-#endregion
+        #endregion
     }
 }

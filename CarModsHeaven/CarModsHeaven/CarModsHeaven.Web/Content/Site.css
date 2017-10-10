@@ -22,3 +22,14 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.avatar-profile{
+    height: 200px;
+    border-radius: 100%;
+}
+
+.avatar-navbar {
+    margin-top: 5px;
+    height: 40px;
+    border-radius: 100%;
+}
