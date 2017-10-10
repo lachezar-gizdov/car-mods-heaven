@@ -1,4 +1,5 @@
-﻿using CarModsHeaven.Services.Contracts;
+﻿using Bytes2you.Validation;
+using CarModsHeaven.Services.Contracts;
 using CarModsHeaven.Web.Models.Home;
 using System.Linq;
 using System.Web.Mvc;
@@ -10,8 +11,14 @@ namespace CarModsHeaven.Web.Controllers
         private readonly IProjectsService projectsService;
         private readonly IUsersService usersService;
 
+        private readonly string projectsServiceCheck = "Project service is null";
+        private readonly string usersServiceCheck = "Users service is null";
+
         public HomeController(IProjectsService projectsService, IUsersService usersService)
         {
+            Guard.WhenArgument(projectsService, projectsServiceCheck).IsNull().Throw();
+            Guard.WhenArgument(usersService, usersServiceCheck).IsNull().Throw();
+
             this.projectsService = projectsService;
             this.usersService = usersService;
         }

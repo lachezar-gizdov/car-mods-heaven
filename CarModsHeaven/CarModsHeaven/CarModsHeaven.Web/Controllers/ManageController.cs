@@ -11,6 +11,7 @@ using System.IO;
 using System.Web.Hosting;
 using static CarModsHeaven.Web.Controllers.ManageController;
 using CarModsHeaven.Data.Models;
+using Bytes2you.Validation;
 
 namespace CarModsHeaven.Web.Controllers
 {
@@ -21,12 +22,18 @@ namespace CarModsHeaven.Web.Controllers
         private ApplicationSignInManager signInManager;
         private ApplicationUserManager userManager;
 
+        private readonly string userManagerCheck = "User Manager is null";
+        private readonly string ApplicationSignInManagerCheck = "Application SignIn Manager is null";
+
         public ManageController()
         {
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
+            Guard.WhenArgument(userManager, userManagerCheck).IsNull().Throw();
+            Guard.WhenArgument(signInManager, ApplicationSignInManagerCheck).IsNull().Throw();
+
             this.UserManager = userManager;
             this.SignInManager = signInManager;
         }

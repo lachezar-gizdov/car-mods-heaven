@@ -1,6 +1,8 @@
-﻿@using CarModsHeaven.Web.Models.ProjectsList
-@using PagedList.Mvc;
-@model PagedList.IPagedList<ProjectViewModel>
+﻿@using CarModsHeaven.Web.Models.ProjectsList;
+@using X.PagedList.Mvc;
+
+@model X.PagedList.IPagedList<ProjectViewModel>
+
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @foreach (var project in Model)

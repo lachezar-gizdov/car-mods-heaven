@@ -6,7 +6,8 @@ using CarModsHeaven.Services.Contracts;
 using CarModsHeaven.Web.Infrastructure;
 using CarModsHeaven.Web.Models.ProjectsList;
 using Microsoft.AspNet.Identity;
-using PagedList;
+using X.PagedList;
+using Bytes2you.Validation;
 
 namespace CarModsHeaven.Web.Controllers
 {
@@ -15,12 +16,19 @@ namespace CarModsHeaven.Web.Controllers
         private readonly IProjectsService projectsService;
         private readonly IUsersService usersService;
 
+        private readonly string projectsServiceCheck = "Project service is null";
+        private readonly string usersServiceCheck = "Users service is null";
+
         public ProjectsController(IProjectsService projectsService, IUsersService usersService)
         {
+            Guard.WhenArgument(projectsService, projectsServiceCheck).IsNull().Throw();
+            Guard.WhenArgument(usersService, usersServiceCheck).IsNull().Throw();
+
             this.projectsService = projectsService;
             this.usersService = usersService;
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
             return this.View();
@@ -35,7 +43,7 @@ namespace CarModsHeaven.Web.Controllers
                 .MapTo<ProjectViewModel>()
                 .ToList();
 
-            int pageSize = 10;
+            int pageSize = 3;
             int pageNumber = page ?? 1;
 
             switch (sortBy)
@@ -63,6 +71,7 @@ namespace CarModsHeaven.Web.Controllers
             return this.View(project);
         }
 
+        [HttpGet]
         public ActionResult AddScore(int score)
         {
             // TODO: implement scoring
