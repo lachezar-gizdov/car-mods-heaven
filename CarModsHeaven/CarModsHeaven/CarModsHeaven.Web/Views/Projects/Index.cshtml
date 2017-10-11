@@ -1,13 +1,30 @@
-﻿@{
+﻿@using CarModsHeaven.Web.Models.ProjectsList;
+@using X.PagedList.Mvc;
+
+@model X.PagedList.IPagedList<ProjectViewModel>
+
+@{
     ViewBag.Title = "Projects - Car Mods Heaven";
 }
-
 <p class="lead">Here you can browse, comment and share other people's projects.</p>
-
 <div class="row">
     <div>
+        Find by title: @Html.TextBox("SearchString", null, new { id= "SearchString" })
+        @Ajax.ActionLink(
+       "Search",
+       "GetProjects",
+       "Projects",
+       new { searchPattern = "" },
+       new AjaxOptions()
+       {
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "projects"
+       },
+       new { @class = "btn btn-default" }
+       )
+    </div>
+    <div>
         @Html.ActionLink("Add Project", "AddProject", null, new { }, new { @class = "btn btn-success" })
-
         @Ajax.ActionLink(
        "Sort By Date",
        "GetProjects",
@@ -20,7 +37,6 @@
        },
        new { @class = "btn btn-primary" }
        )
-
         @Ajax.ActionLink(
        "Sort By Car Brand",
        "GetProjects",
@@ -33,7 +49,6 @@
        },
        new { @class = "btn btn-primary" }
        )
-
         @Ajax.ActionLink(
        "Sort By Project Title",
        "GetProjects",
@@ -47,5 +62,7 @@
        new { @class = "btn btn-primary" }
        )
     </div>
-    <div id="projects"></div>
+    <div id="projects">
+        @Html.Partial("_GetProjectsPartial", Model)
+    </div>
 </div>

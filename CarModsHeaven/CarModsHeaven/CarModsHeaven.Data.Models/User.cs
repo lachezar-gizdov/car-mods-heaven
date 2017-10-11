@@ -19,6 +19,9 @@ namespace CarModsHeaven.Data.Models
             this.projects = new HashSet<Project>();
         }
 
+        [Required]
+        public string FullName { get; set; }
+
         public virtual ICollection<Project> Projects { get; set; }
 
         [Index]

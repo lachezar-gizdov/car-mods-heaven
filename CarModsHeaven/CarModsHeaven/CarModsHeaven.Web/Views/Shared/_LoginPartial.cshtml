@@ -6,13 +6,12 @@
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right">
-        <li>
+        @*<li>
             @{
                 var imgUrl = Url.Content("~/Content/images/profile/" + User.Identity.GetUserName() + ".png");
             }
-
             <img class="avatar-navbar" src="@imgUrl" height="40" width="40"/>
-        </li>
+        </li>*@
         <li>
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>

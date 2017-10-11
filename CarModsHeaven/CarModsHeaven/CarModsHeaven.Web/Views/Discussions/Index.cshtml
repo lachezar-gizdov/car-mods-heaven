@@ -15,29 +15,18 @@
     @Scripts.Render("/signalr/hubs")
     <script>
         $(function () {
-            //$.connection.hub.start();
-
             var discussions = $.connection.discussionsHub;
 
             discussions.client.getMessage = (msg) => {
-                console.log(msg);
                 $('#messages').append(msg + '<br />')
             }
 
             $.connection.hub.start().done(function () {
 
                 $('#sendBtn').click(() => {
-                    //console.log($('#msgInput').val());
-
                     discussions.server.sendMessage($('#msgInput').val())
                 })
             });
-
-            
-            console.log(discussions);
-
-
-            
         })
     </script>
 }

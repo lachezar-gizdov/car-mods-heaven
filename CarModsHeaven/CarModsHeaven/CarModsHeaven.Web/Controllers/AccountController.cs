@@ -156,7 +156,7 @@ namespace CarModsHeaven.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new User { Email = model.Email, UserName = model.Email };
+                var user = new User { Email = model.Email, UserName = model.Email, FullName = model.FullName };
                 user.CreatedOn = DateTime.Now;
 
                 var result = await this.UserManager.CreateAsync(user, model.Password);

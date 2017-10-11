@@ -58,6 +58,18 @@
     <Compile Include="Migrations\201710092207464_update db models.Designer.cs">
       <DependentUpon>201710092207464_update db models.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710112053327_add user profile image.cs" />
+    <Compile Include="Migrations\201710112053327_add user profile image.Designer.cs">
+      <DependentUpon>201710112053327_add user profile image.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710112106063_removeUserProfileImage.cs" />
+    <Compile Include="Migrations\201710112106063_removeUserProfileImage.Designer.cs">
+      <DependentUpon>201710112106063_removeUserProfileImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710112114343_AddFullNamePropToUser.cs" />
+    <Compile Include="Migrations\201710112114343_AddFullNamePropToUser.Designer.cs">
+      <DependentUpon>201710112114343_AddFullNamePropToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />
@@ -79,6 +91,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201710092207464_update db models.resx">
       <DependentUpon>201710092207464_update db models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710112053327_add user profile image.resx">
+      <DependentUpon>201710112053327_add user profile image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710112106063_removeUserProfileImage.resx">
+      <DependentUpon>201710112106063_removeUserProfileImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710112114343_AddFullNamePropToUser.resx">
+      <DependentUpon>201710112114343_AddFullNamePropToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

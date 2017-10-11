@@ -29,13 +29,7 @@ namespace CarModsHeaven.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index()
-        {
-            return this.View();
-        }
-
-        [HttpGet]
-        public ActionResult GetProjects(int? page, string sortBy)
+        public ActionResult Index(int? page)
         {
             var projects = this.projectsService
                 .GetAll()
@@ -43,7 +37,27 @@ namespace CarModsHeaven.Web.Controllers
                 .MapTo<ProjectViewModel>()
                 .ToList();
 
-            int pageSize = 3;
+            int pageSize = 6;
+            int pageNumber = page ?? 1;
+
+            return this.View(projects.ToPagedList(pageNumber, pageSize));
+        }
+
+        [HttpGet]
+        public ActionResult GetProjects(int? page, string sortBy, string searchPattern)
+        {
+            var projects = this.projectsService
+                .GetAll()
+                .OrderBy(x => x.CreatedOn)
+                .MapTo<ProjectViewModel>()
+                .ToList();
+
+            if (!string.IsNullOrEmpty(searchPattern))
+            {
+                projects = projects.Where(p => p.Title.ToLower().Contains(searchPattern.ToLower())).ToList();
+            }
+
+            int pageSize = 6;
             int pageNumber = page ?? 1;
 
             switch (sortBy)
