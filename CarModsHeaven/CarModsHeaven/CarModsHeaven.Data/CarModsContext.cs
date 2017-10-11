@@ -11,7 +11,7 @@ namespace CarModsHeaven.Data
     public class CarModsContext : IdentityDbContext<User>, ICarModsContext
     {
         public CarModsContext()
-            : base("LocalConnection", throwIfV1Schema: false)
+            : base("dbConnection", throwIfV1Schema: false)
         {
         }
 

@@ -12,6 +12,9 @@ namespace CarModsHeaven.Web
                         .Include(
                         "~/Scripts/jquery.unobtrusive-ajax.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/signalr").Include(
+                        "~/Scripts/jquery.signalR*"));
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
@@ -30,6 +33,8 @@ namespace CarModsHeaven.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            //BundleTable.EnableOptimizations = true;
         }
     }
 }
