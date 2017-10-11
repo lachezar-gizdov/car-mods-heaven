@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
+using Microsoft.Owin.Security.Google;
 
 namespace CarModsHeaven.Web
 {
@@ -46,24 +47,19 @@ namespace CarModsHeaven.Web
             // This is similar to the RememberMe option when you log in.
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
-            // Uncomment the following lines to enable logging in with third party login providers
-            // app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
+             app.UseMicrosoftAccountAuthentication(
+                clientId: "KtHgTUUzKXvPOuo9dWjpHEV",
+                clientSecret: "c7718d21-1a83-430b-ab6f-7d68b97a22c1");
 
-            // app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+            app.UseFacebookAuthentication(
+              appId: "294367371079956",
+              appSecret: "f04f3e8228e97240fc94cbd7c1d01a20");
 
-            // app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
-
-            // app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            // {
-            //    ClientId = "",
-            //    ClientSecret = ""
-            // });
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "746976723604-e1818ghbfk2mah04ju9522elsjpv6tg0.apps.googleusercontent.com",
+                ClientSecret = "0HZyn7YIkYoLDUfGirmuzgo0"
+            });
         }
     }
 }
