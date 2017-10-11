@@ -9,8 +9,8 @@
  *
  */
 
-///// <reference path="/jquery-3.2.1.js" />
-///// <reference path="jquery.signalR-2.2.2.js" />
+<reference path="/jquery-3.2.1.js" />
+<reference path="jquery.signalR-2.2.2.js" />
 (function ($, window, undefined) {
 
     var resources = {
@@ -102,7 +102,7 @@
 
         supportsKeepAlive = function (connection) {
             return connection._.keepAliveData.activated &&
-                   connection.transport.supportsKeepAlive(connection);
+                connection.transport.supportsKeepAlive(connection);
         },
 
         configureStopReconnectingTimeout = function (connection) {
@@ -479,8 +479,8 @@
             if (connection.state === signalR.connectionState.connecting) {
                 return deferred.promise();
             } else if (changeState(connection,
-                            signalR.connectionState.disconnected,
-                            signalR.connectionState.connecting) === false) {
+                signalR.connectionState.disconnected,
+                signalR.connectionState.connecting) === false) {
                 // We're not connecting so try and transition into connecting.
                 // If we fail to transition then we're either in connected or reconnecting.
 
@@ -611,8 +611,8 @@
                         signalR._.configurePingInterval(connection);
 
                         if (!changeState(connection,
-                                            signalR.connectionState.connecting,
-                                            signalR.connectionState.connected)) {
+                            signalR.connectionState.connecting,
+                            signalR.connectionState.connected)) {
                             connection.log("WARNING! The connection was not in the connecting state.");
                         }
 
@@ -950,7 +950,7 @@
 
             // Clear out our message buffer
             connection._.connectingMessageBuffer.clear();
-            
+
             // Clean up this event
             $(connection).unbind(events.onStart);
 
@@ -1431,11 +1431,11 @@
 
         ajaxStart: function (connection, onSuccess) {
             var rejectDeferred = function (error) {
-                    var deferred = connection._deferral;
-                    if (deferred) {
-                        deferred.reject(error);
-                    }
-                },
+                var deferred = connection._deferral;
+                if (deferred) {
+                    deferred.reject(error);
+                }
+            },
                 triggerStartError = function (error) {
                     connection.log("The start request failed. Stopping the connection.");
                     $(connection).triggerHandler(events.onError, [error]);
@@ -1591,13 +1591,13 @@
 
         isConnectedOrReconnecting: function (connection) {
             return connection.state === signalR.connectionState.connected ||
-                   connection.state === signalR.connectionState.reconnecting;
+                connection.state === signalR.connectionState.reconnecting;
         },
 
         ensureReconnectingState: function (connection) {
             if (changeState(connection,
-                        signalR.connectionState.connected,
-                        signalR.connectionState.reconnecting) === true) {
+                signalR.connectionState.connected,
+                signalR.connectionState.reconnecting) === true) {
                 $(connection).triggerHandler(events.onReconnecting);
             }
             return connection.state === signalR.connectionState.reconnecting;
@@ -1710,7 +1710,7 @@
                         ex,
                         connection.socket
                     ),
-                    data]);
+                        data]);
             }
         },
 
@@ -1745,8 +1745,8 @@
                     transportLogic.clearReconnectTimeout(connection);
 
                     if (changeState(connection,
-                                    signalR.connectionState.reconnecting,
-                                    signalR.connectionState.connected) === true) {
+                        signalR.connectionState.reconnecting,
+                        signalR.connectionState.connected) === true) {
                         $connection.triggerHandler(events.onReconnect);
                     }
                 };
@@ -1912,7 +1912,7 @@
                         }
                     }
                 },
-                that.timeOut);
+                    that.timeOut);
             }
 
             connection.eventSource.addEventListener("open", function (e) {
@@ -1925,8 +1925,8 @@
                     opened = true;
 
                     if (changeState(connection,
-                                         signalR.connectionState.reconnecting,
-                                         signalR.connectionState.connected) === true) {
+                        signalR.connectionState.reconnecting,
+                        signalR.connectionState.connected) === true) {
                         $connection.triggerHandler(events.onReconnect);
                     }
                 }
@@ -2319,8 +2319,8 @@
                     privateData.reconnectTimeoutId = null;
 
                     if (changeState(instance,
-                                    signalR.connectionState.reconnecting,
-                                    signalR.connectionState.connected) === true) {
+                        signalR.connectionState.reconnecting,
+                        signalR.connectionState.connected) === true) {
                         // Successfully reconnected!
                         instance.log("Raising the reconnect event");
                         $(instance).triggerHandler(events.onReconnect);
@@ -2702,7 +2702,7 @@
                         if (d.notifyWith) {
                             // Progress is only supported in jQuery 1.7+
                             d.notifyWith(that, [result.Progress.Data]);
-                        } else if(!connection._.progressjQueryVersionLogged) {
+                        } else if (!connection._.progressjQueryVersionLogged) {
                             connection.log("A hub method invocation progress update was received but the version of jQuery in use (" + $.prototype.jquery + ") does not support progress updates. Upgrade to jQuery 1.7+ to receive progress notifications.");
                             connection._.progressjQueryVersionLogged = true;
                         }
@@ -2781,10 +2781,10 @@
 
     hubConnection.fn.init = function (url, options) {
         var settings = {
-                qs: null,
-                logging: false,
-                useDefaultPath: true
-            },
+            qs: null,
+            logging: false,
+            useDefaultPath: true
+        },
             connection = this;
 
         $.extend(settings, options);

@@ -17,7 +17,7 @@ namespace CarModsHeaven.Web.Areas.Admin
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new {controller = "Panel", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

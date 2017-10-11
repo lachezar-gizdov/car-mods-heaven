@@ -7,28 +7,37 @@
     <input type="text" id="msgInput" />
     <button id="sendBtn">Send</button>
 </div>
-<div id="messages">
-
-</div>
+<div id="messages"></div>
 
 @section scripts
 {
     @Scripts.Render("~/bundles/signalr")
-    <script src="/signalr/hubs"></script>
-
+    @Scripts.Render("/signalr/hubs")
     <script>
-        $(function () { 
-            $.connection.hub.start();
+        $(function () {
+            //$.connection.hub.start();
 
-            const discussions = $.connection.discussions;
+            var discussions = $.connection.discussionsHub;
+
             discussions.client.getMessage = (msg) => {
+                console.log(msg);
                 $('#messages').append(msg + '<br />')
             }
 
-            $('#sendBtn').click(() => {
-                discussions.server.sendMessage($('#msgInput').val())
-            })
+            $.connection.hub.start().done(function () {
+
+                $('#sendBtn').click(() => {
+                    //console.log($('#msgInput').val());
+
+                    discussions.server.sendMessage($('#msgInput').val())
+                })
+            });
+
+            
+            console.log(discussions);
+
+
+            
         })
     </script>
-
 }

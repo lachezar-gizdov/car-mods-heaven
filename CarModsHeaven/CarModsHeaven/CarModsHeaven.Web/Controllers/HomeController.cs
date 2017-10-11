@@ -23,6 +23,7 @@ namespace CarModsHeaven.Web.Controllers
             this.usersService = usersService;
         }
 
+        //[OutputCache(Duration = 60)]
         public ActionResult Index()
         {
             return this.View();

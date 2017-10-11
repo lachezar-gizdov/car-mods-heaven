@@ -244,7 +244,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Hubs\Discussions.cs" />
+    <Compile Include="Hubs\DiscussionsHub.cs" />
     <Compile Include="Infrastructure\IHaveCustomMappings.cs" />
     <Compile Include="Infrastructure\IMapFrom.cs" />
     <Compile Include="Infrastructure\QueriableExtensions.cs" />

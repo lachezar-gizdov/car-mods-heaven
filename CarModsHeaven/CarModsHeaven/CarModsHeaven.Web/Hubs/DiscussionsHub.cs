@@ -1,13 +1,15 @@
 ﻿using Microsoft.AspNet.SignalR;
+using Microsoft.AspNet.SignalR.Hubs;
 
 namespace CarModsHeaven.Web.Hubs
 {
-    public class Discussions : Hub
+    [HubName("discussionsHub")]
+    public class DiscussionsHub : Hub
     {
         public void SendMessage(string message)
         {
             string formattedMsg = $"{this.Context.User.Identity.Name} : {message}";
-            this.Clients.All.getMessage(formattedMsg);
+            this.Clients.Caller.getMessage(formattedMsg);
         }
     }
 }
