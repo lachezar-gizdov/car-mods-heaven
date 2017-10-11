@@ -5,9 +5,7 @@
 
     ViewBag.Title = "Add Project - Car Mods Heaven";
 }
-
 <h2>Add Project</h2>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -21,7 +19,6 @@
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.CarBrand, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -29,7 +26,6 @@
                 @Html.ValidationMessageFor(model => model.CarBrand, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.CarModel, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -37,7 +33,6 @@
                 @Html.ValidationMessageFor(model => model.CarModel, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.CarYear, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -45,7 +40,6 @@
                 @Html.ValidationMessageFor(model => model.CarYear, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.ModificationsList, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -53,7 +47,6 @@
                 @Html.ValidationMessageFor(model => model.ModificationsList, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.ModificationsType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -62,7 +55,20 @@
                 @Html.ValidationMessageFor(model => model.ModificationsList, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <div class="form-group">
+            @Html.LabelFor(model => model.MadeBy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <label>
+                    @Html.RadioButtonFor(model => model.MadeBy, "YourSelf", new { htmlAttributes = new { @class = "form-control" } })
+                    YourSelf
+                </label>
+                <label>
+                    @Html.RadioButtonFor(model => model.MadeBy, "TuningShop", new { htmlAttributes = new { @class = "form-control" } })
+                    Tuning Shop
+                </label>
+                @Html.ValidationMessageFor(model => model.MadeBy, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-success" />
@@ -70,11 +76,9 @@
         </div>
     </div>
 }
-
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

@@ -43,6 +43,10 @@ namespace CarModsHeaven.Web.Models.ProjectsList
 
         public double Score { get; set; }
 
+        [Required]
+        [Display(Name = "Made by")]
+        public string MadeBy { get; set; }
+
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? CreatedOn { get; set; }
 

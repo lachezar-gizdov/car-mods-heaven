@@ -70,6 +70,10 @@
     <Compile Include="Migrations\201710112114343_AddFullNamePropToUser.Designer.cs">
       <DependentUpon>201710112114343_AddFullNamePropToUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710112330342_AddMadeByPropToProject.cs" />
+    <Compile Include="Migrations\201710112330342_AddMadeByPropToProject.Designer.cs">
+      <DependentUpon>201710112330342_AddMadeByPropToProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />
@@ -100,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710112114343_AddFullNamePropToUser.resx">
       <DependentUpon>201710112114343_AddFullNamePropToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710112330342_AddMadeByPropToProject.resx">
+      <DependentUpon>201710112330342_AddMadeByPropToProject.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

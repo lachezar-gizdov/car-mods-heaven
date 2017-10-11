@@ -32,5 +32,8 @@ namespace CarModsHeaven.Data.Models
         public virtual User Owner { get; set; }
 
         public double Score { get; set; }
+
+        [Required]
+        public string MadeBy { get; set; }
     }
 }
