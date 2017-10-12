@@ -1,9 +1,9 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using CarModsHeaven.Data.Contracts;
 using CarModsHeaven.Data.Models;
 using CarModsHeaven.Data.Repositories.Contracts;
 using CarModsHeaven.Services.Contracts;
+using Bytes2you.Validation;
 
 namespace CarModsHeaven.Services
 {
@@ -11,18 +11,13 @@ namespace CarModsHeaven.Services
     {
         private readonly IEfRepository<User> usersRepo;
         private readonly IUnitOfWork context;
+        private readonly string usersRepoCheck = "Users Repository is null";
+        private readonly string contextCheck = "DbContext is null";
 
         public UsersService(IEfRepository<User> usersRepo, IUnitOfWork context)
         {
-            if (usersRepo == null)
-            {
-                throw new ArgumentNullException(nameof(usersRepo));
-            }
-
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            Guard.WhenArgument(usersRepo, usersRepoCheck).IsNull().Throw();
+            Guard.WhenArgument(context, contextCheck).IsNull().Throw();
 
             this.usersRepo = usersRepo;
             this.context = context;

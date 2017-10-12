@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarModsHeaven.Data.Models",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarModsHeaven.Services", "CarModsHeaven.Services\CarModsHeaven.Services.csproj", "{6B3D266F-F366-459D-B326-BC95728C083F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarModsHeaven.Services.Tests", "CarModsHeaven.Services.Tests\CarModsHeaven.Services.Tests.csproj", "{D9B28948-FB75-4EF9-903D-C66E7B6F5395}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{6B3D266F-F366-459D-B326-BC95728C083F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B3D266F-F366-459D-B326-BC95728C083F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B3D266F-F366-459D-B326-BC95728C083F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9B28948-FB75-4EF9-903D-C66E7B6F5395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9B28948-FB75-4EF9-903D-C66E7B6F5395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9B28948-FB75-4EF9-903D-C66E7B6F5395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9B28948-FB75-4EF9-903D-C66E7B6F5395}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
