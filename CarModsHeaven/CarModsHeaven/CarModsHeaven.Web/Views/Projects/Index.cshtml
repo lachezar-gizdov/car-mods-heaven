@@ -6,8 +6,8 @@
 @{
     ViewBag.Title = "Projects - Car Mods Heaven";
 }
-<p class="lead">Here you can browse, comment and share other people's projects.</p>
-<div class="row">
+<p class="lead jumbotron">Here you can browse, comment and share other people's projects.</p>
+<div class="row jumbotron">
     <div>
         Find by title: @Html.TextBox("SearchString", null, new { id= "SearchString" })
         @Ajax.ActionLink(

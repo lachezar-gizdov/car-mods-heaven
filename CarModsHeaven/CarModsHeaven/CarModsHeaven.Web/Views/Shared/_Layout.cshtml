@@ -7,8 +7,8 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-@*<body background="~/Content/images/home.jpg">*@
-<body>
+<body background="~/Content/images/home.jpg">
+@*<body>*@
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -38,7 +38,7 @@
         <div class="container body-content">
             @RenderBody()
             <hr />
-            <footer>
+            <footer class="jumbotron panel-footer">
                 <p>&copy; @DateTime.Now.Year - Car Mods Heaven Inc</p>
             </footer>
         </div>
