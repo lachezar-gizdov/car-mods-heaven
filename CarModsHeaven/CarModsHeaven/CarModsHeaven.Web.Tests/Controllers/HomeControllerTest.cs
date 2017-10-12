@@ -1,36 +1,27 @@
-﻿//using System.Web.Mvc;
-//using CarModsHeaven.Web.Controllers;
-//using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Web.Mvc;
+using CarModsHeaven.Web.Controllers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Telerik.JustMock;
+using CarModsHeaven.Services.Contracts;
 
-//namespace CarModsHeaven.Web.Tests.Controllers
-//{
-//    [TestClass]
-//    public class HomeControllerTest
-//    {
-//        [TestMethod]
-//        public void Index()
-//        {
-//            // Arrange
-//            HomeController controller = new HomeController();
+namespace CarModsHeaven.Web.Tests.Controllers
+{
+    [TestClass]
+    public class HomeControllerTest
+    {
+        [TestMethod]
+        public void Index()
+        {
+            // Arrange
+            var IProjectsServiceMock = Mock.Create<IProjectsService>();
+            var IUsersServiceMock = Mock.Create<IUsersService>();
+            HomeController controller = new HomeController(IProjectsServiceMock, IUsersServiceMock);
 
-//            // Act
-//            ViewResult result = controller.Index() as ViewResult;
+            // Act
+            ViewResult result = controller.Index() as ViewResult;
 
-//            // Assert
-//            Assert.IsNotNull(result);
-//        }
-
-//        [TestMethod]
-//        public void About()
-//        {
-//            // Arrange
-//            HomeController controller = new HomeController();
-
-//            // Act
-//            ViewResult result = controller.About() as ViewResult;
-
-//            // Assert
-//            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
-//        }
-//    }
-//}
+            // Assert
+            Assert.IsNotNull(result);
+        }
+    }
+}

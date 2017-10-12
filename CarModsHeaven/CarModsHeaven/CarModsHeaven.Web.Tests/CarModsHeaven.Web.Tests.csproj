@@ -87,6 +87,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="Telerik.JustMock, Version=2017.2.821.1, Culture=neutral, PublicKeyToken=721b6c5bc0326b3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\JustMock.2017.2.821.1\lib\Net35\Telerik.JustMock.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,6 +102,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CarModsHeaven.Services\CarModsHeaven.Services.csproj">
+      <Project>{6B3D266F-F366-459D-B326-BC95728C083F}</Project>
+      <Name>CarModsHeaven.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CarModsHeaven.Web\CarModsHeaven.Web.csproj">
       <Project>{CB468B90-D5C1-4D9E-999B-E441C36E6490}</Project>
       <Name>CarModsHeaven.Web</Name>
