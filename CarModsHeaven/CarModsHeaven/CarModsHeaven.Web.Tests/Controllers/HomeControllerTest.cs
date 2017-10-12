@@ -13,9 +13,7 @@ namespace CarModsHeaven.Web.Tests.Controllers
         public void Index()
         {
             // Arrange
-            var IProjectsServiceMock = Mock.Create<IProjectsService>();
-            var IUsersServiceMock = Mock.Create<IUsersService>();
-            HomeController controller = new HomeController(IProjectsServiceMock, IUsersServiceMock);
+            HomeController controller = new HomeController();
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
