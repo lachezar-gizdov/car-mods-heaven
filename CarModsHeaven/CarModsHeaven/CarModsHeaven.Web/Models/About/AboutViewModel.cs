@@ -1,4 +1,4 @@
-﻿namespace CarModsHeaven.Web.Models.Home
+﻿namespace CarModsHeaven.Web.Models.About
 {
     public class AboutViewModel
     {
