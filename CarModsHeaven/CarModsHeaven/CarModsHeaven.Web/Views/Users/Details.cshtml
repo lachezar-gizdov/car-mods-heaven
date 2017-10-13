@@ -6,14 +6,13 @@
     ViewBag.Title = @Model.UserName + " - Car Mods Heaven";
 }
 
-<div class="row">
+<div class="row jumbotron">
     <h2>@Model.UserName's projects</h2>
-</div>
     <div class="row">
         @foreach (var project in Model.Projects)
         {
             <div class="col-md-4">
-                <h3>@Html.ActionLink(@project.Title, "Details", "Projects", new { title = project.Title }, new { })</h3>
+                <h3>@Html.ActionLink(@project.Title, "Details", "Projects", new { id = project.Id }, new { })</h3>
                 <h4>@project.CarBrand @project.CarModel @project.CarYear</h4>
                 <ul>
                     <li>@project.ModificationsType</li>
@@ -22,3 +21,4 @@
             </div>
         }
     </div>
+</div>

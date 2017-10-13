@@ -129,11 +129,17 @@ namespace CarModsHeaven.Web.Controllers
 
         [Authorize]
         [HttpGet]
-        public ActionResult EditProject(string title)
+        public ActionResult EditProject(Guid? id)
         {
+            if (id == null)
+            {
+                return this.View("Error");
+            }
+
             var project = this.projectsService
-                .GetAll()
-                .SingleOrDefault(x => x.Title == title);
+                .GetById(id)
+                .ProjectTo<ProjectDetailsViewModel>()
+                .SingleOrDefault();
 
             this.TempData["EditProjectId"] = project.Id;
 
@@ -147,9 +153,9 @@ namespace CarModsHeaven.Web.Controllers
         public ActionResult EditProject(ProjectDetailsViewModel project)
         {
             var dbModel = Mapper.Map<Project>(project);
-            dbModel.Id = (System.Guid)TempData["EditProjectId"];
+            dbModel.Id = (Guid)TempData["EditProjectId"];
             this.projectsService.Update(dbModel);
-            return this.RedirectToAction("Index");
+            return this.RedirectToAction("Details", new { id = dbModel.Id });
         }
 
         [Authorize]
