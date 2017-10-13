@@ -35,7 +35,7 @@ namespace CarModsHeaven.Services
             return this.projectsRepo.AllVisible;
         }
 
-        public IQueryable<Project> GetById(Guid id)
+        public IQueryable<Project> GetById(Guid? id)
         {
             return this.projectsRepo.AllVisible
                 .Where(x => x.Id == id);
