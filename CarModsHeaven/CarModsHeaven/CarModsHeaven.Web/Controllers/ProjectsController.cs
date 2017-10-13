@@ -114,11 +114,16 @@ namespace CarModsHeaven.Web.Controllers
         [HttpPost]
         public ActionResult AddProject(ProjectViewModel project)
         {
+            if (!ModelState.IsValid)
+            {
+                return this.View();
+            }
+
             var dbModel = Mapper.Map<Project>(project);
             var userId = User.Identity.GetUserId();
             this.projectsService.Add(dbModel, userId);
 
-            return this.RedirectToAction("Index");
+            return this.RedirectToAction("Details", new { id = dbModel.Id });
         }
 
         [Authorize]
