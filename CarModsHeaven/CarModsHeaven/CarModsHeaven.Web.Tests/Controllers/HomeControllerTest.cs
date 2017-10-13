@@ -1,8 +1,6 @@
 ﻿using System.Web.Mvc;
 using CarModsHeaven.Web.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Telerik.JustMock;
-using CarModsHeaven.Services.Contracts;
 
 namespace CarModsHeaven.Web.Tests.Controllers
 {
