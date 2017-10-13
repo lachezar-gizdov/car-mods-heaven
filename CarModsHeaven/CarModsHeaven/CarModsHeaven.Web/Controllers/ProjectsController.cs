@@ -77,7 +77,7 @@ namespace CarModsHeaven.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Details(Guid id)
+        public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
