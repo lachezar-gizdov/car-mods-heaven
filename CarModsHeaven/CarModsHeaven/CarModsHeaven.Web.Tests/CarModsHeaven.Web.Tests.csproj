@@ -81,6 +81,7 @@
   <ItemGroup>
     <Compile Include="Controllers\Home\Tests.cs" />
     <Compile Include="Controllers\Projects\ConstructorShould.cs" />
+    <Compile Include="Controllers\Projects\AddProjectShould.cs" />
     <Compile Include="Controllers\Projects\DetailsShould.cs" />
     <Compile Include="Controllers\Projects\IndexShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
