@@ -343,6 +343,7 @@
     <Content Include="Views\Shared\_GetProjectsPartial.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Discussions\Index.cshtml" />
+    <Content Include="Views\Projects\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
