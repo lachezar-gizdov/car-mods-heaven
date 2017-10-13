@@ -46,7 +46,7 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             var projectsServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
             this.InitializeMapper();
-            var projectTitle = "test";
+            var projectTitle = new Guid();
 
             // Act
             var controller = new ProjectsController(projectsServiceMock, usersServiceMock);
