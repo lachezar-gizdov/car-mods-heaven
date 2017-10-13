@@ -36,7 +36,7 @@ namespace CarModsHeaven.Web.Controllers
             var projects = this.projectsService
                 .GetAll()
                 .OrderBy(x => x.CreatedOn)
-                .ProjectTo<ProjectViewModel>()
+                .ProjectTo<ProjectDetailsViewModel>()
                 .ToList();
 
             int pageSize = 6;
@@ -51,7 +51,7 @@ namespace CarModsHeaven.Web.Controllers
             var projects = this.projectsService
                 .GetAll()
                 .OrderBy(x => x.CreatedOn)
-                .ProjectTo<ProjectViewModel>()
+                .ProjectTo<ProjectDetailsViewModel>()
                 .ToList();
 
             if (!string.IsNullOrEmpty(searchPattern))
@@ -85,7 +85,7 @@ namespace CarModsHeaven.Web.Controllers
             }
             var project = this.projectsService
                 .GetById(id)
-                .ProjectTo<ProjectViewModel>()
+                .ProjectTo<ProjectDetailsViewModel>()
                 .SingleOrDefault();
 
             if (project == null)
@@ -112,7 +112,8 @@ namespace CarModsHeaven.Web.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult AddProject(ProjectViewModel project)
+        [ValidateAntiForgeryToken]
+        public ActionResult AddProject(ProjectAddViewModel project)
         {
             if (!ModelState.IsValid)
             {
@@ -120,7 +121,7 @@ namespace CarModsHeaven.Web.Controllers
             }
 
             var dbModel = Mapper.Map<Project>(project);
-            var userId = User.Identity.GetUserId();
+            var userId = Guid.Parse(User.Identity.GetUserId());
             this.projectsService.Add(dbModel, userId);
 
             return this.RedirectToAction("Details", new { id = dbModel.Id });
@@ -136,14 +137,14 @@ namespace CarModsHeaven.Web.Controllers
 
             this.TempData["EditProjectId"] = project.Id;
 
-            var viewModel = Mapper.Map<ProjectViewModel>(project);
+            var viewModel = Mapper.Map<ProjectDetailsViewModel>(project);
 
             return this.View(viewModel);
         }
 
         [Authorize]
         [HttpPost]
-        public ActionResult EditProject(ProjectViewModel project)
+        public ActionResult EditProject(ProjectDetailsViewModel project)
         {
             var dbModel = Mapper.Map<Project>(project);
             dbModel.Id = (System.Guid)TempData["EditProjectId"];
@@ -153,7 +154,7 @@ namespace CarModsHeaven.Web.Controllers
 
         [Authorize]
         [HttpGet]
-        public ActionResult DeleteProject(ProjectViewModel project)
+        public ActionResult DeleteProject(ProjectDetailsViewModel project)
         {
             var found = this.projectsService
                 .GetAll()

@@ -7,7 +7,7 @@ using CarModsHeaven.Web.Infrastructure;
 
 namespace CarModsHeaven.Web.Models.ProjectsList
 {
-    public class ProjectViewModel : IMapFrom<Project>, IHaveCustomMappings
+    public class ProjectDetailsViewModel : IMapFrom<Project>, IHaveCustomMappings
     {
         public Guid Id { get; set; }
 
@@ -54,7 +54,7 @@ namespace CarModsHeaven.Web.Models.ProjectsList
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
-            configuration.CreateMap<Project, ProjectViewModel>()
+            configuration.CreateMap<Project, ProjectAddViewModel>()
                 .ForMember(projectViewModel => projectViewModel.Owner, cfg => cfg.MapFrom(project => project.Owner))
                 .ForMember(projectViewModel => projectViewModel.CreatedOn, cfg => cfg.MapFrom(project => project.CreatedOn));
         }
