@@ -32,7 +32,7 @@
         @if (User.Identity.GetUserId() == Model.Owner.Id)
         {
             @Html.ActionLink("Edit", "EditProject", new { id = Model.Id }, new { @class = "btn btn-primary" })
-            @Html.ActionLink("Delete", "DeleteProject", new { Model }, new { @class = "btn btn-danger" })
+            @Html.ActionLink("Delete", "DeleteProject", new { id = Model.Id }, new { @class = "btn btn-danger" })
         }
     </div>
 </div>
