@@ -39,14 +39,14 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             var projectsServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
             this.InitializeMapper();
-            var projectTitle = Guid.NewGuid();
+            var projectId = Guid.NewGuid();
 
             // Act
             var controller = new ProjectsController(projectsServiceMock, usersServiceMock);
 
             // Assert
             controller
-                .WithCallTo(c => c.Details(projectTitle))
+                .WithCallTo(c => c.Details(projectId))
                 .ShouldRenderView("Error");
         }
 
