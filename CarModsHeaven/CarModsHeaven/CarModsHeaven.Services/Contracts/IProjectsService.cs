@@ -8,7 +8,7 @@ namespace CarModsHeaven.Services.Contracts
     {
         IQueryable<Project> GetAll();
 
-        IQueryable<Project> GetById(Guid id);
+        IQueryable<Project> GetById(Guid? id);
 
         void Add(Project project, string id);
 
