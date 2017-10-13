@@ -113,61 +113,6 @@ namespace CarModsHeaven.Web.Controllers
             return this.RedirectToAction("ManageLogins", new { Message = message });
         }
 
-        // GET: /Manage/AddPhoneNumber
-        public ActionResult AddPhoneNumber()
-        {
-            return this.View();
-        }
-
-        // POST: /Manage/EnableTwoFactorAuthentication
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EnableTwoFactorAuthentication()
-        {
-            await this.UserManager.SetTwoFactorEnabledAsync(User.Identity.GetUserId(), true);
-            var user = await this.UserManager.FindByIdAsync(User.Identity.GetUserId());
-            if (user != null)
-            {
-                await this.SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-            }
-
-            return this.RedirectToAction("Index", "Manage");
-        }
-
-        // POST: /Manage/DisableTwoFactorAuthentication
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DisableTwoFactorAuthentication()
-        {
-            await this.UserManager.SetTwoFactorEnabledAsync(User.Identity.GetUserId(), false);
-            var user = await this.UserManager.FindByIdAsync(User.Identity.GetUserId());
-            if (user != null)
-            {
-                await this.SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-            }
-
-            return this.RedirectToAction("Index", "Manage");
-        }
-
-        // POST: /Manage/RemovePhoneNumber
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> RemovePhoneNumber()
-        {
-            var result = await this.UserManager.SetPhoneNumberAsync(User.Identity.GetUserId(), null);
-            if (!result.Succeeded)
-            {
-                return this.RedirectToAction("Index", new { Message = ManageMessageId.Error });
-            }
-
-            var user = await this.UserManager.FindByIdAsync(User.Identity.GetUserId());
-            if (user != null)
-            {
-                await this.SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-            }
-
-            return this.RedirectToAction("Index", new { Message = ManageMessageId.RemovePhoneSuccess });
-        }
 
         // GET: /Manage/ChangePassword
         public ActionResult ChangePassword()
