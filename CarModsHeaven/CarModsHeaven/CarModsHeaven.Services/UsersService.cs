@@ -4,6 +4,7 @@ using CarModsHeaven.Data.Models;
 using CarModsHeaven.Data.Repositories.Contracts;
 using CarModsHeaven.Services.Contracts;
 using Bytes2you.Validation;
+using System;
 
 namespace CarModsHeaven.Services
 {
@@ -28,7 +29,7 @@ namespace CarModsHeaven.Services
             return this.usersRepo.AllVisible;
         }
 
-        public User GetUserById(string id)
+        public User GetUserById(Guid? id)
         {
             var user = this.usersRepo.GetById(id);
 

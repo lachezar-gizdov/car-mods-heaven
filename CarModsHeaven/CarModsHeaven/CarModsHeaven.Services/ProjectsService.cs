@@ -17,7 +17,6 @@ namespace CarModsHeaven.Services
         private readonly string usersServiceCheck = "Users Service is null";
         private readonly string contextCheck = "DbContext is null";
         private readonly string projectCheck = "Passed project is null";
-        private readonly string userIdCheck = "Passed user id is null or empty";
 
         public ProjectsService(IEfRepository<Project> projectsRepo, IUsersService usersService, IUnitOfWork context)
         {
@@ -41,10 +40,9 @@ namespace CarModsHeaven.Services
                 .Where(x => x.Id == id);
         }
 
-        public void Add(Project project, string UserId)
+        public void Add(Project project, Guid? UserId)
         {
             Guard.WhenArgument(project, projectCheck).IsNull().Throw();
-            Guard.WhenArgument(UserId, userIdCheck).IsNullOrEmpty().Throw();
 
             this.projectsRepo.Add(project);
             var currentUser = this.usersService.GetUserById(UserId);

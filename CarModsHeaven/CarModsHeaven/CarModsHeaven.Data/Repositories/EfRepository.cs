@@ -70,7 +70,7 @@ namespace CarModsHeaven.Data.Repositories
 
         public T GetById(object id)
         {
-            return this.context.Set<T>().Find(id);
+            return this.context.Set<T>().Find(id.ToString());
         }
     }
 }

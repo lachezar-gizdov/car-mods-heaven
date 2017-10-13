@@ -1,14 +1,14 @@
 ﻿@using CarModsHeaven.Web.Models.ProjectsList;
 @using X.PagedList.Mvc;
 
-@model X.PagedList.IPagedList<ProjectViewModel>
+@model X.PagedList.IPagedList<ProjectDetailsViewModel>
 
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @foreach (var project in Model)
 {
     <div class="col-md-4">
-        <h3>@Html.ActionLink(@project.Title, "Details", new { id = project.Id })</h3>
+        <h3>@Html.ActionLink(@project.Title, "Details", new { id = project.Id.ToString() })</h3>
         <h4>@project.CarBrand @project.CarModel @project.CarYear</h4>
         <ul>
             <li>@project.ModificationsType</li>
