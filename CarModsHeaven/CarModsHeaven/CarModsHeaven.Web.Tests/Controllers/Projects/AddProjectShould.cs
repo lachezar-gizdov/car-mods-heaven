@@ -40,7 +40,7 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             var projectsServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
             var controller = new ProjectsController(projectsServiceMock, usersServiceMock);
-            var model = new ProjectViewModel();
+            var model = new ProjectAddViewModel();
 
             // Act
             controller.ModelState.AddModelError("key", "error");
@@ -104,7 +104,7 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
         private void InitializeMapper()
         {
             Mapper.Initialize(cfg =>
-                    cfg.CreateMap<Project, ProjectViewModel>()
+                    cfg.CreateMap<Project, ProjectAddViewModel>()
                         .ForMember(viewModel => viewModel.CarBrand,
                             opt => opt.MapFrom(project => project.CarBrand))
             );
