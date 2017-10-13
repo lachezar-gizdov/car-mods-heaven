@@ -26,20 +26,6 @@ namespace CarModsHeaven.Services.Tests.ProjectsServiceTests
         }
 
         [TestMethod]
-        public void ThrowWhenNullIsPassedAsUserId()
-        {
-            // Arrange
-            var projectsRepoMock = Mock.Create<IEfRepository<Project>>();
-            var usersServiceMock = Mock.Create<IUsersService>();
-            var contextMock = Mock.Create<IUnitOfWork>();
-            var service = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
-            var project = Mock.Create<Project>();
-
-            // Act & Assert
-            Assert.ThrowsException<ArgumentNullException>(() => service.Add(project, null));
-        }
-
-        [TestMethod]
         public void CallRepositoryAddMethod()
         {
             // Arrange

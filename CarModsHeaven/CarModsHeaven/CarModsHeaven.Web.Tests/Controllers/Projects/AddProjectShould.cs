@@ -85,17 +85,18 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
         //    var usersServiceMock = Mock.Create<IUsersService>();
         //    this.InitializeMapper();
         //    var projectId = Guid.NewGuid();
+        //    var userId = Guid.NewGuid();
         //    var project = new Project
         //    {
         //        Id = projectId
         //    };
+        //    var model = new ProjectAddViewModel();
 
         //    var controller = new ProjectsController(projectsServiceMock, usersServiceMock);
-        //    var list = new List<Project>() { project };
-        //    Mock.Arrange(() => projectsServiceMock.GetById(projectId)).Returns(list.AsQueryable());
+        //    Mock.Arrange(() => projectsServiceMock.Add(project, userId));
 
         //    // Act
-        //    controller.Details(projectId);
+        //    controller.AddProject(model);
 
         //    // Assert
         //    Mock.Assert(() => projectsServiceMock.Add(project, userId), Occurs.Once());
