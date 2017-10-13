@@ -5,7 +5,7 @@ using Telerik.JustMock;
 using CarModsHeaven.Services.Contracts;
 using System;
 
-namespace CarModsHeaven.Web.Tests.Controllers
+namespace CarModsHeaven.Web.Tests.Controllers.Home
 {
     [TestClass]
     public class HomeControllerShould

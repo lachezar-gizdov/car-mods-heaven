@@ -92,8 +92,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Projects\ConstructorShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerShould.cs" />
+    <Compile Include="Controllers\Home\HomeControllerShould.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
