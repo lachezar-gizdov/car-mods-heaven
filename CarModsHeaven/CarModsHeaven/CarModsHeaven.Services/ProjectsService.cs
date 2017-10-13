@@ -4,6 +4,7 @@ using CarModsHeaven.Data.Models;
 using CarModsHeaven.Data.Repositories.Contracts;
 using CarModsHeaven.Services.Contracts;
 using Bytes2you.Validation;
+using System;
 
 namespace CarModsHeaven.Services
 {
@@ -32,6 +33,12 @@ namespace CarModsHeaven.Services
         public IQueryable<Project> GetAll()
         {
             return this.projectsRepo.AllVisible;
+        }
+
+        public IQueryable<Project> GetById(Guid id)
+        {
+            return this.projectsRepo.AllVisible
+                .Where(x => x.Id == id);
         }
 
         public void Add(Project project, string UserId)

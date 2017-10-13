@@ -8,6 +8,8 @@ using CarModsHeaven.Web.Models.ProjectsList;
 using Microsoft.AspNet.Identity;
 using X.PagedList;
 using Bytes2you.Validation;
+using AutoMapper.QueryableExtensions;
+using System;
 
 namespace CarModsHeaven.Web.Controllers
 {
@@ -34,7 +36,7 @@ namespace CarModsHeaven.Web.Controllers
             var projects = this.projectsService
                 .GetAll()
                 .OrderBy(x => x.CreatedOn)
-                .MapTo<ProjectViewModel>()
+                .ProjectTo<ProjectViewModel>()
                 .ToList();
 
             int pageSize = 6;
@@ -49,7 +51,7 @@ namespace CarModsHeaven.Web.Controllers
             var projects = this.projectsService
                 .GetAll()
                 .OrderBy(x => x.CreatedOn)
-                .MapTo<ProjectViewModel>()
+                .ProjectTo<ProjectViewModel>()
                 .ToList();
 
             if (!string.IsNullOrEmpty(searchPattern))
@@ -75,12 +77,21 @@ namespace CarModsHeaven.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Details(string title)
+        public ActionResult Details(Guid id)
         {
+            if (id == null)
+            {
+                return this.View("Error");
+            }
             var project = this.projectsService
-                .GetAll()
-                .MapTo<ProjectViewModel>()
-                .SingleOrDefault(x => x.Title == title);
+                .GetById(id)
+                .ProjectTo<ProjectViewModel>()
+                .SingleOrDefault();
+
+            if (project == null)
+            {
+                return this.View("Error");
+            }
 
             return this.View(project);
         }
