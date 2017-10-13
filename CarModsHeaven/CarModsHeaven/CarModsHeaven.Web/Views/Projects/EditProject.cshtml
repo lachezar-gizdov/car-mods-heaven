@@ -1,5 +1,5 @@
 ﻿@using CarModsHeaven.Data.Models.Enums
-@model CarModsHeaven.Web.Models.ProjectsList.ProjectViewModel
+@model CarModsHeaven.Web.Models.ProjectsList.ProjectDetailsViewModel
 
 @{
     ViewBag.Title = "EditProject";
@@ -61,6 +61,21 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ModificationsList, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ModificationsList, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MadeBy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <label>
+                    @Html.RadioButtonFor(model => model.MadeBy, "YourSelf", new { htmlAttributes = new { @class = "form-control" } })
+                    YourSelf
+                </label>
+                <label>
+                    @Html.RadioButtonFor(model => model.MadeBy, "TuningShop", new { htmlAttributes = new { @class = "form-control" } })
+                    Tuning Shop
+                </label>
+                @Html.ValidationMessageFor(model => model.MadeBy, "", new { @class = "text-danger" })
             </div>
         </div>
 
