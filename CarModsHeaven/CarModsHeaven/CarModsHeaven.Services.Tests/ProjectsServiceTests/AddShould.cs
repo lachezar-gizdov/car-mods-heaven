@@ -18,11 +18,11 @@ namespace CarModsHeaven.Services.Tests.ProjectsServiceTests
             var projectsRepoMock = Mock.Create<IEfRepository<Project>>();
             var usersServiceMock = Mock.Create<IUsersService>();
             var contextMock = Mock.Create<IUnitOfWork>();
-            var sut = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
+            var service = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
             var userId = Guid.NewGuid();
 
             // Act & Assert
-            Assert.ThrowsException<ArgumentNullException>(() => sut.Add(null, userId));
+            Assert.ThrowsException<ArgumentNullException>(() => service.Add(null, userId));
         }
 
         [TestMethod]
@@ -32,11 +32,11 @@ namespace CarModsHeaven.Services.Tests.ProjectsServiceTests
             var projectsRepoMock = Mock.Create<IEfRepository<Project>>();
             var usersServiceMock = Mock.Create<IUsersService>();
             var contextMock = Mock.Create<IUnitOfWork>();
-            var sut = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
+            var service = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
             var project = Mock.Create<Project>();
 
             // Act & Assert
-            Assert.ThrowsException<ArgumentNullException>(() => sut.Add(project, null));
+            Assert.ThrowsException<ArgumentNullException>(() => service.Add(project, null));
         }
 
         [TestMethod]
@@ -46,12 +46,12 @@ namespace CarModsHeaven.Services.Tests.ProjectsServiceTests
             var projectsRepoMock = Mock.Create<IEfRepository<Project>>();
             var usersServiceMock = Mock.Create<IUsersService>();
             var contextMock = Mock.Create<IUnitOfWork>();
-            var sut = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
+            var service = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
             var userId = Guid.NewGuid();
             var project = Mock.Create<Project>();
 
             // Act
-            sut.Add(project, userId);
+            service.Add(project, userId);
 
             // Assert
             Mock.Assert(() => projectsRepoMock.Add(project), Occurs.Once());
@@ -64,12 +64,12 @@ namespace CarModsHeaven.Services.Tests.ProjectsServiceTests
             var projectsRepoMock = Mock.Create<IEfRepository<Project>>();
             var usersServiceMock = Mock.Create<IUsersService>();
             var contextMock = Mock.Create<IUnitOfWork>();
-            var sut = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
+            var service = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
             var projectMock = Mock.Create<Project>();
             var userId = Guid.NewGuid();
 
             // Act
-            sut.Add(projectMock, userId);
+            service.Add(projectMock, userId);
 
             // Assert
             Mock.Assert(() => contextMock.SaveChanges(), Occurs.Once());
