@@ -85,7 +85,9 @@
     <Compile Include="Controllers\Projects\DeleteShould.cs" />
     <Compile Include="Controllers\Projects\DetailsShould.cs" />
     <Compile Include="Controllers\Projects\EditProjectShould.cs" />
+    <Compile Include="Controllers\Projects\GetProjectsShould.cs" />
     <Compile Include="Controllers\Projects\IndexShould.cs" />
+    <Compile Include="Controllers\Users\IndexShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
