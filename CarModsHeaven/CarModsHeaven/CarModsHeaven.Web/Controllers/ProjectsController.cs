@@ -162,8 +162,13 @@ namespace CarModsHeaven.Web.Controllers
 
         [Authorize]
         [HttpGet]
-        public ActionResult DeleteProject(Guid id)
+        public ActionResult DeleteProject(Guid? id)
         {
+            if (id == null)
+            {
+                return this.View("Error");
+            }
+
             var project = this.projectsService
                 .GetById(id)
                 .SingleOrDefault();
@@ -172,6 +177,7 @@ namespace CarModsHeaven.Web.Controllers
             {
                 return this.View("Error");
             }
+
             this.projectsService.Delete(project);
             return this.RedirectToAction("Index");
         }
