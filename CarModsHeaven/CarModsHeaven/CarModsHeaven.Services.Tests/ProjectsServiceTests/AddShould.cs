@@ -19,7 +19,7 @@ namespace CarModsHeaven.Services.Tests.ProjectsServiceTests
             var usersServiceMock = Mock.Create<IUsersService>();
             var contextMock = Mock.Create<IUnitOfWork>();
             var service = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
-            var userId = Guid.NewGuid();
+            var userId = Guid.NewGuid().ToString();
 
             // Act & Assert
             Assert.ThrowsException<ArgumentNullException>(() => service.Add(null, userId));
@@ -33,7 +33,7 @@ namespace CarModsHeaven.Services.Tests.ProjectsServiceTests
             var usersServiceMock = Mock.Create<IUsersService>();
             var contextMock = Mock.Create<IUnitOfWork>();
             var service = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
-            var userId = Guid.NewGuid();
+            var userId = Guid.NewGuid().ToString();
             var project = Mock.Create<Project>();
 
             // Act
@@ -52,7 +52,7 @@ namespace CarModsHeaven.Services.Tests.ProjectsServiceTests
             var contextMock = Mock.Create<IUnitOfWork>();
             var service = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
             var projectMock = Mock.Create<Project>();
-            var userId = Guid.NewGuid();
+            var userId = Guid.NewGuid().ToString();
 
             // Act
             service.Add(projectMock, userId);

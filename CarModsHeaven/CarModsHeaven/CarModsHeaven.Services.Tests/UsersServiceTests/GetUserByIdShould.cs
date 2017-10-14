@@ -17,7 +17,7 @@ namespace CarModsHeaven.Services.Tests.UsersServiceTests
             var usersRepoMock = Mock.Create<IEfRepository<User>>();
             var contextMock = Mock.Create<IUnitOfWork>();
             var sut = new UsersService(usersRepoMock, contextMock);
-            var userId = Guid.NewGuid();
+            var userId = Guid.NewGuid().ToString();
 
             // Act
             sut.GetUserById(userId);

@@ -77,30 +77,32 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
                 .ShouldRenderView("Details");
         }
 
-        //[TestMethod]
-        //public void CallProjectsServiceMethodAddWhenModelIsValid()
-        //{
-        //    // Arrange
-        //    var projectsServiceMock = Mock.Create<IProjectsService>();
-        //    var usersServiceMock = Mock.Create<IUsersService>();
-        //    this.InitializeMapper();
-        //    var projectId = Guid.NewGuid();
-        //    var userId = Guid.NewGuid();
-        //    var project = new Project
-        //    {
-        //        Id = projectId
-        //    };
-        //    var model = new ProjectAddViewModel();
+        [TestMethod]
+        public void CallProjectsServiceMethodAddWhenModelIsValid()
+        {
+            // Arrange
+            var projectsServiceMock = Mock.Create<IProjectsService>();
+            var usersServiceMock = Mock.Create<IUsersService>();
 
-        //    var controller = new ProjectsController(projectsServiceMock, usersServiceMock);
-        //    Mock.Arrange(() => projectsServiceMock.Add(project, userId));
+            this.CreateViewModelsToModels();
 
-        //    // Act
-        //    controller.AddProject(model);
+            var projectId = Guid.NewGuid();
+            var userId = Guid.NewGuid().ToString();
+            var project = new Project
+            {
+                Id = projectId
+            };
+            var model = new ProjectAddViewModel();
 
-        //    // Assert
-        //    Mock.Assert(() => projectsServiceMock.Add(project, userId), Occurs.Once());
-        //}
+            var controller = new ProjectsController(projectsServiceMock, usersServiceMock);
+            Mock.Arrange(() => projectsServiceMock.Add(project, userId));
+
+            // Act
+            controller.AddProject(model);
+
+            // Assert
+            Mock.Assert(() => projectsServiceMock.Add(project, userId), Occurs.Once());
+        }
 
         private void InitializeMapper()
         {
@@ -109,6 +111,16 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
                         .ForMember(viewModel => viewModel.Id,
                             opt => opt.MapFrom(project => project.Id))
             );
+        }
+
+        private void CreateViewModelsToModels()
+        {
+            Mapper.Initialize(cfg =>
+                    cfg.CreateMap<ProjectAddViewModel, Project>()
+                        .ForMember(project => project.Id,
+                            opt => opt.MapFrom(viewModel => viewModel.Title))
+                        .ForMember(viewModel => viewModel.Title,
+                            opt => opt.MapFrom(project => project.Title)));
         }
     }
 }
