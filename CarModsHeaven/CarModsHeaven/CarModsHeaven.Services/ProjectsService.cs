@@ -46,7 +46,7 @@ namespace CarModsHeaven.Services
 
             this.projectsRepo.Add(project);
             var currentUser = this.usersService.GetUserById(UserId);
-            currentUser.Projects.Add(project);
+            currentUser.SingleOrDefault().Projects.Add(project);
             this.context.SaveChanges();
         }
 

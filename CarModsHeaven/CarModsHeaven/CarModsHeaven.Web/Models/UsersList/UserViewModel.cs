@@ -8,6 +8,8 @@ namespace CarModsHeaven.Web.Models.UsersList
 {
     public class UserViewModel : IMapFrom<User>, IHaveCustomMappings
     {
+        public string Id { get; set; }
+
         [Display(Name = "Full Name")]
         public string FullName { get; set; }
 
