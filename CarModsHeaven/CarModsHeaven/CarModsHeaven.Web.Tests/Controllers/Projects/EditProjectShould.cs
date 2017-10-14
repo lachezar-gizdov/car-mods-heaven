@@ -28,7 +28,7 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             {
                 Id = projectId
             };
-            
+
             this.InitializeMapper();
 
             var controller = new ProjectsController(projectsServiceMock, usersServiceMock);
@@ -96,12 +96,82 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
                 .ShouldRenderView("Error");
         }
 
+        //[TestMethod]
+        //public void ReturnDetailsViewIfModelIsValid()
+        //{
+        //    // Arrange
+        //    var projectsServiceMock = Mock.Create<IProjectsService>();
+        //    var usersServiceMock = Mock.Create<IUsersService>();
+        //    this.InitializeMapper();
+        //    var projectId = Guid.NewGuid();
+        //    var project = new Project
+        //    {
+        //        Id = projectId
+        //    };
+
+        //    var model = new ProjectDetailsViewModel();
+        //    var controller = new ProjectsController(projectsServiceMock, usersServiceMock);
+        //    var list = new List<Project>() { project };
+        //    Mock.Arrange(() => projectsServiceMock.GetById(projectId)).Returns(list.AsQueryable());
+
+        //    // Act
+        //    controller.EditProject(model);
+
+        //    //Assert
+        //    controller
+        //        .WithCallTo(c => c.EditProject(model))
+        //        .ShouldRenderView("Details");
+        //}
+
+        //[TestMethod]
+        //public void ReturnSameView_WhenModelIsNotValid()
+        //{
+        //    // Arrange
+        //    var projectsServiceMock = Mock.Create<IProjectsService>();
+        //    var usersServiceMock = Mock.Create<IUsersService>();
+        //    var model = new ProjectDetailsViewModel();
+        //    var controller = new ProjectsController(projectsServiceMock, usersServiceMock);
+
+        //    // Act
+        //    controller.ModelState.AddModelError("key", "message");
+
+        //    // Assert
+        //    controller
+        //        .WithCallTo(c => c.EditProject(model))
+        //        .ShouldRenderDefaultView();
+        //}
+
+        //[TestMethod]
+        //public void CallProjectsServiceMethodEditWhenModelIsValid()
+        //{
+        //    // Arrange
+        //    var projectsServiceMock = Mock.Create<IProjectsService>();
+        //    var usersServiceMock = Mock.Create<IUsersService>();
+        //    this.InitializeMapper();
+        //    var projectId = Guid.NewGuid();
+        //    var userId = Guid.NewGuid();
+        //    var project = new Project
+        //    {
+        //        Id = projectId
+        //    };
+        //    var model = new ProjectAddViewModel();
+
+        //    var controller = new ProjectsController(projectsServiceMock, usersServiceMock);
+        //    Mock.Arrange(() => projectsServiceMock.Update(project));
+
+        //    // Act
+        //    controller.EditProject(projectId);
+
+        //    // Assert
+        //    Mock.Assert(() => projectsServiceMock.Update(project), Occurs.Once());
+        //}
+
         private void InitializeMapper()
         {
             Mapper.Initialize(cfg =>
                     cfg.CreateMap<Project, ProjectDetailsViewModel>()
-                        .ForMember(viewModel => viewModel.CarBrand,
-                            opt => opt.MapFrom(project => project.CarBrand))
+                        .ForMember(project => project.Id,
+                            opt => opt.MapFrom(viewModel => viewModel.Id))
             );
         }
     }

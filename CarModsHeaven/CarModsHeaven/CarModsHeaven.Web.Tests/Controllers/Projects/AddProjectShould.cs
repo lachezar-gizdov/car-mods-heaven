@@ -106,8 +106,8 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
         {
             Mapper.Initialize(cfg =>
                     cfg.CreateMap<Project, ProjectDetailsViewModel>()
-                        .ForMember(viewModel => viewModel.CarBrand,
-                            opt => opt.MapFrom(project => project.CarBrand))
+                        .ForMember(viewModel => viewModel.Id,
+                            opt => opt.MapFrom(project => project.Id))
             );
         }
     }
