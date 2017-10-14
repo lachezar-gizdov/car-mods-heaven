@@ -33,5 +33,11 @@ namespace CarModsHeaven.Services
             return this.usersRepo.AllVisible
                 .Where(x => x.Id == id);
         }
+
+        public void Delete(User user)
+        {
+            this.usersRepo.Delete(user);
+            this.context.SaveChanges();
+        }
     }
 }

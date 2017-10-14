@@ -11,7 +11,6 @@
         <dd>@Model.FullName</dd>
         <dt>Password:</dt>
         <dd>
-            [
             @if (Model.HasPassword)
             {
                 @Html.ActionLink("Change your password", "ChangePassword")
@@ -20,12 +19,11 @@
             {
                 @Html.ActionLink("Create", "SetPassword")
                 }
-            ]
         </dd>
         <dt>External Logins:</dt>
         <dd>
-            @Model.Logins.Count [
-            @Html.ActionLink("Manage", "ManageLogins") ]
+            @Model.Logins.Count |
+            @Html.ActionLink("Add new ones?", "ManageLogins")
         </dd>
     </dl>
 </div>
