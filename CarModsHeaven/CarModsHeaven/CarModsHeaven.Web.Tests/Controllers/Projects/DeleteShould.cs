@@ -8,15 +8,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Telerik.JustMock;
 using TestStack.FluentMVCTesting;
 
 namespace CarModsHeaven.Web.Tests.Controllers.Projects
 {
     [TestClass]
-    public class EditProjectShould
+    public class DeleteShould
     {
         [TestMethod]
         public void ReturnErrorViewWhenProjectIsNotFound()
@@ -38,11 +36,11 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             Mock.Arrange(() => projectsServiceMock.GetById(projectId)).Returns(emptyList.AsQueryable());
 
             // Act
-            controller.EditProject(projectId);
+            controller.DeleteProject(projectId);
 
             // Assert
             controller
-                .WithCallTo(c => c.EditProject(projectId))
+                .WithCallTo(c => c.DeleteProject(projectId))
                 .ShouldRenderView("Error");
         }
 
@@ -65,11 +63,11 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             Mock.Arrange(() => projectsServiceMock.GetById(projectId)).Returns(list.AsQueryable());
 
             // Act
-            controller.EditProject(projectId);
+            controller.DeleteProject(projectId);
 
             //Assert
             controller
-                .WithCallTo(c => c.EditProject(projectId))
+                .WithCallTo(c => c.DeleteProject(projectId))
                 .ShouldRenderDefaultView();
         }
 
@@ -92,11 +90,11 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             Mock.Arrange(() => projectsServiceMock.GetById(projectId)).Returns(list.AsQueryable());
 
             // Act
-            controller.EditProject(projectId);
+            controller.DeleteProject(projectId);
 
             //Assert
             controller
-                .WithCallTo(c => c.EditProject((Guid?)null))
+                .WithCallTo(c => c.DeleteProject((Guid?)null))
                 .ShouldRenderView("Error");
         }
 
@@ -130,24 +128,24 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
         //        .ShouldRenderView("Details");
         //}
 
-//        [TestMethod]
-//        public void ReturnSameView_WhenModelIsNotValid()
-//        {
-//            // Arrange
-//            var projectsServiceMock = Mock.Create<IProjectsService>();
-//            var usersServiceMock = Mock.Create<IUsersService>();
-//            var authMock = Mock.Create<IAuthProvider>();
-//            var model = new ProjectDetailsViewModel();
-//            var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
+        //        [TestMethod]
+        //        public void ReturnSameView_WhenModelIsNotValid()
+        //        {
+        //            // Arrange
+        //            var projectsServiceMock = Mock.Create<IProjectsService>();
+        //            var usersServiceMock = Mock.Create<IUsersService>();
+        //            var authMock = Mock.Create<IAuthProvider>();
+        //            var model = new ProjectDetailsViewModel();
+        //            var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
 
-//            // Act
-//            controller.ModelState.AddModelError("key", "message");
-//;
-//            // Assert
-//            controller
-//                .WithCallTo(c => c.EditProject(model))
-//                .ShouldRenderDefaultView();
-//        }
+        //            // Act
+        //            controller.ModelState.AddModelError("key", "message");
+        //;
+        //            // Assert
+        //            controller
+        //                .WithCallTo(c => c.EditProject(model))
+        //                .ShouldRenderDefaultView();
+        //        }
 
         //[TestMethod]
         //public void CallProjectsServiceMethodEditWhenModelIsValid()

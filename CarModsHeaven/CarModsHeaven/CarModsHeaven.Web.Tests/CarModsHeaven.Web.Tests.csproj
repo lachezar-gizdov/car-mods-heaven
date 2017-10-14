@@ -82,6 +82,7 @@
     <Compile Include="Controllers\Home\Tests.cs" />
     <Compile Include="Controllers\Projects\ConstructorShould.cs" />
     <Compile Include="Controllers\Projects\AddProjectShould.cs" />
+    <Compile Include="Controllers\Projects\DeleteShould.cs" />
     <Compile Include="Controllers\Projects\DetailsShould.cs" />
     <Compile Include="Controllers\Projects\EditProjectShould.cs" />
     <Compile Include="Controllers\Projects\IndexShould.cs" />
@@ -92,6 +93,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CarModsHeaven.Auth\CarModsHeaven.Auth.csproj">
+      <Project>{76F8EB5C-FC6C-43FB-921D-FAFE02C2B245}</Project>
+      <Name>CarModsHeaven.Auth</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CarModsHeaven.Data.Models\CarModsHeaven.Data.Models.csproj">
       <Project>{97ED1931-6067-4703-BE95-1A66A1ADD614}</Project>
       <Name>CarModsHeaven.Data.Models</Name>

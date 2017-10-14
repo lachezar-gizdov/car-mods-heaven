@@ -1,4 +1,5 @@
-﻿using CarModsHeaven.Services.Contracts;
+﻿using CarModsHeaven.Auth.Contracts;
+using CarModsHeaven.Services.Contracts;
 using CarModsHeaven.Web.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -14,9 +15,10 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
         {
             // Arrange
             var usersServiceMock = Mock.Create<IUsersService>();
+            var authMock = Mock.Create<IAuthProvider>();
 
             // Act & Assert
-            Assert.ThrowsException<ArgumentNullException>(() => new ProjectsController(null, usersServiceMock));
+            Assert.ThrowsException<ArgumentNullException>(() => new ProjectsController(null, usersServiceMock, authMock));
         }
 
         [TestMethod]
@@ -24,9 +26,10 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
         {
             // Arrange
             var projectssServiceMock = Mock.Create<IProjectsService>();
+            var authMock = Mock.Create<IAuthProvider>();
 
             // Act & Assert
-            Assert.ThrowsException<ArgumentNullException>(() => new ProjectsController(projectssServiceMock, null));
+            Assert.ThrowsException<ArgumentNullException>(() => new ProjectsController(projectssServiceMock, null, authMock));
         }
 
         [TestMethod]
@@ -35,12 +38,24 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             // Arrange
             var projectssServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
+            var authMock = Mock.Create<IAuthProvider>();
 
             // Act
-            var controller = new ProjectsController(projectssServiceMock, usersServiceMock);
+            var controller = new ProjectsController(projectssServiceMock, usersServiceMock, authMock);
 
             // Assert
             Assert.IsNotNull(controller);
+        }
+
+        [TestMethod]
+        public void ThrowWhenAuthProviderIsNull()
+        {
+            // Arrange
+            var projectssServiceMock = Mock.Create<IProjectsService>();
+            var usersServiceMock = Mock.Create<IUsersService>();
+
+            // Act & Assert
+            Assert.ThrowsException<ArgumentNullException>(() => new ProjectsController(projectssServiceMock, usersServiceMock, null));
         }
     }
 }

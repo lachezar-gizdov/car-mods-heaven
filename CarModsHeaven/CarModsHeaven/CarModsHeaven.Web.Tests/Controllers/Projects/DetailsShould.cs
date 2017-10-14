@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CarModsHeaven.Auth.Contracts;
 using CarModsHeaven.Data.Models;
 using CarModsHeaven.Services.Contracts;
 using CarModsHeaven.Web.Controllers;
@@ -21,10 +22,11 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             // Arrange
             var projectsServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
+            var authMock = Mock.Create<IAuthProvider>();
             this.InitializeMapper();
 
             // Act
-            var controller = new ProjectsController(projectsServiceMock, usersServiceMock);
+            var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
 
             // Assert
             controller
@@ -38,11 +40,12 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             // Arrange
             var projectsServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
+            var authMock = Mock.Create<IAuthProvider>();
             this.InitializeMapper();
             var projectId = Guid.NewGuid();
 
             // Act
-            var controller = new ProjectsController(projectsServiceMock, usersServiceMock);
+            var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
 
             // Assert
             controller
@@ -56,6 +59,7 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             // Arrange
             var projectsServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
+            var authMock = Mock.Create<IAuthProvider>();
             this.InitializeMapper();
             var projectId = Guid.NewGuid();
             var project = new Project
@@ -63,7 +67,7 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
                 Id = projectId
             };
 
-            var controller = new ProjectsController(projectsServiceMock, usersServiceMock);
+            var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
             var list = new List<Project>() { project };
             Mock.Arrange(() => projectsServiceMock.GetById(projectId)).Returns(list.AsQueryable());
 

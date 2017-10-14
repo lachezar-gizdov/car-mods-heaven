@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CarModsHeaven.Auth.Contracts;
 using CarModsHeaven.Data.Models;
 using CarModsHeaven.Services.Contracts;
 using CarModsHeaven.Web.Controllers;
@@ -12,25 +13,17 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
     [TestClass]
     public class IndexShould
     {
-        private void InitializeMapper()
-        {
-            Mapper.Initialize(cfg =>
-                    cfg.CreateMap<Project, ProjectDetailsViewModel>()
-                        .ForMember(viewModel => viewModel.CarBrand,
-                            opt => opt.MapFrom(project => project.CarBrand))
-            );
-        }
-
         [TestMethod]
         public void RenderDefaultView()
         {
             // Arrange
             var projectsServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
+            var authMock = Mock.Create<IAuthProvider>();
             this.InitializeMapper();
 
             // Act
-            var controller = new ProjectsController(projectsServiceMock, usersServiceMock);
+            var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
 
             //Assert
             controller
@@ -44,14 +37,24 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             // Arrange
             var projectsServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
+            var authMock = Mock.Create<IAuthProvider>();
             this.InitializeMapper();
 
             // Act
-            var controller = new ProjectsController(projectsServiceMock, usersServiceMock);
+            var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
             controller.Index(null);
 
             // Assert
             Mock.Assert(() => projectsServiceMock.GetAll(), Occurs.Once());
+        }
+
+        private void InitializeMapper()
+        {
+            Mapper.Initialize(cfg =>
+                    cfg.CreateMap<Project, ProjectDetailsViewModel>()
+                        .ForMember(viewModel => viewModel.CarBrand,
+                            opt => opt.MapFrom(project => project.CarBrand))
+            );
         }
     }
 }
