@@ -7,7 +7,7 @@ namespace CarModsHeaven.Web.Controllers
         [OutputCache(Duration = 60)]
         public ActionResult NotFound()
         {
-            return View();
+            return this.View();
         }
     }
 }

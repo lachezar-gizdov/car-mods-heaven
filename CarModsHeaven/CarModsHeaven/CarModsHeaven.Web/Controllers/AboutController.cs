@@ -1,8 +1,8 @@
-﻿using Bytes2you.Validation;
+﻿using System.Linq;
+using System.Web.Mvc;
+using Bytes2you.Validation;
 using CarModsHeaven.Services.Contracts;
 using CarModsHeaven.Web.Models.About;
-using System.Linq;
-using System.Web.Mvc;
 
 namespace ContactUS.Controllers
 {
@@ -16,8 +16,8 @@ namespace ContactUS.Controllers
 
         public AboutController(IProjectsService projectsService, IUsersService usersService)
         {
-            Guard.WhenArgument(projectsService, projectsServiceCheck).IsNull().Throw();
-            Guard.WhenArgument(usersService, usersServiceCheck).IsNull().Throw();
+            Guard.WhenArgument(projectsService, this.projectsServiceCheck).IsNull().Throw();
+            Guard.WhenArgument(usersService, this.usersServiceCheck).IsNull().Throw();
 
             this.projectsService = projectsService;
             this.usersService = usersService;

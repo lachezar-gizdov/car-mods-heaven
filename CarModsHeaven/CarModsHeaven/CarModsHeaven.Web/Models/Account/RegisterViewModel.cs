@@ -11,7 +11,7 @@ namespace CarModsHeaven.Web.Models.Account
 
         [Required]
         [Display(Name = "Full Name")]
-        [StringLength(maximumLength:20, MinimumLength = 3)]
+        [StringLength(maximumLength: 20, MinimumLength = 3)]
         public string FullName { get; set; }
 
         [Required]

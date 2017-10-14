@@ -13,8 +13,8 @@ namespace CarModsHeaven.Providers.Contracts
 
         IIdentity CurrentIdentity { get; }
 
-        TManager GetUserManager<TManager>();
-
         Cache ContextCache { get; }
+
+        TManager GetUserManager<TManager>();
     }
 }

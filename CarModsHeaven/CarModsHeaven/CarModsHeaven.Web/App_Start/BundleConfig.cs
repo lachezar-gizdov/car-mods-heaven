@@ -34,7 +34,7 @@ namespace CarModsHeaven.Web
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
-            //BundleTable.EnableOptimizations = true;
+            // BundleTable.EnableOptimizations = true;
         }
     }
 }

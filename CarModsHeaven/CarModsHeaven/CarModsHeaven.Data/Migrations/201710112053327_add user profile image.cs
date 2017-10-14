@@ -1,9 +1,8 @@
 namespace CarModsHeaven.Data.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
-    public partial class adduserprofileimage : DbMigration
+
+    public partial class Adduserprofileimage : DbMigration
     {
         public override void Up()
         {

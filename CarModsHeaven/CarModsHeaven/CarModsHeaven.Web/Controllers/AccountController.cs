@@ -1,15 +1,14 @@
-﻿using System.Linq;
+﻿using System;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Bytes2you.Validation;
+using CarModsHeaven.Auth.Managers;
 using CarModsHeaven.Data.Models;
 using CarModsHeaven.Web.Models.Account;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using System;
-using Bytes2you.Validation;
-using CarModsHeaven.Auth.Managers;
 
 namespace CarModsHeaven.Web.Controllers
 {
@@ -21,7 +20,7 @@ namespace CarModsHeaven.Web.Controllers
         private ApplicationUserManager userManager;
 
         private readonly string userManagerCheck = "User Manager is null";
-        private readonly string ApplicationSignInManagerCheck = "Application SignIn Manager is null";
+        private readonly string applicationSignInManagerCheck = "Application SignIn Manager is null";
 
         public AccountController()
         {
@@ -29,8 +28,8 @@ namespace CarModsHeaven.Web.Controllers
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
-            Guard.WhenArgument(userManager, userManagerCheck).IsNull().Throw();
-            Guard.WhenArgument(signInManager, ApplicationSignInManagerCheck).IsNull().Throw();
+            Guard.WhenArgument(userManager, this.userManagerCheck).IsNull().Throw();
+            Guard.WhenArgument(signInManager, this.applicationSignInManagerCheck).IsNull().Throw();
 
             this.UserManager = userManager;
             this.SignInManager = signInManager;
@@ -134,13 +133,6 @@ namespace CarModsHeaven.Web.Controllers
             }
 
             return this.View(model);
-        }
-
-        // GET: /Account/ForgotPassword
-        [AllowAnonymous]
-        public ActionResult ForgotPassword()
-        {
-            return this.View();
         }
 
         // POST: /Account/ExternalLogin

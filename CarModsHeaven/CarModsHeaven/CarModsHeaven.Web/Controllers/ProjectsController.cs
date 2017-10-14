@@ -1,16 +1,14 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using Bytes2you.Validation;
+using CarModsHeaven.Auth.Contracts;
 using CarModsHeaven.Data.Models;
 using CarModsHeaven.Services.Contracts;
-using CarModsHeaven.Web.Infrastructure;
 using CarModsHeaven.Web.Models.ProjectsList;
-using Microsoft.AspNet.Identity;
 using X.PagedList;
-using Bytes2you.Validation;
-using AutoMapper.QueryableExtensions;
-using System;
-using CarModsHeaven.Auth.Contracts;
 
 namespace CarModsHeaven.Web.Controllers
 {
@@ -25,9 +23,9 @@ namespace CarModsHeaven.Web.Controllers
 
         public ProjectsController(IProjectsService projectsService, IUsersService usersService, IAuthProvider authProvider)
         {
-            Guard.WhenArgument(projectsService, projectsServiceCheck).IsNull().Throw();
-            Guard.WhenArgument(usersService, usersServiceCheck).IsNull().Throw();
-            Guard.WhenArgument(authProvider, authProviderCheck).IsNull().Throw();
+            Guard.WhenArgument(projectsService, this.projectsServiceCheck).IsNull().Throw();
+            Guard.WhenArgument(usersService, this.usersServiceCheck).IsNull().Throw();
+            Guard.WhenArgument(authProvider, this.authProviderCheck).IsNull().Throw();
 
             this.projectsService = projectsService;
             this.usersService = usersService;
@@ -70,6 +68,7 @@ namespace CarModsHeaven.Web.Controllers
             {
                 return this.View("Error");
             }
+
             var project = this.projectsService
                 .GetById(id)
                 .ProjectTo<ProjectDetailsViewModel>()
@@ -108,7 +107,7 @@ namespace CarModsHeaven.Web.Controllers
             }
 
             var dbModel = Mapper.Map<Project>(project);
-            var userId = authProvider.CurrentUserId;
+            var userId = this.authProvider.CurrentUserId;
             this.projectsService.Add(dbModel, userId);
 
             return this.RedirectToAction("Details", new { id = dbModel.Id });

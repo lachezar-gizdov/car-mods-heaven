@@ -1,9 +1,9 @@
 ﻿using System.Security.Principal;
 using System.Web;
 using System.Web.Caching;
+using CarModsHeaven.Providers.Contracts;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
-using CarModsHeaven.Providers.Contracts;
 
 namespace FindAndBook.Providers
 {
@@ -33,17 +33,17 @@ namespace FindAndBook.Providers
             }
         }
 
-        public TManager GetUserManager<TManager>()
-        {
-            return HttpContext.Current.GetOwinContext().GetUserManager<TManager>();
-        }
-
         public Cache ContextCache
         {
             get
             {
                 return HttpContext.Current.Cache;
             }
+        }
+
+        public TManager GetUserManager<TManager>()
+        {
+            return HttpContext.Current.GetOwinContext().GetUserManager<TManager>();
         }
     }
 }
