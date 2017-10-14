@@ -29,7 +29,7 @@ namespace CarModsHeaven.Services
             return this.usersRepo.AllVisible;
         }
 
-        public User GetUserById(Guid? id)
+        public User GetUserById(string id)
         {
             var user = this.usersRepo.GetById(id);
 

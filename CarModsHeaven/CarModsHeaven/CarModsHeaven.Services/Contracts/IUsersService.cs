@@ -8,6 +8,6 @@ namespace CarModsHeaven.Services.Contracts
     {
         IQueryable<User> GetAll();
 
-        User GetUserById(Guid? id);
+        User GetUserById(string id);
     }
 }

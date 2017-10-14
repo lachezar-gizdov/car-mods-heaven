@@ -40,7 +40,7 @@ namespace CarModsHeaven.Services
                 .Where(x => x.Id == id);
         }
 
-        public void Add(Project project, Guid? UserId)
+        public void Add(Project project, string UserId)
         {
             Guard.WhenArgument(project, projectCheck).IsNull().Throw();
 

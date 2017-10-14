@@ -121,7 +121,7 @@ namespace CarModsHeaven.Web.Controllers
             }
 
             var dbModel = Mapper.Map<Project>(project);
-            var userId = Guid.Parse(User.Identity.GetUserId());
+            var userId = User.Identity.GetUserId();
             this.projectsService.Add(dbModel, userId);
 
             return this.RedirectToAction("Details", new { id = dbModel.Id });
