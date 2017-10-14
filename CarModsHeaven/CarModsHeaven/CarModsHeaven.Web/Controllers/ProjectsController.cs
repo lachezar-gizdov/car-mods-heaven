@@ -21,11 +21,13 @@ namespace CarModsHeaven.Web.Controllers
         private readonly IAuthProvider authProvider;
         private readonly string projectsServiceCheck = "Project service is null";
         private readonly string usersServiceCheck = "Users service is null";
+        private readonly string authProviderCheck = "Auth provider is null";
 
         public ProjectsController(IProjectsService projectsService, IUsersService usersService, IAuthProvider authProvider)
         {
             Guard.WhenArgument(projectsService, projectsServiceCheck).IsNull().Throw();
             Guard.WhenArgument(usersService, usersServiceCheck).IsNull().Throw();
+            Guard.WhenArgument(authProvider, authProviderCheck).IsNull().Throw();
 
             this.projectsService = projectsService;
             this.usersService = usersService;
