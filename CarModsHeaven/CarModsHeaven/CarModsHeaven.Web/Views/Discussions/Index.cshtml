@@ -16,17 +16,15 @@
     <script>
         $(function () {
             var discussions = $.connection.discussionsHub;
-            discussions.client.getMessage = (msg) => {
-                console.log(msg);
-                $('#messages').append(msg + '<br />')
-            }
-
             $.connection.hub.start().done(function () {
 
                 $('#sendBtn').click(() => {
                     discussions.server.sendMessage($('#msgInput').val())
                 })
             });
+            discussions.client.getMessage = (msg) => {
+                $('#messages').append(msg + '<br />')
+            }
         })
     </script>
 }
