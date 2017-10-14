@@ -10,7 +10,7 @@ namespace CarModsHeaven.Services.Contracts
 
         IQueryable<Project> GetById(Guid? id);
 
-        void Add(Project project, Guid? id);
+        void Add(Project project, string id);
 
         void Update(Project project);
 

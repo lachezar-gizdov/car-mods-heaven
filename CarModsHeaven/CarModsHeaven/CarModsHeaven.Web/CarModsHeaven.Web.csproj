@@ -227,10 +227,6 @@
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfigs\ApplicationSignInManager.cs" />
-    <Compile Include="App_Start\IdentityConfigs\ApplicationUserManager.cs" />
-    <Compile Include="App_Start\IdentityConfigs\EmailService.cs" />
-    <Compile Include="App_Start\IdentityConfigs\SmsService.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -357,6 +353,10 @@
     <Content Include="Scripts\jquery-3.2.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CarModsHeaven.Auth\CarModsHeaven.Auth.csproj">
+      <Project>{76F8EB5C-FC6C-43FB-921D-FAFE02C2B245}</Project>
+      <Name>CarModsHeaven.Auth</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CarModsHeaven.Data.Models\CarModsHeaven.Data.Models.csproj">
       <Project>{97ED1931-6067-4703-BE95-1A66A1ADD614}</Project>
       <Name>CarModsHeaven.Data.Models</Name>
@@ -364,6 +364,10 @@
     <ProjectReference Include="..\CarModsHeaven.Data\CarModsHeaven.Data.csproj">
       <Project>{4C2DCC15-2580-4FD5-82E3-8DBD8D9454F3}</Project>
       <Name>CarModsHeaven.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarModsHeaven.Providers\CarModsHeaven.Providers.csproj">
+      <Project>{DBC0B039-48A5-40FF-853B-7FC0ADF2DAD4}</Project>
+      <Name>CarModsHeaven.Providers</Name>
     </ProjectReference>
     <ProjectReference Include="..\CarModsHeaven.Services\CarModsHeaven.Services.csproj">
       <Project>{6B3D266F-F366-459D-B326-BC95728C083F}</Project>

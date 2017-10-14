@@ -10,6 +10,7 @@ using X.PagedList;
 using Bytes2you.Validation;
 using AutoMapper.QueryableExtensions;
 using System;
+using CarModsHeaven.Auth.Contracts;
 
 namespace CarModsHeaven.Web.Controllers
 {
@@ -17,17 +18,18 @@ namespace CarModsHeaven.Web.Controllers
     {
         private readonly IProjectsService projectsService;
         private readonly IUsersService usersService;
-
+        private readonly IAuthProvider authProvider;
         private readonly string projectsServiceCheck = "Project service is null";
         private readonly string usersServiceCheck = "Users service is null";
 
-        public ProjectsController(IProjectsService projectsService, IUsersService usersService)
+        public ProjectsController(IProjectsService projectsService, IUsersService usersService, IAuthProvider authProvider)
         {
             Guard.WhenArgument(projectsService, projectsServiceCheck).IsNull().Throw();
             Guard.WhenArgument(usersService, usersServiceCheck).IsNull().Throw();
 
             this.projectsService = projectsService;
             this.usersService = usersService;
+            this.authProvider = authProvider;
         }
 
         [HttpGet]
@@ -121,7 +123,7 @@ namespace CarModsHeaven.Web.Controllers
             }
 
             var dbModel = Mapper.Map<Project>(project);
-            var userId = User.Identity.GetUserId();
+            var userId = authProvider.CurrentUserId;
             this.projectsService.Add(dbModel, userId);
 
             return this.RedirectToAction("Details", new { id = dbModel.Id });
