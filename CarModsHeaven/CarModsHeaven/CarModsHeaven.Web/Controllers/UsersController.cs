@@ -4,6 +4,7 @@ using CarModsHeaven.Services.Contracts;
 using CarModsHeaven.Web.Infrastructure;
 using CarModsHeaven.Web.Models.UsersList;
 using Bytes2you.Validation;
+using AutoMapper.QueryableExtensions;
 
 namespace CarModsHeaven.Web.Controllers
 {
@@ -28,17 +29,17 @@ namespace CarModsHeaven.Web.Controllers
         {
             var users = this.usersService
                 .GetAll()
-                .MapTo<UserViewModel>()
+                .ProjectTo<UserViewModel>()
                 .ToList();
 
             return this.View(users);
         }
 
-        public ActionResult Details(string userName)
+        public ActionResult Details(string id)
         {
-            var user = this.usersService.GetAll()
-                .MapTo<UserViewModel>()
-                .SingleOrDefault(x => x.UserName == userName);
+            var user = this.usersService.GetUserById(id)
+                .ProjectTo<UserViewModel>()
+                .SingleOrDefault();
 
             return this.View(user);
         }

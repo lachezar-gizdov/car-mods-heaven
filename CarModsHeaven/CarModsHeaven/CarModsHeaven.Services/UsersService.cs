@@ -29,11 +29,10 @@ namespace CarModsHeaven.Services
             return this.usersRepo.AllVisible;
         }
 
-        public User GetUserById(string id)
+        public IQueryable<User> GetUserById(string id)
         {
-            var user = this.usersRepo.GetById(id);
-
-            return user;
+            return this.usersRepo.AllVisible
+                .Where(x => x.Id == id);
         }
     }
 }

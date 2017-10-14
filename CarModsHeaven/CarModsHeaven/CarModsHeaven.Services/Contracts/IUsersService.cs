@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using CarModsHeaven.Data.Models;
-using System;
 
 namespace CarModsHeaven.Services.Contracts
 {
@@ -8,6 +7,6 @@ namespace CarModsHeaven.Services.Contracts
     {
         IQueryable<User> GetAll();
 
-        User GetUserById(string id);
+        IQueryable<User> GetUserById(string id);
     }
 }

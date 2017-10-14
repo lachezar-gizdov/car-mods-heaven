@@ -9,7 +9,7 @@
     @foreach (var user in Model)
     {
         <div class="col-md-4">
-            <h3>@Html.ActionLink(@user.UserName, "Details", new { userName = user.UserName })</h3>
+            <h3>@Html.ActionLink(@user.UserName, "Details", new { id = user.Id })</h3>
             <h3>Added projects: @user.Projects.Count</h3>
         </div>
     }
