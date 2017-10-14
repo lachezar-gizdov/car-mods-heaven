@@ -63,5 +63,27 @@ namespace CarModsHeaven.Services
             this.projectsRepo.Delete(project);
             this.context.SaveChanges();
         }
+
+        public IQueryable<Project> GetAllSorted(string pattern)
+        {
+            var projects = this.projectsRepo.AllVisible;
+
+            switch (pattern)
+            {
+                case "date":
+                    projects = projects.OrderBy(x => x.CreatedOn);
+                    break;
+                case "brand":
+                    projects = projects.OrderBy(x => x.CarBrand);
+                    break;
+                case "title":
+                    projects = projects.OrderBy(x => x.Title);
+                    break;
+                default:
+                    break;
+            }
+
+            return projects;
+        }
     }
 }

@@ -50,33 +50,16 @@ namespace CarModsHeaven.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetProjects(int? page, string sortBy, string searchPattern)
+        public ActionResult GetProjects(int? page, string pattern)
         {
             var projects = this.projectsService
-                .GetAll()
-                .OrderBy(x => x.CreatedOn)
+                .GetAllSorted(pattern)
                 .ProjectTo<ProjectDetailsViewModel>()
                 .ToList();
-
-            if (!string.IsNullOrEmpty(searchPattern))
-            {
-                projects = projects.Where(p => p.Title.ToLower().Contains(searchPattern.ToLower())).ToList();
-            }
 
             int pageSize = 6;
             int pageNumber = page ?? 1;
 
-            switch (sortBy)
-            {
-                case "date": projects = projects.OrderBy(x => x.CreatedOn).ToList();
-                    break;
-                case "brand": projects = projects.OrderBy(x => x.CarBrand).ToList();
-                    break;
-                case "title": projects = projects.OrderBy(x => x.Title).ToList();
-                    break;
-                default:
-                    break;
-            }
             return this.PartialView("_GetProjectsPartial", projects.ToPagedList(pageNumber, pageSize));
         }
 
