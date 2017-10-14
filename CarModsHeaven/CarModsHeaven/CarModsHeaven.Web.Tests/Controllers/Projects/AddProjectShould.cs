@@ -80,28 +80,28 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
                 .ShouldRenderView("Details");
         }
 
-        //[TestMethod]
-        //public void CallProjectsServiceMethodAddWhenModelIsValid()
-        //{
-        //    // Arrange
-        //    var projectsServiceMock = Mock.Create<IProjectsService>();
-        //    var usersServiceMock = Mock.Create<IUsersService>();
-        //    var authMock = Mock.Create<IAuthProvider>();
-        //    this.CreateViewModelsToModels();
+        [TestMethod]
+        public void CallProjectsServiceMethodAddWhenModelIsValid()
+        {
+            // Arrange
+            var projectsServiceMock = Mock.Create<IProjectsService>();
+            var usersServiceMock = Mock.Create<IUsersService>();
+            var authMock = Mock.Create<IAuthProvider>();
+            this.CreateViewModelsToModels();
 
-        //    var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
-        //    var userId = Guid.NewGuid().ToString();
-        //    var project = new Project();
-        //    var model = new ProjectAddViewModel();
-        //    Mock.Arrange(() => authMock.CurrentUserId).Returns(userId);
-        //    Mock.Arrange(() => projectsServiceMock.Add(project, userId));
+            var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
+            var userId = Guid.NewGuid().ToString();
+            var project = new Project();
+            var model = new ProjectAddViewModel();
+            Mock.Arrange(() => authMock.CurrentUserId).Returns(userId);
+            Mock.Arrange(() => projectsServiceMock.Add(project, userId));
 
-        //    // Act
-        //    controller.AddProject(model);
+            // Act
+            controller.AddProject(model);
 
-        //    // Assert
-        //    Mock.Assert(() => projectsServiceMock.Add(project, userId), Occurs.Once());
-        //}
+            // Assert
+            Mock.Assert(() => projectsServiceMock.Add(project, userId), Occurs.Once());
+        }
 
         private void InitializeMapper()
         {

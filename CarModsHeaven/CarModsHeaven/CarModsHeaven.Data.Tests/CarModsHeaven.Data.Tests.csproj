@@ -54,7 +54,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EfRepositoryTests\AddShould.cs" />
     <Compile Include="EfRepositoryTests\ConstructorShould.cs" />
     <Compile Include="EfRepositoryTests\Fake\FakeEFRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

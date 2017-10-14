@@ -100,80 +100,80 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
                 .ShouldRenderView("Error");
         }
 
-        //[TestMethod]
-        //public void ReturnDetailsViewIfModelIsValid()
-        //{
-        //    // Arrange
-        //    var projectsServiceMock = Mock.Create<IProjectsService>();
-        //    var usersServiceMock = Mock.Create<IUsersService>();
-        //    var authMock = Mock.Create<IAuthProvider>();
+        [TestMethod]
+        public void ReturnDetailsViewIfModelIsValid()
+        {
+            // Arrange
+            var projectsServiceMock = Mock.Create<IProjectsService>();
+            var usersServiceMock = Mock.Create<IUsersService>();
+            var authMock = Mock.Create<IAuthProvider>();
 
-        //    this.ProjectToProjectDetailsViewModel();
+            this.ProjectToProjectDetailsViewModel();
 
-        //    var projectId = Guid.NewGuid();
-        //    var project = new Project
-        //    {
-        //        Id = projectId
-        //    };
+            var projectId = Guid.NewGuid();
+            var project = new Project
+            {
+                Id = projectId
+            };
 
-        //    var model = new ProjectDetailsViewModel();
-        //    var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
-        //    var list = new List<Project>() { project };
-        //    Mock.Arrange(() => projectsServiceMock.GetById(projectId)).Returns(list.AsQueryable());
+            var model = new ProjectDetailsViewModel();
+            var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
+            var list = new List<Project>() { project };
+            Mock.Arrange(() => projectsServiceMock.GetById(projectId)).Returns(list.AsQueryable());
 
-        //    // Act
-        //    controller.EditProject(model);
+            // Act
+            controller.EditProject(model);
 
-        //    //Assert
-        //    controller
-        //        .WithCallTo(c => c.EditProject(model))
-        //        .ShouldRenderView("Details");
-        //}
+            //Assert
+            controller
+                .WithCallTo(c => c.EditProject(model))
+                .ShouldRenderView("Details");
+        }
 
-//        [TestMethod]
-//        public void ReturnSameView_WhenModelIsNotValid()
-//        {
-//            // Arrange
-//            var projectsServiceMock = Mock.Create<IProjectsService>();
-//            var usersServiceMock = Mock.Create<IUsersService>();
-//            var authMock = Mock.Create<IAuthProvider>();
-//            var model = new ProjectDetailsViewModel();
-//            var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
+        [TestMethod]
+        public void ReturnSameView_WhenModelIsNotValid()
+        {
+            // Arrange
+            var projectsServiceMock = Mock.Create<IProjectsService>();
+            var usersServiceMock = Mock.Create<IUsersService>();
+            var authMock = Mock.Create<IAuthProvider>();
+            var model = new ProjectDetailsViewModel();
+            var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
 
-//            // Act
-//            controller.ModelState.AddModelError("key", "message");
-//;
-//            // Assert
-//            controller
-//                .WithCallTo(c => c.EditProject(model))
-//                .ShouldRenderDefaultView();
-//        }
+            // Act
+            controller.ModelState.AddModelError("key", "message");
+            ;
+            // Assert
+            controller
+                .WithCallTo(c => c.EditProject(model))
+                .ShouldRenderDefaultView();
+        }
 
-        //[TestMethod]
-        //public void CallProjectsServiceMethodEditWhenModelIsValid()
-        //{
-        //    // Arrange
-        //    var projectsServiceMock = Mock.Create<IProjectsService>();
-        //    var usersServiceMock = Mock.Create<IUsersService>();
-        //    var authMock = Mock.Create<IAuthProvider>();
-        //    //this.InitializeMapper();
-        //    var projectId = Guid.NewGuid();
-        //    var userId = Guid.NewGuid();
-        //    var project = new Project
-        //    {
-        //        Id = projectId
-        //    };
-        //    var model = new ProjectAddViewModel();
+        [TestMethod]
+        public void CallProjectsServiceMethodEditWhenModelIsValid()
+        {
+            // Arrange
+            var projectsServiceMock = Mock.Create<IProjectsService>();
+            var usersServiceMock = Mock.Create<IUsersService>();
+            var authMock = Mock.Create<IAuthProvider>();
+            //this.InitializeMapper();
+            var projectId = Guid.NewGuid();
+            var userId = Guid.NewGuid();
+            var project = new Project
+            {
+                Id = projectId
+            };
+            var model = new ProjectAddViewModel();
 
-        //    var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
-        //    Mock.Arrange(() => projectsServiceMock.Update(project));
+            var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
+            Mock.Arrange(() => projectsServiceMock.Update(project));
 
-        //    // Act
-        //    controller.EditProject(projectId);
+            // Act
+            controller.EditProject(projectId);
 
-        //    // Assert
-        //    Mock.Assert(() => projectsServiceMock.Update(project), Occurs.Once());
-        //}
+            // Assert
+            Mock.Assert(() => projectsServiceMock.Update(project), Occurs.Once());
+        }
 
         private void InitializeMapper()
         {
