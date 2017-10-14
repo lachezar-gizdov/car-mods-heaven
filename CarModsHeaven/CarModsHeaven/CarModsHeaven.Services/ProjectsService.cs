@@ -80,6 +80,7 @@ namespace CarModsHeaven.Services
                     projects = projects.OrderBy(x => x.Title);
                     break;
                 default:
+                    projects = projects.OrderBy(x => x.CreatedOn);
                     break;
             }
 

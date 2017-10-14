@@ -57,6 +57,7 @@
     <Compile Include="ProjectsServiceTests\ConstructorShould.cs" />
     <Compile Include="ProjectsServiceTests\DeleteShould.cs" />
     <Compile Include="ProjectsServiceTests\GetAllShould.cs" />
+    <Compile Include="ProjectsServiceTests\GetAllSortedShould.cs" />
     <Compile Include="ProjectsServiceTests\GetByIdShould.cs" />
     <Compile Include="ProjectsServiceTests\UpdateShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

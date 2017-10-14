@@ -12,7 +12,7 @@ namespace CarModsHeaven.Services.Tests.ProjectsServiceTests
     public class GetAllShould
     {
         [TestMethod]
-        public void CallProjectsRepoGetAllMethod()
+        public void CallProjectsRepoGetAllVisibleMethod()
         {
             // Arrange
             var projectsRepoMock = Mock.Create<IEfRepository<Project>>();
