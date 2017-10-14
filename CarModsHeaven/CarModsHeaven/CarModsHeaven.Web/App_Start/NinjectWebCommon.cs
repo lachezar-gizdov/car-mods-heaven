@@ -17,9 +17,9 @@ namespace CarModsHeaven.Web.App_Start
     using Ninject;
     using Ninject.Extensions.Conventions;
     using Ninject.Web.Common;
+    using CarModsHeaven.Providers.Contracts;
     using CarModsHeaven.Auth.Contracts;
     using CarModsHeaven.Auth;
-    using CarModsHeaven.Providers.Contracts;
 
     public static class NinjectWebCommon 
     {
