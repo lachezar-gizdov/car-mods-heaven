@@ -1,14 +1,13 @@
 ﻿@{
     ViewBag.Title = "Discussions - Car Mods Heaven";
 }
+<h2>Car Related Discussions</h2>
 
-<div class="row jumbotron">
-    <h2>Car Related Discussions</h2>
+<div>
     <input type="text" id="msgInput" />
     <button id="sendBtn">Send</button>
-
-    <div id="messages"></div>
 </div>
+<div id="messages"></div>
 
 @section scripts
 {
@@ -17,8 +16,8 @@
     <script>
         $(function () {
             var discussions = $.connection.discussionsHub;
-
             discussions.client.getMessage = (msg) => {
+                console.log(msg);
                 $('#messages').append(msg + '<br />')
             }
 
