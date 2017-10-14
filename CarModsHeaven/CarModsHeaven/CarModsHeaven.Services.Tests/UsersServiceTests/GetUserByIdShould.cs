@@ -11,7 +11,7 @@ namespace CarModsHeaven.Services.Tests.UsersServiceTests
     public class GetUserByIdShould
     {
         [TestMethod]
-        public void CallUsersRepoGetByIdMethod()
+        public void CallUsersRepoGetAllVisible()
         {
             // Arrange
             var usersRepoMock = Mock.Create<IEfRepository<User>>();
@@ -23,7 +23,7 @@ namespace CarModsHeaven.Services.Tests.UsersServiceTests
             sut.GetUserById(userId);
 
             // Assert
-            Mock.Assert(() => usersRepoMock.GetById(userId), Occurs.Once());
+            Mock.Assert(() => usersRepoMock.AllVisible, Occurs.Once());
         }
     }
 }

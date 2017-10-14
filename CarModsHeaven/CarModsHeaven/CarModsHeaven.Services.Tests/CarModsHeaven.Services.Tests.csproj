@@ -57,10 +57,12 @@
     <Compile Include="ProjectsServiceTests\ConstructorShould.cs" />
     <Compile Include="ProjectsServiceTests\DeleteShould.cs" />
     <Compile Include="ProjectsServiceTests\GetAllShould.cs" />
+    <Compile Include="ProjectsServiceTests\GetByIdShould.cs" />
     <Compile Include="ProjectsServiceTests\UpdateShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsersServiceTests\ConstructorShould.cs" />
     <Compile Include="UsersServiceTests\GetAllShould.cs" />
+    <Compile Include="UsersServiceTests\GetAllSortedShould.cs" />
     <Compile Include="UsersServiceTests\GetUserByIdShould.cs" />
   </ItemGroup>
   <ItemGroup>
