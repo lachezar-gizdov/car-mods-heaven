@@ -1,7 +1,7 @@
 ﻿using CarModsHeaven.Data.Contracts;
 using System;
 
-namespace CarModsHeaven.Data.UnitOfWork
+namespace CarModsHeaven.Data
 {
     public class UnitOfWork : IUnitOfWork
     {
