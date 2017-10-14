@@ -37,9 +37,18 @@ namespace CarModsHeaven.Web.Controllers
 
         public ActionResult Details(string id)
         {
+            if (id == null || id == string.Empty)
+            {
+                return this.View("Error");
+            }
             var user = this.usersService.GetUserById(id)
                 .ProjectTo<UserViewModel>()
                 .SingleOrDefault();
+
+            if (user == null)
+            {
+                return this.View("Error");
+            }
 
             return this.View(user);
         }
