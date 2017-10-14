@@ -5,7 +5,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 
-namespace CarModsHeaven.Web.App_Start.IdentityConfigs
+namespace CarModsHeaven.Auth.Managers
 {
     // Configure the application sign-in manager which is used in this application.
     public class ApplicationSignInManager : SignInManager<User, string>

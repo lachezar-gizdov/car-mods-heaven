@@ -2,16 +2,12 @@
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using CarModsHeaven.Web.App_Start.IdentityConfigs;
 using CarModsHeaven.Web.Models.Manage;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using System.IO;
-using System.Web.Hosting;
-using static CarModsHeaven.Web.Controllers.ManageController;
-using CarModsHeaven.Data.Models;
 using Bytes2you.Validation;
+using CarModsHeaven.Auth.Managers;
 
 namespace CarModsHeaven.Web.Controllers
 {

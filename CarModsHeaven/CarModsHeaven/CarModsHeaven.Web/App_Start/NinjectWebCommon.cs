@@ -17,6 +17,9 @@ namespace CarModsHeaven.Web.App_Start
     using Ninject;
     using Ninject.Extensions.Conventions;
     using Ninject.Web.Common;
+    using CarModsHeaven.Auth.Contracts;
+    using CarModsHeaven.Auth;
+    using CarModsHeaven.Providers.Contracts;
 
     public static class NinjectWebCommon 
     {
@@ -75,10 +78,18 @@ namespace CarModsHeaven.Web.App_Start
                 .BindDefaultInterface();
             });
 
+            kernel.Bind(x =>
+            {
+                x.FromAssemblyContaining(typeof(IProvider))
+                .SelectAllClasses()
+                .BindDefaultInterface();
+            });
+
             kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepostory<>));
             kernel.Bind(typeof(DbContext), typeof(CarModsContext)).To<CarModsContext>().InRequestScope();
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
             kernel.Bind<IMapper>().ToMethod(x => Mapper.Instance).InSingletonScope();
+            kernel.Bind<IAuthProvider>().To<AuthProvider>();
         }        
     }
 }

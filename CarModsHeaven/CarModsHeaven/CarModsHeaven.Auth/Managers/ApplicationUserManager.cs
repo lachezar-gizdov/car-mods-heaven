@@ -6,7 +6,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 
-namespace CarModsHeaven.Web.App_Start.IdentityConfigs
+namespace CarModsHeaven.Auth.Managers
 {
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
     public class ApplicationUserManager : UserManager<User>
@@ -57,8 +57,7 @@ namespace CarModsHeaven.Web.App_Start.IdentityConfigs
                     Subject = "Security Code",
                     BodyFormat = "Your security code is {0}"
                 });
-            manager.EmailService = new EmailService();
-            manager.SmsService = new SmsService();
+
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {

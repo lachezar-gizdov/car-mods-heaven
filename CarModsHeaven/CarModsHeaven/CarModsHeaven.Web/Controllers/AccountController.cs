@@ -3,13 +3,13 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using CarModsHeaven.Data.Models;
-using CarModsHeaven.Web.App_Start.IdentityConfigs;
 using CarModsHeaven.Web.Models.Account;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System;
 using Bytes2you.Validation;
+using CarModsHeaven.Auth.Managers;
 
 namespace CarModsHeaven.Web.Controllers
 {
