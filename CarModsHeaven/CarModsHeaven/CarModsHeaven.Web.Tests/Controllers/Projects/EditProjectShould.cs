@@ -21,6 +21,8 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
         {
             Mapper.Initialize(cfg =>
             {
+                cfg.CreateMap<Project, ProjectAddViewModel>();
+                cfg.CreateMap<ProjectAddViewModel, Project>();
                 cfg.CreateMap<Project, ProjectDetailsViewModel>();
                 cfg.CreateMap<ProjectDetailsViewModel, Project>();
             });
@@ -38,8 +40,6 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             {
                 Id = projectId
             };
-
-            this.InitializeMapper();
 
             var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
             var emptyList = new List<Project>();
@@ -61,7 +61,6 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             var projectsServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
             var authMock = Mock.Create<IAuthProvider>();
-            this.InitializeMapper();
             var projectId = Guid.NewGuid();
             var project = new Project
             {
@@ -88,7 +87,6 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             var projectsServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
             var authMock = Mock.Create<IAuthProvider>();
-            this.InitializeMapper();
             var projectId = Guid.NewGuid();
             var project = new Project
             {

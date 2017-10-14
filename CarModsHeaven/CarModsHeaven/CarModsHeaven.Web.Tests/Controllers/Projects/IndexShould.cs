@@ -13,6 +13,18 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
     [TestClass]
     public class IndexShould
     {
+        [TestInitialize]
+        public void InitAutoMapper()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Project, ProjectAddViewModel>();
+                cfg.CreateMap<ProjectAddViewModel, Project>();
+                cfg.CreateMap<Project, ProjectDetailsViewModel>();
+                cfg.CreateMap<ProjectDetailsViewModel, Project>();
+            });
+        }
+
         [TestMethod]
         public void RenderDefaultView()
         {
@@ -20,7 +32,6 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             var projectsServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
             var authMock = Mock.Create<IAuthProvider>();
-            this.InitializeMapper();
 
             // Act
             var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
@@ -38,7 +49,6 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             var projectsServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
             var authMock = Mock.Create<IAuthProvider>();
-            this.InitializeMapper();
 
             // Act
             var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
@@ -46,15 +56,6 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
 
             // Assert
             Mock.Assert(() => projectsServiceMock.GetAll(), Occurs.Once());
-        }
-
-        private void InitializeMapper()
-        {
-            Mapper.Initialize(cfg =>
-                    cfg.CreateMap<Project, ProjectDetailsViewModel>()
-                        .ForMember(viewModel => viewModel.CarBrand,
-                            opt => opt.MapFrom(project => project.CarBrand))
-            );
         }
     }
 }
