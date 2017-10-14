@@ -14,6 +14,11 @@ namespace CarModsHeaven.Data.Repositories
 
         public EfRepostory(CarModsContext context)
         {
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
+
             this.context = context;
         }
 
