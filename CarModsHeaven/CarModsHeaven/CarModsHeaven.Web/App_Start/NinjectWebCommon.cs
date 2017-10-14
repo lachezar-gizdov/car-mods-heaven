@@ -11,7 +11,6 @@ namespace CarModsHeaven.Web.App_Start
     using CarModsHeaven.Data.Contracts;
     using CarModsHeaven.Data.Repositories;
     using CarModsHeaven.Data.Repositories.Contracts;
-    using CarModsHeaven.Data.UnitOfWork;
     using CarModsHeaven.Services.Contracts;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
