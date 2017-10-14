@@ -8,8 +8,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Telerik.JustMock;
 using TestStack.FluentMVCTesting;
 
@@ -18,6 +16,16 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
     [TestClass]
     public class EditProjectShould
     {
+        [TestInitialize]
+        public void InitAutoMapper()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Project, ProjectDetailsViewModel>();
+                cfg.CreateMap<ProjectDetailsViewModel, Project>();
+            });
+        }
+
         [TestMethod]
         public void ReturnErrorViewWhenProjectIsNotFound()
         {
@@ -108,8 +116,6 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             var usersServiceMock = Mock.Create<IUsersService>();
             var authMock = Mock.Create<IAuthProvider>();
 
-            this.ProjectToProjectDetailsViewModel();
-
             var projectId = Guid.NewGuid();
             var project = new Project
             {
@@ -127,7 +133,7 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             //Assert
             controller
                 .WithCallTo(c => c.EditProject(model))
-                .ShouldRenderView("Details");
+                .ShouldRedirectToRoute("");
         }
 
         [TestMethod]
@@ -139,7 +145,6 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             var authMock = Mock.Create<IAuthProvider>();
             var model = new ProjectDetailsViewModel();
             var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
-
             // Act
             controller.ModelState.AddModelError("key", "message");
             ;
@@ -156,40 +161,24 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             var projectsServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
             var authMock = Mock.Create<IAuthProvider>();
-            //this.InitializeMapper();
             var projectId = Guid.NewGuid();
             var userId = Guid.NewGuid();
             var project = new Project
             {
                 Id = projectId
             };
-            var model = new ProjectAddViewModel();
 
+            var list = new List<Project>() { project };
+            var model = new ProjectDetailsViewModel();
             var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
+            Mock.Arrange(() => projectsServiceMock.GetById(projectId)).Returns(list.AsQueryable);
             Mock.Arrange(() => projectsServiceMock.Update(project));
 
             // Act
-            controller.EditProject(projectId);
+            controller.EditProject(model);
 
             // Assert
             Mock.Assert(() => projectsServiceMock.Update(project), Occurs.Once());
-        }
-
-        private void InitializeMapper()
-        {
-            Mapper.Initialize(cfg =>
-                    cfg.CreateMap<Project, ProjectDetailsViewModel>()
-                        .ForMember(project => project.Id,
-                            opt => opt.MapFrom(viewModel => viewModel.Id))
-            );
-        }
-
-        private void ProjectToProjectDetailsViewModel()
-        {
-            Mapper.Initialize(cfg =>
-                    cfg.CreateMap<Project, ProjectDetailsViewModel>()
-                        .ForMember(viewModel => viewModel.Title,
-                            opt => opt.MapFrom(project => project.Title)));
         }
     }
 }

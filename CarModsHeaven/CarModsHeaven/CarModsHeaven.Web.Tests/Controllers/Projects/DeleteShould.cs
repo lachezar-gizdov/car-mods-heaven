@@ -16,6 +16,16 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
     [TestClass]
     public class DeleteShould
     {
+        [TestInitialize]
+        public void InitAutoMapper()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Project, ProjectDetailsViewModel>();
+                cfg.CreateMap<ProjectDetailsViewModel, Project>();
+            });
+        }
+
         [TestMethod]
         public void ReturnErrorViewWhenProjectIsNotFound()
         {
@@ -28,8 +38,6 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             {
                 Id = projectId
             };
-
-            this.InitializeMapper();
 
             var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
             var emptyList = new List<Project>();
@@ -51,7 +59,6 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             var projectsServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
             var authMock = Mock.Create<IAuthProvider>();
-            this.InitializeMapper();
             var projectId = Guid.NewGuid();
             var project = new Project
             {
@@ -78,7 +85,6 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             var projectsServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
             var authMock = Mock.Create<IAuthProvider>();
-            this.InitializeMapper();
             var projectId = Guid.NewGuid();
             var project = new Project
             {
@@ -105,40 +111,22 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             var projectsServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
             var authMock = Mock.Create<IAuthProvider>();
-            this.InitializeMapper();
             var projectId = Guid.NewGuid();
-            var userId = Guid.NewGuid();
             var project = new Project
             {
                 Id = projectId
             };
-            var model = new ProjectAddViewModel();
+            var list = new List<Project>() { project };
 
             var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
+            Mock.Arrange(() => projectsServiceMock.GetById(projectId)).Returns(list.AsQueryable);
             Mock.Arrange(() => projectsServiceMock.Delete(project));
 
             // Act
-            controller.EditProject(projectId);
+            controller.DeleteProject(projectId);
 
             // Assert
             Mock.Assert(() => projectsServiceMock.Delete(project), Occurs.Once());
-        }
-
-        private void InitializeMapper()
-        {
-            Mapper.Initialize(cfg =>
-                    cfg.CreateMap<Project, ProjectDetailsViewModel>()
-                        .ForMember(project => project.Id,
-                            opt => opt.MapFrom(viewModel => viewModel.Id))
-            );
-        }
-
-        private void ProjectToProjectDetailsViewModel()
-        {
-            Mapper.Initialize(cfg =>
-                    cfg.CreateMap<Project, ProjectDetailsViewModel>()
-                        .ForMember(viewModel => viewModel.Title,
-                            opt => opt.MapFrom(project => project.Title)));
         }
     }
 }

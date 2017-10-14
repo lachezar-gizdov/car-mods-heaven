@@ -16,6 +16,18 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
     [TestClass]
     public class AddProjectShould
     {
+        [TestInitialize]
+        public void InitAutoMapper()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Project, ProjectAddViewModel>();
+                cfg.CreateMap<ProjectAddViewModel, Project>();
+                cfg.CreateMap<Project, ProjectDetailsViewModel>();
+                cfg.CreateMap<ProjectDetailsViewModel, Project>();
+            });
+        }
+
         [TestMethod]
         public void ReturnDefaultView()
         {
@@ -60,7 +72,6 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             var projectsServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
             var authMock = Mock.Create<IAuthProvider>();
-            this.InitializeMapper();
             var projectId = Guid.NewGuid();
             var project = new Project
             {
@@ -87,7 +98,6 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             var projectsServiceMock = Mock.Create<IProjectsService>();
             var usersServiceMock = Mock.Create<IUsersService>();
             var authMock = Mock.Create<IAuthProvider>();
-            this.CreateViewModelsToModels();
 
             var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
             var userId = Guid.NewGuid().ToString();
@@ -101,25 +111,6 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
 
             // Assert
             Mock.Assert(() => projectsServiceMock.Add(project, userId), Occurs.Once());
-        }
-
-        private void InitializeMapper()
-        {
-            Mapper.Initialize(cfg =>
-                    cfg.CreateMap<Project, ProjectDetailsViewModel>()
-                        .ForMember(viewModel => viewModel.Id,
-                            opt => opt.MapFrom(project => project.Id))
-            );
-        }
-
-        private void CreateViewModelsToModels()
-        {
-            Mapper.Initialize(cfg =>
-                    cfg.CreateMap<ProjectAddViewModel, Project>()
-                        .ForMember(project => project.Id,
-                            opt => opt.MapFrom(viewModel => viewModel.Title))
-                        .ForMember(viewModel => viewModel.Title,
-                            opt => opt.MapFrom(project => project.Title)));
         }
     }
 }
