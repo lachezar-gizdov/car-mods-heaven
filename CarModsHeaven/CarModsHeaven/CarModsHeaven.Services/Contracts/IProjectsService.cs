@@ -15,5 +15,7 @@ namespace CarModsHeaven.Services.Contracts
         void Update(Project project);
 
         void Delete(Project project);
+
+        IQueryable<Project> GetAllSorted(string pattern);
     }
 }
