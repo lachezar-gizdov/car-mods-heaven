@@ -140,6 +140,11 @@ namespace CarModsHeaven.Web.Controllers
         [HttpPost]
         public ActionResult EditProject(ProjectDetailsViewModel project)
         {
+            if (!ModelState.IsValid)
+            {
+                return this.View();
+            }
+
             var dbModel = Mapper.Map<Project>(project);
             this.projectsService.Update(dbModel);
             return this.RedirectToAction("Details", new { id = dbModel.Id });
