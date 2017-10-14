@@ -160,13 +160,17 @@ namespace CarModsHeaven.Web.Controllers
 
         [Authorize]
         [HttpGet]
-        public ActionResult DeleteProject(ProjectDetailsViewModel project)
+        public ActionResult DeleteProject(Guid id)
         {
-            var found = this.projectsService
-                .GetAll()
-                .SingleOrDefault(x => x.Title == project.Title);
+            var project = this.projectsService
+                .GetById(id)
+                .SingleOrDefault();
 
-            this.projectsService.Delete(found);
+            if (project == null)
+            {
+                return this.View("Error");
+            }
+            this.projectsService.Delete(project);
             return this.RedirectToAction("Index");
         }
     }
