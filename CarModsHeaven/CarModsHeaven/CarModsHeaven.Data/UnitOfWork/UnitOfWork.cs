@@ -1,4 +1,5 @@
 ﻿using CarModsHeaven.Data.Contracts;
+using System;
 
 namespace CarModsHeaven.Data.UnitOfWork
 {
@@ -8,6 +9,10 @@ namespace CarModsHeaven.Data.UnitOfWork
 
         public UnitOfWork(CarModsContext context)
         {
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
             this.context = context;
         }
 
