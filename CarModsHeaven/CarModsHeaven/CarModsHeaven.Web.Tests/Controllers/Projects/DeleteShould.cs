@@ -68,7 +68,7 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
             //Assert
             controller
                 .WithCallTo(c => c.DeleteProject(projectId))
-                .ShouldRenderDefaultView();
+                .ShouldRedirectToRoute("");
         }
 
         [TestMethod]
