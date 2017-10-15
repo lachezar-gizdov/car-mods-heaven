@@ -235,6 +235,7 @@
     <Compile Include="Areas\Admin\Controllers\ManageUsersController.cs" />
     <Compile Include="Areas\Admin\Controllers\PanelController.cs" />
     <Compile Include="Areas\Admin\Controllers\ViewEmailsController.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\DiscussionsController.cs" />
@@ -349,6 +350,7 @@
     <Content Include="Views\Projects\Error.cshtml" />
     <Content Include="Views\Users\Error.cshtml" />
     <Content Include="Views\Shared\_ContactPartial.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
