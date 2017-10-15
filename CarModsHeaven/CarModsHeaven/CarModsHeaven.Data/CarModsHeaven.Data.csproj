@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bytes2you.Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a7d501dd757e0442, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bytes2you.Validation.2.0.0.0\lib\portable-win+net40+sl40+wp+Xbox40\Bytes2you.Validation.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -90,6 +93,10 @@
     <ProjectReference Include="..\CarModsHeaven.Data.Models\CarModsHeaven.Data.Models.csproj">
       <Project>{97ED1931-6067-4703-BE95-1A66A1ADD614}</Project>
       <Name>CarModsHeaven.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarModsHeaven.Providers\CarModsHeaven.Providers.csproj">
+      <Project>{DBC0B039-48A5-40FF-853B-7FC0ADF2DAD4}</Project>
+      <Name>CarModsHeaven.Providers</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

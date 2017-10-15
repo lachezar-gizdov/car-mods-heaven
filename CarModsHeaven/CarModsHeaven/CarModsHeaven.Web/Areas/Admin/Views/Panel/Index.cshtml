@@ -1,21 +1,4 @@
-﻿@using CarModsHeaven.Web.Models.UsersList
-@model ICollection<UserViewModel>
-@{
-    ViewBag.Title = "Users - Car Mods Heaven";
-}
-
-<div class="row jumbotron">
-    <h2>Users</h2>
-    @foreach (var user in Model)
-    {
-        <div class="col-md-4">
-            @Html.ActionLink(@user.UserName, "Details", "Users", new { area = "", id = user.Id }, null)
-            <br />
-            @Html.ActionLink("Make Admin", "AddAdmin", new { id = user.Id }, new { @class= "btn btn-success" })
-            @Html.ActionLink("Delete", "DeleteUser", new { id = user.Id }, new { @class = "btn btn-danger" })
-        </div>
-    }
-</div>
-<div class="jumbotron">
-    <h2>Projects</h2>
+﻿<div class="row jumbotron">
+    @Html.ActionLink("Manage Users", "Index", "ManageUsers", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Manage Projects", "Index", "ManageProjects", null, new { @class = "btn btn-primary" })
 </div>
