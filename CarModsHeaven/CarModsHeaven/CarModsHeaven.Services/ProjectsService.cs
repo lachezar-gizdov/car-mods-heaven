@@ -1,10 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using Bytes2you.Validation;
 using CarModsHeaven.Data.Contracts;
 using CarModsHeaven.Data.Models;
 using CarModsHeaven.Data.Repositories.Contracts;
 using CarModsHeaven.Services.Contracts;
-using Bytes2you.Validation;
-using System;
 
 namespace CarModsHeaven.Services
 {
@@ -20,9 +20,9 @@ namespace CarModsHeaven.Services
 
         public ProjectsService(IEfRepository<Project> projectsRepo, IUsersService usersService, IUnitOfWork context)
         {
-            Guard.WhenArgument(projectsRepo, projectsRepoCheck).IsNull().Throw();
-            Guard.WhenArgument(usersService, usersServiceCheck).IsNull().Throw();
-            Guard.WhenArgument(context, contextCheck).IsNull().Throw();
+            Guard.WhenArgument(projectsRepo, this.projectsRepoCheck).IsNull().Throw();
+            Guard.WhenArgument(usersService, this.usersServiceCheck).IsNull().Throw();
+            Guard.WhenArgument(context, this.contextCheck).IsNull().Throw();
 
             this.projectsRepo = projectsRepo;
             this.usersService = usersService;
@@ -40,26 +40,26 @@ namespace CarModsHeaven.Services
                 .Where(x => x.Id == id);
         }
 
-        public void Add(Project project, string UserId)
+        public void Add(Project project, string userId)
         {
-            Guard.WhenArgument(project, projectCheck).IsNull().Throw();
+            Guard.WhenArgument(project, this.projectCheck).IsNull().Throw();
 
             this.projectsRepo.Add(project);
-            var currentUser = this.usersService.GetUserById(UserId);
+            var currentUser = this.usersService.GetUserById(userId);
             currentUser.SingleOrDefault().Projects.Add(project);
             this.context.SaveChanges();
         }
 
         public void Update(Project project)
         {
-            Guard.WhenArgument(project, projectCheck).IsNull().Throw();
+            Guard.WhenArgument(project, this.projectCheck).IsNull().Throw();
             this.projectsRepo.Update(project);
             this.context.SaveChanges();
         }
 
         public void Delete(Project project)
         {
-            Guard.WhenArgument(project, projectCheck).IsNull().Throw();
+            Guard.WhenArgument(project, this.projectCheck).IsNull().Throw();
             this.projectsRepo.Delete(project);
             this.context.SaveChanges();
         }

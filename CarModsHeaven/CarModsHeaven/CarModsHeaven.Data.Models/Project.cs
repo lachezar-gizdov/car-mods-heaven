@@ -8,7 +8,7 @@ namespace CarModsHeaven.Data.Models
     {
         public Project()
         {
-            Score = 0;
+            this.Score = 0;
         }
 
         [Required]

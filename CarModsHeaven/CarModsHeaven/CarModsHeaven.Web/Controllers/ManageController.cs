@@ -2,12 +2,12 @@
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Bytes2you.Validation;
+using CarModsHeaven.Auth.Managers;
 using CarModsHeaven.Web.Models.Manage;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Bytes2you.Validation;
-using CarModsHeaven.Auth.Managers;
 
 namespace CarModsHeaven.Web.Controllers
 {
@@ -19,7 +19,7 @@ namespace CarModsHeaven.Web.Controllers
         private ApplicationUserManager userManager;
 
         private readonly string userManagerCheck = "User Manager is null";
-        private readonly string ApplicationSignInManagerCheck = "Application SignIn Manager is null";
+        private readonly string applicationSignInManagerCheck = "Application SignIn Manager is null";
 
         public ManageController()
         {
@@ -27,8 +27,8 @@ namespace CarModsHeaven.Web.Controllers
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
-            Guard.WhenArgument(userManager, userManagerCheck).IsNull().Throw();
-            Guard.WhenArgument(signInManager, ApplicationSignInManagerCheck).IsNull().Throw();
+            Guard.WhenArgument(userManager, this.userManagerCheck).IsNull().Throw();
+            Guard.WhenArgument(signInManager, this.applicationSignInManagerCheck).IsNull().Throw();
 
             this.UserManager = userManager;
             this.SignInManager = signInManager;
@@ -108,7 +108,6 @@ namespace CarModsHeaven.Web.Controllers
 
             return this.RedirectToAction("ManageLogins", new { Message = message });
         }
-
 
         // GET: /Manage/ChangePassword
         public ActionResult ChangePassword()

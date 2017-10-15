@@ -1,9 +1,8 @@
 namespace CarModsHeaven.Data.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
-    public partial class updatedbmodels : DbMigration
+
+    public partial class Updatedbmodels : DbMigration
     {
         public override void Up()
         {
@@ -102,9 +101,8 @@ namespace CarModsHeaven.Data.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
-            
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");

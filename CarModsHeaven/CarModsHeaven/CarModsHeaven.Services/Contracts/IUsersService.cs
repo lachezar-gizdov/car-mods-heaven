@@ -8,5 +8,7 @@ namespace CarModsHeaven.Services.Contracts
         IQueryable<User> GetAll();
 
         IQueryable<User> GetUserById(string id);
+
+        void Delete(User user);
     }
 }

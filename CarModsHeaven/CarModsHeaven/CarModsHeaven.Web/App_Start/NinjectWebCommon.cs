@@ -7,18 +7,18 @@ namespace CarModsHeaven.Web.App_Start
     using System.Data.Entity;
     using System.Web;
     using AutoMapper;
+    using CarModsHeaven.Auth;
+    using CarModsHeaven.Auth.Contracts;
     using CarModsHeaven.Data;
     using CarModsHeaven.Data.Contracts;
     using CarModsHeaven.Data.Repositories;
     using CarModsHeaven.Data.Repositories.Contracts;
+    using CarModsHeaven.Providers.Contracts;
     using CarModsHeaven.Services.Contracts;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
     using Ninject.Extensions.Conventions;
     using Ninject.Web.Common;
-    using CarModsHeaven.Providers.Contracts;
-    using CarModsHeaven.Auth.Contracts;
-    using CarModsHeaven.Auth;
 
     public static class NinjectWebCommon 
     {

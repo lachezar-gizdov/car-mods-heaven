@@ -7,7 +7,7 @@ namespace CarModsHeaven.Web.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
     }
 }

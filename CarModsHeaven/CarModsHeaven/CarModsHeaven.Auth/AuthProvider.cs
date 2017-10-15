@@ -1,10 +1,10 @@
 ﻿using System;
+using CarModsHeaven.Auth.Contracts;
 using CarModsHeaven.Auth.Managers;
 using CarModsHeaven.Data.Models;
 using CarModsHeaven.Providers.Contracts;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using CarModsHeaven.Auth.Contracts;
 
 namespace CarModsHeaven.Auth
 {
@@ -31,22 +31,6 @@ namespace CarModsHeaven.Auth
             this.httpContextProvider = httpContextProvider;
         }
 
-        protected ApplicationSignInManager SignInManager
-        {
-            get
-            {
-                return this.httpContextProvider.GetUserManager<ApplicationSignInManager>();
-            }
-        }
-
-        protected ApplicationUserManager UserManager
-        {
-            get
-            {
-                return this.httpContextProvider.GetUserManager<ApplicationUserManager>();
-            }
-        }
-
         public bool IsAuthenticated
         {
             get
@@ -68,6 +52,22 @@ namespace CarModsHeaven.Auth
             get
             {
                 return this.httpContextProvider.CurrentIdentity.GetUserName();
+            }
+        }
+
+        protected ApplicationSignInManager SignInManager
+        {
+            get
+            {
+                return this.httpContextProvider.GetUserManager<ApplicationSignInManager>();
+            }
+        }
+
+        protected ApplicationUserManager UserManager
+        {
+            get
+            {
+                return this.httpContextProvider.GetUserManager<ApplicationUserManager>();
             }
         }
 

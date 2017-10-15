@@ -1,13 +1,13 @@
 ﻿using System;
+using CarModsHeaven.Auth.Managers;
 using CarModsHeaven.Data;
+using CarModsHeaven.Data.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Owin;
 using Microsoft.Owin.Security.Google;
-using CarModsHeaven.Auth.Managers;
-using CarModsHeaven.Data.Models;
+using Owin;
 
 namespace CarModsHeaven.Web
 {

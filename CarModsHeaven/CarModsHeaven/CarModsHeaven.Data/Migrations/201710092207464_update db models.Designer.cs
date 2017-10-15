@@ -7,9 +7,9 @@ namespace CarModsHeaven.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class updatedbmodels : IMigrationMetadata
+    public sealed partial class Updatedbmodels : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updatedbmodels));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Updatedbmodels));
         
         string IMigrationMetadata.Id
         {

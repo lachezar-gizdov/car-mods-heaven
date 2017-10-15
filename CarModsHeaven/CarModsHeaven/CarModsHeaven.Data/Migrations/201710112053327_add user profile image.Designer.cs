@@ -7,9 +7,9 @@ namespace CarModsHeaven.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class adduserprofileimage : IMigrationMetadata
+    public sealed partial class Adduserprofileimage : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(adduserprofileimage));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Adduserprofileimage));
         
         string IMigrationMetadata.Id
         {

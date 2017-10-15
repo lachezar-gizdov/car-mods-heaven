@@ -1,14 +1,13 @@
 ﻿@{
     ViewBag.Title = "Discussions - Car Mods Heaven";
 }
+<h2>Car Related Discussions</h2>
 
-<div class="row jumbotron">
-    <h2>Car Related Discussions</h2>
+<div>
     <input type="text" id="msgInput" />
     <button id="sendBtn">Send</button>
-
-    <div id="messages"></div>
 </div>
+<div id="messages"></div>
 
 @section scripts
 {
@@ -17,17 +16,15 @@
     <script>
         $(function () {
             var discussions = $.connection.discussionsHub;
-
-            discussions.client.getMessage = (msg) => {
-                $('#messages').append(msg + '<br />')
-            }
-
             $.connection.hub.start().done(function () {
 
                 $('#sendBtn').click(() => {
                     discussions.server.sendMessage($('#msgInput').val())
                 })
             });
+            discussions.client.getMessage = (msg) => {
+                $('#messages').append(msg + '<br />')
+            }
         })
     </script>
 }

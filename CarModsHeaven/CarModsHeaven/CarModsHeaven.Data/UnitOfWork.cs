@@ -1,5 +1,5 @@
-﻿using CarModsHeaven.Data.Contracts;
-using System;
+﻿using System;
+using CarModsHeaven.Data.Contracts;
 
 namespace CarModsHeaven.Data
 {
@@ -13,6 +13,7 @@ namespace CarModsHeaven.Data
             {
                 throw new ArgumentNullException(nameof(context));
             }
+
             this.context = context;
         }
 

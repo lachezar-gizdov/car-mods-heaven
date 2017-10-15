@@ -1,0 +1,17 @@
+﻿@using CarModsHeaven.Web.Models.ProjectsList
+@model ICollection<ProjectDetailsViewModel>
+@{
+    ViewBag.Title = "Manage Projects - Car Mods Heaven";
+}
+
+<div class="row jumbotron">
+    <h2>Projects</h2>
+    @foreach (var project in Model)
+    {
+        <div class="col-md-4">
+            @Html.ActionLink(project.Title, "Details", "Projects", new { area = "", id = project.Id }, null)
+            <br />
+            @Html.ActionLink("Delete", "DeleteProject", new { id = project.Id }, new { @class = "btn btn-danger" })
+        </div>
+    }
+</div>

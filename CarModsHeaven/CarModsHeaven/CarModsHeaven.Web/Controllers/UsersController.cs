@@ -1,10 +1,9 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using CarModsHeaven.Services.Contracts;
-using CarModsHeaven.Web.Infrastructure;
-using CarModsHeaven.Web.Models.UsersList;
-using Bytes2you.Validation;
 using AutoMapper.QueryableExtensions;
+using Bytes2you.Validation;
+using CarModsHeaven.Services.Contracts;
+using CarModsHeaven.Web.Models.UsersList;
 
 namespace CarModsHeaven.Web.Controllers
 {
@@ -18,8 +17,8 @@ namespace CarModsHeaven.Web.Controllers
 
         public UsersController(IUsersService usersService, IProjectsService projectsService)
         {
-            Guard.WhenArgument(projectsService, projectsServiceCheck).IsNull().Throw();
-            Guard.WhenArgument(usersService, usersServiceCheck).IsNull().Throw();
+            Guard.WhenArgument(projectsService, this.projectsServiceCheck).IsNull().Throw();
+            Guard.WhenArgument(usersService, this.usersServiceCheck).IsNull().Throw();
 
             this.usersService = usersService;
             this.projectsService = projectsService;
@@ -41,6 +40,7 @@ namespace CarModsHeaven.Web.Controllers
             {
                 return this.View("Error");
             }
+
             var user = this.usersService.GetUserById(id)
                 .ProjectTo<UserViewModel>()
                 .SingleOrDefault();

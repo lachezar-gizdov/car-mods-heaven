@@ -1,10 +1,9 @@
 ﻿using System.Linq;
+using Bytes2you.Validation;
 using CarModsHeaven.Data.Contracts;
 using CarModsHeaven.Data.Models;
 using CarModsHeaven.Data.Repositories.Contracts;
 using CarModsHeaven.Services.Contracts;
-using Bytes2you.Validation;
-using System;
 
 namespace CarModsHeaven.Services
 {
@@ -17,8 +16,8 @@ namespace CarModsHeaven.Services
 
         public UsersService(IEfRepository<User> usersRepo, IUnitOfWork context)
         {
-            Guard.WhenArgument(usersRepo, usersRepoCheck).IsNull().Throw();
-            Guard.WhenArgument(context, contextCheck).IsNull().Throw();
+            Guard.WhenArgument(usersRepo, this.usersRepoCheck).IsNull().Throw();
+            Guard.WhenArgument(context, this.contextCheck).IsNull().Throw();
 
             this.usersRepo = usersRepo;
             this.context = context;
@@ -33,6 +32,12 @@ namespace CarModsHeaven.Services
         {
             return this.usersRepo.AllVisible
                 .Where(x => x.Id == id);
+        }
+
+        public void Delete(User user)
+        {
+            this.usersRepo.Delete(user);
+            this.context.SaveChanges();
         }
     }
 }
