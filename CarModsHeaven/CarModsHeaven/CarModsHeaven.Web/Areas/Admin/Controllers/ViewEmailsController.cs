@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace CarModsHeaven.Web.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ViewEmailsController : Controller
     {
         private readonly IContactService contactService;
