@@ -13,6 +13,7 @@ namespace CarModsHeaven.Services
         private readonly IUnitOfWork context;
         private readonly string usersRepoCheck = "Users Repository is null";
         private readonly string contextCheck = "DbContext is null";
+        private readonly string userCheck = "Project is null";
 
         public UsersService(IEfRepository<User> usersRepo, IUnitOfWork context)
         {
@@ -36,6 +37,7 @@ namespace CarModsHeaven.Services
 
         public void Delete(User user)
         {
+            Guard.WhenArgument(user, this.userCheck).IsNull().Throw();
             this.usersRepo.Delete(user);
             this.context.SaveChanges();
         }
