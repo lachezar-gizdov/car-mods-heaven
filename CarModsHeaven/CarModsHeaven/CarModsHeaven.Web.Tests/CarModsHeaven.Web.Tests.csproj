@@ -82,6 +82,7 @@
     <Compile Include="Controllers\About\ConstructorShould.cs" />
     <Compile Include="Controllers\About\IndexShould.cs" />
     <Compile Include="Controllers\Account\LoginShould.cs" />
+    <Compile Include="Controllers\Contact\ConstructorShould.cs" />
     <Compile Include="Controllers\Discussions\IndexShould.cs" />
     <Compile Include="Controllers\Error\IndexShould.cs" />
     <Compile Include="Controllers\Home\Tests.cs" />
