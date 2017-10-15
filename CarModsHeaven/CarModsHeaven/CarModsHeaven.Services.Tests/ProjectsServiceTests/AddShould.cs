@@ -27,43 +27,46 @@ namespace CarModsHeaven.Services.Tests.ProjectsServiceTests
             Assert.ThrowsException<ArgumentNullException>(() => service.Add(null, userId));
         }
 
-        //[TestMethod]
-        //public void CallRepositoryAddMethod()
-        //{
-        //    // Arrange
-        //    var projectsRepoMock = Mock.Create<IEfRepository<Project>>();
-        //    var usersServiceMock = Mock.Create<IUsersService>();
-        //    var contextMock = Mock.Create<IUnitOfWork>();
-        //    var service = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
-        //    var userId = Guid.NewGuid().ToString();
-        //    var project = new Project();
-        //    var user = new User() { Id = userId };
-        //    var list = new List<User>() { user };
-        //    Mock.Arrange(() => usersServiceMock.GetUserById(userId)).Returns(list.AsQueryable);
+        [TestMethod]
+        public void CallRepositoryAddMethod()
+        {
+            // Arrange
+            var projectsRepoMock = Mock.Create<IEfRepository<Project>>();
+            var usersServiceMock = Mock.Create<IUsersService>();
+            var contextMock = Mock.Create<IUnitOfWork>();
+            var service = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
+            var userId = Guid.NewGuid().ToString();
+            var project = new Project();
+            var user = new User() { Id = userId, Projects = new List<Project>() };
+            var list = new List<User>() { user };
+            Mock.Arrange(() => usersServiceMock.GetUserById(userId)).Returns(list.AsQueryable);
 
-        //    // Act
-        //    service.Add(project, userId);
+            // Act
+            service.Add(project, userId);
 
-        //    // Assert
-        //    Mock.Assert(() => projectsRepoMock.Add(project), Occurs.Once());
-        //}
+            // Assert
+            Mock.Assert(() => projectsRepoMock.Add(project), Occurs.Once());
+        }
 
-        //[TestMethod]
-        //public void CallDbContextSaveChangesMethod()
-        //{
-        //    // Arrange
-        //    var projectsRepoMock = Mock.Create<IEfRepository<Project>>();
-        //    var usersServiceMock = Mock.Create<IUsersService>();
-        //    var contextMock = Mock.Create<IUnitOfWork>();
-        //    var service = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
-        //    var projectMock = Mock.Create<Project>();
-        //    var userId = Guid.NewGuid().ToString();
+        [TestMethod]
+        public void CallDbContextSaveChangesMethod()
+        {
+            // Arrange
+            var projectsRepoMock = Mock.Create<IEfRepository<Project>>();
+            var usersServiceMock = Mock.Create<IUsersService>();
+            var contextMock = Mock.Create<IUnitOfWork>();
+            var service = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
+            var userId = Guid.NewGuid().ToString();
+            var project = new Project();
+            var user = new User() { Id = userId, Projects = new List<Project>() };
+            var list = new List<User>() { user };
+            Mock.Arrange(() => usersServiceMock.GetUserById(userId)).Returns(list.AsQueryable);
 
-        //    // Act
-        //    service.Add(projectMock, userId);
+            // Act
+            service.Add(project, userId);
 
-        //    // Assert
-        //    Mock.Assert(() => contextMock.SaveChanges(), Occurs.Once());
-        //}
+            // Assert
+            Mock.Assert(() => contextMock.SaveChanges(), Occurs.Once());
+        }
     }
 }

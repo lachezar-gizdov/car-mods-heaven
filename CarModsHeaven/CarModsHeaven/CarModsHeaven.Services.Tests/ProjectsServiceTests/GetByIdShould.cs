@@ -6,6 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using Telerik.JustMock;
 using System.Linq;
+using System;
 
 namespace CarModsHeaven.Services.Tests.ProjectsServiceTests
 {
@@ -19,10 +20,14 @@ namespace CarModsHeaven.Services.Tests.ProjectsServiceTests
             var projectsRepoMock = Mock.Create<IEfRepository<Project>>();
             var usersServiceMock = Mock.Create<IUsersService>();
             var contextMock = Mock.Create<IUnitOfWork>();
-            var sut = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
+            var service = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
+            var projectId = Guid.NewGuid();
+            var project = new Project() { Id = projectId };
+            var list = new List<Project>() { project };
+            Mock.Arrange(() => projectsRepoMock.AllVisible).Returns(list.AsQueryable);
 
             // Act
-            sut.GetAll();
+            service.GetById(projectId);
 
             // Assert
             Mock.Assert(() => projectsRepoMock.AllVisible, Occurs.Once());
@@ -35,13 +40,14 @@ namespace CarModsHeaven.Services.Tests.ProjectsServiceTests
             var projectsRepoMock = Mock.Create<IEfRepository<Project>>();
             var usersServiceMock = Mock.Create<IUsersService>();
             var contextMock = Mock.Create<IUnitOfWork>();
-            var sut = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
-            var project = new Project();
+            var service = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
+            var projectId = Guid.NewGuid();
+            var project = new Project() { Id = projectId };
             var list = new List<Project>() { project };
             Mock.Arrange(() => projectsRepoMock.AllVisible).Returns(list.AsQueryable);
 
             // Act
-            var result = sut.GetAll();
+            var result = service.GetById(projectId);
 
             // Assert
             Assert.AreEqual(1, result.Count());
@@ -54,12 +60,13 @@ namespace CarModsHeaven.Services.Tests.ProjectsServiceTests
             var projectsRepoMock = Mock.Create<IEfRepository<Project>>();
             var usersServiceMock = Mock.Create<IUsersService>();
             var contextMock = Mock.Create<IUnitOfWork>();
-            var sut = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
+            var service = new ProjectsService(projectsRepoMock, usersServiceMock, contextMock);
+            var projectId = Guid.NewGuid();
             var list = new List<Project>();
             Mock.Arrange(() => projectsRepoMock.AllVisible).Returns(list.AsQueryable);
 
             // Act
-            var result = sut.GetAll();
+            var result = service.GetById(projectId);
 
             // Assert
             Assert.AreEqual(0, result.Count());
