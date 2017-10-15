@@ -45,8 +45,8 @@ namespace CarModsHeaven.Services
             Guard.WhenArgument(project, this.projectCheck).IsNull().Throw();
 
             this.projectsRepo.Add(project);
-            var currentUser = this.usersService.GetUserById(userId);
-            currentUser.SingleOrDefault().Projects.Add(project);
+            var currentUser = this.usersService.GetUserById(userId).SingleOrDefault();
+            currentUser.Projects.Add(project);
             this.context.SaveChanges();
         }
 
