@@ -31,7 +31,7 @@ namespace CarModsHeaven.Data.Migrations
         protected override void Seed(CarModsContext context)
         {
             this.SeedUsers(context);
-            this.SeedProjects(context);
+            //this.SeedProjects(context);
         }
 
         private void SeedUsers(CarModsContext context)
@@ -50,7 +50,7 @@ namespace CarModsHeaven.Data.Migrations
                 var user = new User
                 {
                     FullName = AdministratorName,
-                    UserName = AdministratorName,
+                    UserName = AdministratorEmail,
                     Email = AdministratorEmail,
                     EmailConfirmed = true,
                     CreatedOn = dateTimeProvider.GetCurrentTime()

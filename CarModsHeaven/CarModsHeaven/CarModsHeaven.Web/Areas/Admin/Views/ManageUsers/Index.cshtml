@@ -11,7 +11,10 @@
         <div class="col-md-4">
             @Html.ActionLink(@user.UserName, "Details", "Users", new { area = "", id = user.Id }, null)
             <br />
+            @Html.ActionLink("Remove Admin", "RemoveAdmin", new { id = user.Id }, new { @class = "btn btn-danger" })
+
             @Html.ActionLink("Make Admin", "AddAdmin", new { id = user.Id }, new { @class = "btn btn-success" })
+
             @Html.ActionLink("Delete", "DeleteUser", new { id = user.Id }, new { @class = "btn btn-danger" })
         </div>
     }
