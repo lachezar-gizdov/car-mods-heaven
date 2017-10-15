@@ -7,8 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body background="https://img1.goodfon.com/original/1920x1200/e/69/road-clouds-sky.jpg">
-@*<body>*@
+<body>
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -23,7 +22,7 @@
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Projects", "Index", "Projects", new { area = "" }, null)</li>
                         <li>@Html.ActionLink("Users", "Index", "Users", new { area = "" }, null)</li>
-                        <li>@Html.ActionLink("About", "Index", "About", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("Contact", "Index", "Contact", new { area = "" }, null)</li>
                         <li>@Html.ActionLink("Discussions", "Index", "Discussions", new { area = "" }, null)</li>
                         @if (User.IsInRole("Admin"))
                         {

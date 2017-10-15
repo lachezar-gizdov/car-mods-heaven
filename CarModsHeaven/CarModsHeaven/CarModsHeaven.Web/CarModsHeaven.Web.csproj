@@ -234,9 +234,9 @@
     <Compile Include="Areas\Admin\Controllers\ManageProjectsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageUsersController.cs" />
     <Compile Include="Areas\Admin\Controllers\PanelController.cs" />
-    <Compile Include="Areas\Admin\Models\AllInfoViewModel.cs" />
+    <Compile Include="Areas\Admin\Controllers\ViewEmailsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\DiscussionsController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -288,6 +288,7 @@
     <Content Include="Areas\Admin\Views\Panel\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ManageUsers\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ManageProjects\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ViewEmails\Index.cshtml" />
     <None Include="Properties\PublishProfiles\carmodsheaven - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\carmodsheaven - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
@@ -323,7 +324,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -347,9 +348,11 @@
     <Content Include="Views\Discussions\Index.cshtml" />
     <Content Include="Views\Projects\Error.cshtml" />
     <Content Include="Views\Users\Error.cshtml" />
+    <Content Include="Views\Shared\_ContactPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Models\Home\" />
   </ItemGroup>
   <ItemGroup>

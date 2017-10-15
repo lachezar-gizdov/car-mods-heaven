@@ -19,7 +19,7 @@ namespace CarModsHeaven.Web.Areas.Admin.Controllers
         public ManageUsersController(IUsersService usersService, IAuthProvider authProvider)
         {
             Guard.WhenArgument(usersService, this.usersServiceCheck).IsNull().Throw();
-            Guard.WhenArgument(authProvider, this.authProviderCheck).IsNull().Throw();
+            Guard.WhenArgument(usersService, this.authProviderCheck).IsNull().Throw();
             this.usersService = usersService;
             this.authProvider = authProvider;
         }
@@ -39,6 +39,13 @@ namespace CarModsHeaven.Web.Areas.Admin.Controllers
         public ActionResult AddAdmin(string id)
         {
             this.authProvider.AddToRole(id, "Admin");
+
+            return this.RedirectToAction("Index");
+        }
+
+        public ActionResult RemoveAdmin(string id)
+        {
+            this.authProvider.RemoveFromRole(id, "Admin");
 
             return this.RedirectToAction("Index");
         }

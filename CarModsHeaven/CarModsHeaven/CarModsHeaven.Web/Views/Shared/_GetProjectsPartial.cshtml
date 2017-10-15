@@ -4,21 +4,21 @@
 @model X.PagedList.IPagedList<ProjectDetailsViewModel>
 
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<div>
+    @foreach (var project in Model)
+    {
+        <div class="col-md-4">
+            <h3>@Html.ActionLink(@project.Title, "Details", new { id = project.Id })</h3>
+            <h4>@project.CarBrand @project.CarModel @project.CarYear</h4>
+            <ul>
+                <li>@project.ModificationsType</li>
+                <li>Posted On: @Html.DisplayFor(x => project.CreatedOn)</li>
+            </ul>
+        </div>
+    }
+</div>
 
-@foreach (var project in Model)
-{
-    <div class="col-md-4">
-        <h3>@Html.ActionLink(@project.Title, "Details", new { id = project.Id.ToString() })</h3>
-        <h4>@project.CarBrand @project.CarModel @project.CarYear</h4>
-        <ul>
-            <li>@project.ModificationsType</li>
-            <li>Posted On: @Html.DisplayFor(x => project.CreatedOn)</li>
-        </ul>
-    </div>
-}
-
-<br />
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-
-@Html.PagedListPager(Model, page => Url.Action("Index",
-    new { page }))
+<div>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>

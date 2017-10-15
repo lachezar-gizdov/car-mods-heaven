@@ -1,0 +1,22 @@
+﻿@using CarModsHeaven.Web.Models.Contact
+@model ICollection<ContactViewModel>
+@{
+    ViewBag.Title = "Emails receaved - Car Mods Heaven";
+}
+
+<div class="row jumbotron">
+    @foreach (var email in Model)
+    {
+        <div class="col-md-4">
+            <ul>
+                <li>Sender's Name: @email.SenderName</li>
+                <li>Sender's Email: @email.SenderEmail</li>
+                <li>Email Subject: @email.Subject</li>
+                <li>Email Content: @email.Content</li>
+            </ul>
+        </div>
+    }
+</div>
+<div>
+    @Html.ActionLink("Back to Admin Panel", "Index", "Panel", null, new { @class = "btn btn-default" })
+</div>

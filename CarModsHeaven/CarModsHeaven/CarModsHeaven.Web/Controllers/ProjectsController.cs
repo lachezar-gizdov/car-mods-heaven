@@ -41,7 +41,7 @@ namespace CarModsHeaven.Web.Controllers
                 .ProjectTo<ProjectDetailsViewModel>()
                 .ToList();
 
-            int pageSize = 6;
+            int pageSize = 12;
             int pageNumber = page ?? 1;
 
             return this.View(projects.ToPagedList(pageNumber, pageSize));

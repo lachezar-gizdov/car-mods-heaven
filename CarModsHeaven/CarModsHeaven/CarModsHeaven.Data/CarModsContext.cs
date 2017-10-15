@@ -17,6 +17,8 @@ namespace CarModsHeaven.Data
 
         public IDbSet<Project> Projects { get; set; }
 
+        public IDbSet<ContactEmail> MailsReceaved { get; set; }
+
         public static CarModsContext Create()
         {
             return new CarModsContext();

@@ -1,4 +1,4 @@
-﻿namespace CarModsHeaven.Web.Models.Account
+﻿namespace CarModsHeaven.Web.Models.Contact
 {
     public class ExternalLoginListViewModel
     {

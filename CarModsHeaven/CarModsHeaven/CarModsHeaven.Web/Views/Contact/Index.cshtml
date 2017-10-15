@@ -1,0 +1,11 @@
+﻿@using CarModsHeaven.Web.Models.Contact
+@model ContactViewModel
+@{
+    ViewBag.Title = "Contact - Car Mods Heaven";
+}
+<div class="row">
+    <div class="jumbotron">
+        <h3>Contact form</h3>
+        @Html.Partial("_ContactPartial", Model)
+    </div>
+</div>

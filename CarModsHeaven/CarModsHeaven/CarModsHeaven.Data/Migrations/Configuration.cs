@@ -50,7 +50,7 @@ namespace CarModsHeaven.Data.Migrations
                 var user = new User
                 {
                     FullName = AdministratorName,
-                    UserName = AdministratorName,
+                    UserName = AdministratorEmail,
                     Email = AdministratorEmail,
                     EmailConfirmed = true,
                     CreatedOn = dateTimeProvider.GetCurrentTime()
@@ -77,7 +77,8 @@ namespace CarModsHeaven.Data.Migrations
                         ModificationsList = "mods",
                         CreatedOn = dateTimeProvider.GetCurrentTime(),
                         Owner = context.Users.First(x => x.Email == AdministratorEmail),
-                        MadeBy = "YourSelf"
+                        MadeBy = "YourSelf",
+                        Score = 0
                     };
 
                     context.Projects.Add(project);
