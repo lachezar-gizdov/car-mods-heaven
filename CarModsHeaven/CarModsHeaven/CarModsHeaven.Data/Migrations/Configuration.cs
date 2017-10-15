@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using CarModsHeaven.Providers.Contracts;
 using Bytes2you.Validation;
+using System.Collections.Generic;
 
 namespace CarModsHeaven.Data.Migrations
 {
@@ -74,8 +75,9 @@ namespace CarModsHeaven.Data.Migrations
                         CarYear = 1999,
                         ModificationsType = Models.Enums.ModificationsType.AllAround,
                         ModificationsList = "mods",
-                        CreatedOn = DateTime.Now,
-                        Owner = context.Users.First(x => x.Email == AdministratorEmail)
+                        CreatedOn = dateTimeProvider.GetCurrentTime(),
+                        Owner = context.Users.First(x => x.Email == AdministratorEmail),
+                        MadeBy = "YourSelf"
                     };
 
                     context.Projects.Add(project);
