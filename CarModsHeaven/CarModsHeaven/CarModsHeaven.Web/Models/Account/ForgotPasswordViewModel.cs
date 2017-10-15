@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CarModsHeaven.Web.Models.Account
+namespace CarModsHeaven.Web.Models.Contact
 {
     public class ForgotPasswordViewModel
     {

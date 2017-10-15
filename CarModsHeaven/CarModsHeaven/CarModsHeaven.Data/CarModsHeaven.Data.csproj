@@ -77,6 +77,14 @@
     <Compile Include="Migrations\201710112330342_AddMadeByPropToProject.Designer.cs">
       <DependentUpon>201710112330342_AddMadeByPropToProject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710152107175_AddContactEmailModel.cs" />
+    <Compile Include="Migrations\201710152107175_AddContactEmailModel.Designer.cs">
+      <DependentUpon>201710152107175_AddContactEmailModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710152258009_UpdateContactEmailModel.cs" />
+    <Compile Include="Migrations\201710152258009_UpdateContactEmailModel.Designer.cs">
+      <DependentUpon>201710152258009_UpdateContactEmailModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="UnitOfWork.cs" />
@@ -114,6 +122,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710112330342_AddMadeByPropToProject.resx">
       <DependentUpon>201710112330342_AddMadeByPropToProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710152107175_AddContactEmailModel.resx">
+      <DependentUpon>201710152107175_AddContactEmailModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710152258009_UpdateContactEmailModel.resx">
+      <DependentUpon>201710152258009_UpdateContactEmailModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

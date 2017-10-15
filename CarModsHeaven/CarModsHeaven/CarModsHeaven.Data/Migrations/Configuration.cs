@@ -31,7 +31,7 @@ namespace CarModsHeaven.Data.Migrations
         protected override void Seed(CarModsContext context)
         {
             this.SeedUsers(context);
-            //this.SeedProjects(context);
+            this.SeedProjects(context);
         }
 
         private void SeedUsers(CarModsContext context)
@@ -77,7 +77,8 @@ namespace CarModsHeaven.Data.Migrations
                         ModificationsList = "mods",
                         CreatedOn = dateTimeProvider.GetCurrentTime(),
                         Owner = context.Users.First(x => x.Email == AdministratorEmail),
-                        MadeBy = "YourSelf"
+                        MadeBy = "YourSelf",
+                        Score = 0
                     };
 
                     context.Projects.Add(project);
