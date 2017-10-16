@@ -92,9 +92,9 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
         }
 
         // Needs fixing
-        // [TestMethod]
-        // public void CallProjectsServiceMethodAddWhenModelIsValid()
-        // {
+        //[TestMethod]
+        //public void CallProjectsServiceMethodAddWhenModelIsValid()
+        //{
         //    // Arrange
         //    var projectsServiceMock = Mock.Create<IProjectsService>();
         //    var usersServiceMock = Mock.Create<IUsersService>();
@@ -102,7 +102,8 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
 
         //    var controller = new ProjectsController(projectsServiceMock, usersServiceMock, authMock);
         //    var userId = Guid.NewGuid().ToString();
-        //    var project = new Project();
+        //    var projectId = Guid.NewGuid();
+        //    var project = new Project() { Id = projectId };
         //    var model = new ProjectAddViewModel();
         //    Mock.Arrange(() => authMock.CurrentUserId).Returns(userId);
         //    Mock.Arrange(() => projectsServiceMock.Add(project, userId));
@@ -112,6 +113,6 @@ namespace CarModsHeaven.Web.Tests.Controllers.Projects
 
         //    // Assert
         //    Mock.Assert(() => projectsServiceMock.Add(project, userId), Occurs.Once());
-        // }
+        //}
     }
 }

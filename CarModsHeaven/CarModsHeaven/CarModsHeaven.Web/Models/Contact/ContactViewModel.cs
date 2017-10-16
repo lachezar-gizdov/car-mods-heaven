@@ -2,11 +2,13 @@
 using CarModsHeaven.Web.Infrastructure;
 using System.ComponentModel.DataAnnotations;
 using AutoMapper;
+using System;
 
 namespace CarModsHeaven.Web.Models.Contact
 {
     public class ContactViewModel : IMapFrom<ContactEmail>, IHaveCustomMappings
     {
+        public Guid Id { get; set; }
         [Required]
         [Display(Name = "Full Name")]
         [StringLength(20, MinimumLength = 5)]

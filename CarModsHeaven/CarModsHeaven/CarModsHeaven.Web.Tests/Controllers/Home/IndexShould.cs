@@ -8,10 +8,10 @@ using System;
 namespace CarModsHeaven.Web.Tests.Controllers.Home
 {
     [TestClass]
-    public class HomeControllerShould
+    public class IndexShould
     {
         [TestMethod]
-        public void IndexShouldReturnView()
+        public void ReturnView()
         {
             // Arrange
             HomeController controller = new HomeController();

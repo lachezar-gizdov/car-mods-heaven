@@ -83,9 +83,10 @@
     <Compile Include="Controllers\About\IndexShould.cs" />
     <Compile Include="Controllers\Account\LoginShould.cs" />
     <Compile Include="Controllers\Contact\ConstructorShould.cs" />
+    <Compile Include="Controllers\Contact\IndexShould.cs" />
     <Compile Include="Controllers\Discussions\IndexShould.cs" />
     <Compile Include="Controllers\Error\IndexShould.cs" />
-    <Compile Include="Controllers\Home\Tests.cs" />
+    <Compile Include="Controllers\Home\IndexShould.cs" />
     <Compile Include="Controllers\Projects\ConstructorShould.cs" />
     <Compile Include="Controllers\Projects\AddProjectShould.cs" />
     <Compile Include="Controllers\Projects\DeleteShould.cs" />
