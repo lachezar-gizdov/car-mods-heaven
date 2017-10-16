@@ -4,7 +4,7 @@ using CarModsHeaven.Services.Contracts;
 using CarModsHeaven.Data.Models;
 using CarModsHeaven.Web.Models.Contact;
 
-namespace ContactUS.Controllers
+namespace CarModsHeaven.Web.Controllers
 {
     public class ContactController : Controller
     {
