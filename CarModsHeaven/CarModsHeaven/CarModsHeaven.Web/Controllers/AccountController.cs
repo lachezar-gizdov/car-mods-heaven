@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using Bytes2you.Validation;
 using CarModsHeaven.Auth.Managers;
 using CarModsHeaven.Data.Models;
-using CarModsHeaven.Web.Models.Contact;
+using CarModsHeaven.Web.Models.Account;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;

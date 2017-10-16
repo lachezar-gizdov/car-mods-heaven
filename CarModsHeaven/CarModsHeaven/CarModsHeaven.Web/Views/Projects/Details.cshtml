@@ -16,18 +16,11 @@
         (@Html.DisplayFor(project => project.CarYear))
         </h3>
         <ul>
-            <li>Modifications List: @Html.DisplayFor(project => project.ModificationsList)</li>
             <li>Posted On: @Html.DisplayFor(project => project.CreatedOn)</li>
             <li>Modifications Type: @Html.DisplayFor(project => project.ModificationsType)</li>
+            <li>Modifications List: @Html.DisplayFor(project => project.ModificationsList)</li>
             <li>Owner: @Html.DisplayFor(project => project.Owner.UserName)</li>
-            <li>Score: @Html.DisplayFor(project => project.Score)</li>
         </ul>
-
-
-        @using (Html.BeginForm())
-        {
-            <input type="text" name="score" class="form-control" />
-        }
 
         @if (User.Identity.GetUserId() == Model.Owner.Id)
         {
