@@ -53,6 +53,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContactServiceTests\AddShould.cs" />
+    <Compile Include="ContactServiceTests\GetAllShould.cs" />
     <Compile Include="ProjectsServiceTests\AddShould.cs" />
     <Compile Include="ProjectsServiceTests\ConstructorShould.cs" />
     <Compile Include="ProjectsServiceTests\DeleteShould.cs" />

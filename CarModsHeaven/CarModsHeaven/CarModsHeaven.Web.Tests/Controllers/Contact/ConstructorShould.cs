@@ -10,23 +10,10 @@ namespace CarModsHeaven.Web.Tests.Controllers.Contact
     public class ConstructorShould
     {
         [TestMethod]
-        public void ThrowWhenProjectsServiceIsNull()
+        public void ThrowWhenContactServiceIsNull()
         {
-            // Arrange
-            var ContactServiceMock = Mock.Create<IContactService>();
-
             // Act & Assert
-            Assert.ThrowsException<ArgumentNullException>(() => new ContactController(ContactServiceMock));
-        }
-
-        [TestMethod]
-        public void ThrowWhenUsersServiceIsNull()
-        {
-            // Arrange
-            var ContactServiceMock = Mock.Create<IContactService>();
-
-            // Act & Assert
-            Assert.ThrowsException<ArgumentNullException>(() => new ContactController(ContactServiceMock));
+            Assert.ThrowsException<ArgumentNullException>(() => new ContactController(null));
         }
 
         [TestMethod]
