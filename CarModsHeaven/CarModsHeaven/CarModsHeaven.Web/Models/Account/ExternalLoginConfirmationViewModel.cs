@@ -7,5 +7,9 @@ namespace CarModsHeaven.Web.Models.Account
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Full Name")]
+        public string FullName { get; set; }
     }
 }
