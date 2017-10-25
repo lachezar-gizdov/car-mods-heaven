@@ -1,9 +1,9 @@
-﻿using AutoMapper.QueryableExtensions;
+﻿using System.Linq;
+using System.Web.Mvc;
+using AutoMapper.QueryableExtensions;
 using Bytes2you.Validation;
 using CarModsHeaven.Services.Contracts;
 using CarModsHeaven.Web.Models.Contact;
-using System.Linq;
-using System.Web.Mvc;
 
 namespace CarModsHeaven.Web.Areas.Admin.Controllers
 {
@@ -18,6 +18,7 @@ namespace CarModsHeaven.Web.Areas.Admin.Controllers
             Guard.WhenArgument(contactService, this.contactServiceCheck).IsNull().Throw();
             this.contactService = contactService;
         }
+
         public ActionResult Index()
         {
             var emails = this.contactService

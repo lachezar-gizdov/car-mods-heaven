@@ -1,8 +1,8 @@
-﻿using CarModsHeaven.Data.Models;
-using CarModsHeaven.Web.Infrastructure;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using AutoMapper;
-using System;
+using CarModsHeaven.Data.Models;
+using CarModsHeaven.Web.Infrastructure;
 
 namespace CarModsHeaven.Web.Models.Contact
 {
