@@ -19,6 +19,7 @@ namespace CarModsHeaven.Web.App_Start
     using Ninject;
     using Ninject.Extensions.Conventions;
     using Ninject.Web.Common;
+    using CarModsHeaven.Data.Migrations;
 
     public static class NinjectWebCommon 
     {
