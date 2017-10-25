@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using CarModsHeaven.Providers.Contracts;
 using Bytes2you.Validation;
+using System.Collections.Generic;
 
 namespace CarModsHeaven.Data.Migrations
 {
@@ -14,9 +15,15 @@ namespace CarModsHeaven.Data.Migrations
         private const string AdministratorEmail = "info@carmodsheaven.com";
         private const string AdministratorName = "Admin";
         private const string AdministratorPassword = "123456";
+        private readonly string dateTimeProviderCheck = "Date Time Provider is null";
+        private readonly IDateTimeProvider dateTimeProvider;
 
-        public Configuration()
+        public Configuration() { }
+
+        public Configuration(IDateTimeProvider dateTimeProvider)
         {
+            Guard.WhenArgument(dateTimeProvider, this.dateTimeProviderCheck).IsNull().Throw();
+            this.dateTimeProvider = dateTimeProvider;
             this.AutomaticMigrationsEnabled = false;
             this.AutomaticMigrationDataLossAllowed = false;
         }
@@ -46,7 +53,7 @@ namespace CarModsHeaven.Data.Migrations
                     UserName = AdministratorEmail,
                     Email = AdministratorEmail,
                     EmailConfirmed = true,
-                    CreatedOn = DateTime.Now
+                    CreatedOn = dateTimeProvider.GetCurrentTime()
                 };
 
                 userManager.Create(user, AdministratorPassword);
@@ -68,7 +75,7 @@ namespace CarModsHeaven.Data.Migrations
                         CarYear = 1999,
                         ModificationsType = Models.Enums.ModificationsType.AllAround,
                         ModificationsList = "mods",
-                        CreatedOn = DateTime.Now,
+                        CreatedOn = dateTimeProvider.GetCurrentTime(),
                         Owner = context.Users.First(x => x.Email == AdministratorEmail),
                         MadeBy = "YourSelf",
                         Score = 0
