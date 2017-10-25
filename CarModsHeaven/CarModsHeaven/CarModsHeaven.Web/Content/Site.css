@@ -38,3 +38,8 @@ textarea {
 .jumbotron{
     opacity: 0.8;
 }
+
+#messages {
+    margin-top: 10px;
+    width: 100%;
+}
