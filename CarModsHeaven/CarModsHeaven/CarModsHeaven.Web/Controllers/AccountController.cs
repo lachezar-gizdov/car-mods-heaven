@@ -5,10 +5,10 @@ using System.Web.Mvc;
 using Bytes2you.Validation;
 using CarModsHeaven.Auth.Managers;
 using CarModsHeaven.Data.Models;
-using CarModsHeaven.Web.Models.Contact;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using CarModsHeaven.Web.Models.Account;
 
 namespace CarModsHeaven.Web.Controllers
 {

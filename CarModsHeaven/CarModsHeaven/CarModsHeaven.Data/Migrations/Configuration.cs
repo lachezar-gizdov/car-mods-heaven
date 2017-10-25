@@ -30,8 +30,8 @@ namespace CarModsHeaven.Data.Migrations
 
         protected override void Seed(CarModsContext context)
         {
-            this.SeedUsers(context);
-            this.SeedProjects(context);
+            //this.SeedUsers(context);
+            //this.SeedProjects(context);
         }
 
         private void SeedUsers(CarModsContext context)

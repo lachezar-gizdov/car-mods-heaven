@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CarModsHeaven.Web.Models.Contact
+namespace CarModsHeaven.Web.Models.Account
 {
     public class RegisterViewModel
     {
